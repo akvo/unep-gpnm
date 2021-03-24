@@ -83,6 +83,9 @@ const CONTROLS = {
       <DatePicker.RangePicker {...{ ...input, ...props }} format="DD/MM/YYYY" />
     );
   },
+  date: ({ input, ...props }) => {
+    return <DatePicker {...{ ...input, ...props }} format="DD/MM/YYYY" />;
+  },
   switch: ({ input, ...props }) => {
     return (
       <>

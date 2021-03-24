@@ -11,6 +11,7 @@ import { Input, Button, Menu, Dropdown } from "antd";
 import Landing from "./modules/landing/view";
 import Browse from "./modules/browse/view";
 import AddEvent from "./modules/events/view";
+import AddResource from "./modules/resources/view";
 import logo from "./images/GPML-temporary-logo-horiz.jpg";
 import SignupModal from "./modules/signup/signup-modal";
 import ModalWarningUser from "./utils/modal-warning-user";
@@ -257,6 +258,16 @@ const Root = () => {
           )}
         />
         <Route
+          path="/add-resource"
+          render={(props) => (
+            <AddResource
+              {...props}
+              updateDisclaimer={updateDisclaimer}
+              countries={countries}
+            />
+          )}
+        />
+        <Route
           path="/profile"
           render={(props) => (
             <ProfileView
@@ -334,6 +345,9 @@ const AddButton = withRouter(
               <Menu className="add-dropdown">
                 <Menu.Item onClick={() => history.push("/add-event")}>
                   Event
+                </Menu.Item>
+                <Menu.Item onClick={() => history.push("/add-resource")}>
+                  Resource
                 </Menu.Item>
               </Menu>
             }
