@@ -3,6 +3,10 @@
 
 set -exuo pipefail
 
+function log {
+   echo "$(date +"%T") - INFO - $*"
+}
+
 [[ -n "${CI_TAG:=}" ]] && { echo "Skip build"; exit 0; }
 
 CI_COMMIT="${SEMAPHORE_GIT_SHA:=local}"
@@ -59,7 +63,31 @@ frontend_build () {
 	   --tag "${image_prefix}/frontend:${CI_COMMIT}" frontend
 }
 
-backend_build
-frontend_build
+backend_build > backend.build.txt 2>&1 &
+
+BE_BUILD_PID=$!
+
+frontend_build > client.build.txt 2>&1 &
+
+CLIENT_BUILD_PID=$!
+
+log Waiting for BE build
+
+if wait "$BE_BUILD_PID"; then
+  log "BE Build worked. Skipping logs for it"
+else
+  cat backend.build.txt
+  log "BE build failed"
+  exit 1
+fi
+
+log Waiting for FE build
+if wait "$CLIENT_BUILD_PID"; then
+  log "Client Build worked. Skipping logs for it"
+else
+  cat client.build.txt
+  log "Client build failed"
+  exit 1
+fi
 
 dci run -T ci ./basic.sh
