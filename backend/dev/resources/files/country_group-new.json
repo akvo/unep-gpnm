@@ -1,0 +1,282 @@
+[
+  {
+    "id":1,
+    "label":"African States",
+    "name":"African States",
+    "type":"region",
+    "category":"UN Regional Groups of Member States"
+  },
+  {
+    "id":2,
+    "label":"Asia-Pacific States",
+    "name":"Asia-Pacific States",
+    "type":"region",
+    "category":"UN Regional Groups of Member States"
+  },
+  {
+    "id":3,
+    "label":"Western European and other States",
+    "name":"Western European",
+    "type":"region",
+    "category":"UN Regional Groups of Member States"
+  },
+  {
+    "id":4,
+    "label":"Eastern European States",
+    "name":"Eastern European States",
+    "type":"region",
+    "category":"UN Regional Groups of Member States"
+  },
+  {
+    "id":5,
+    "label":"Latin American and Caribbean States",
+    "name":"Latin American and Caribbean",
+    "type":"region",
+    "category":"UN Regional Groups of Member States"
+  },
+  {
+    "id":6,
+    "label":"Antarctic (CCAMLR) (Convention on the Conservation of Antarctic Marine Living Resources)",
+    "name":"Antarctic",
+    "type":"region",
+    "category":"Regional Seas"
+  },
+  {
+    "id":7,
+    "label":"Arctic (PAME)",
+    "name":"Arctic",
+    "type":"region",
+    "category":"Regional Seas"
+  },
+  {
+    "id":8,
+    "label":"Baltic Sea (HELCOM) (Helsinki Convention)",
+    "name":"Baltic Sea",
+    "type":"region",
+    "category":"Regional Seas"
+  },
+  {
+    "id":9,
+    "label":"Black Sea  (Bucharest Convention)",
+    "name":"Black Sea",
+    "type":"region",
+    "category":"Regional Seas"
+  },
+  {
+    "id":10,
+    "label":"Caspian Sea (Tehran Convention)",
+    "name":"Caspian Sea",
+    "type":"region",
+    "category":"Regional Seas"
+  },
+  {
+    "id":11,
+    "label":"Western Indian Ocean (Nairobi Convention)",
+    "name":"Western Indian Ocean",
+    "type":"region",
+    "category":"Regional Seas"
+  },
+  {
+    "id":12,
+    "label":"East Asian Seas (COBSEA)",
+    "name":"East Asian Seas",
+    "type":"region",
+    "category":"Regional Seas"
+  },
+  {
+    "id":13,
+    "label":"Mediterranean (MAP) (Barcelona Convention)",
+    "name":"Mediterranean",
+    "type":"region",
+    "category":"Regional Seas"
+  },
+  {
+    "id":14,
+    "label":"North-East Atlantic (OSPAR) (OSPAR Convention)",
+    "name":"North-East Atlantic",
+    "type":"region",
+    "category":"Regional Seas"
+  },
+  {
+    "id":15,
+    "label":"North West Pacific (NOWPAP)",
+    "name":"North West Pacific",
+    "type":"region",
+    "category":"Regional Seas"
+  },
+  {
+    "id":16,
+    "label":"North-East Pacific (Antigua Convention)",
+    "name":"North East Pacific",
+    "type":"region",
+    "category":"Regional Seas"
+  },
+  {
+    "id":17,
+    "label":"Pacific (SPREP) (Noumea Convention)",
+    "name":"Pacific Region",
+    "type":"region",
+    "category":"Regional Seas"
+  },
+  {
+    "id":18,
+    "label":"Red Sea and Gulf of Aden (PERSGA) (Jeddah Convention)",
+    "name":"Red Sea and Gulf of Aden",
+    "type":"region",
+    "category":"Regional Seas"
+  },
+  {
+    "id":19,
+    "label":"ROPME Sea (Kuwait Convention)",
+    "name":"ROPME Sea",
+    "type":"region",
+    "category":"Regional Seas"
+  },
+  {
+    "id":20,
+    "label":"South Asian Seas (SACEP)",
+    "name":"South Asian Seas",
+    "type":"region",
+    "category":"Regional Seas"
+  },
+  {
+    "id":21,
+    "label":"South-East Pacific (CPPS) (Lima Convention)",
+    "name":"South-East Pacific",
+    "type":"region",
+    "category":"Regional Seas"
+  },
+  {
+    "id":22,
+    "label":"Western, Central, Southern Africa (Abidjan Convention)",
+    "name":"Western Central and Southern Africa",
+    "type":"region",
+    "category":"Regional Seas"
+  },
+  {
+    "id":23,
+    "label":"Wider Caribbean (CEP) (Cartagena Convention)",
+    "name":"Wider Caribbean",
+    "type":"region",
+    "category":"Regional Seas"
+  },
+  {
+    "id":24,
+    "label":"Basel Convention",
+    "name":"Basel Convention",
+    "type":"mea",
+    "category":"Global Multi-lateral Environmental Agreements (MEAs)"
+  },
+  {
+    "id":25,
+    "label":"Rotterdam Convention",
+    "name":"Rotterdam Convention",
+    "type":"mea",
+    "category":"Global Multi-lateral Environmental Agreements (MEAs)"
+  },
+  {
+    "id":26,
+    "label":"Stockholm Convention",
+    "name":"Stockholm Convention",
+    "type":"mea",
+    "category":"Global Multi-lateral Environmental Agreements (MEAs)"
+  },
+  {
+    "id":27,
+    "label":"United Nations Framework Convention on Climate Change (UNFCCC)",
+    "name":"Convention on Climate",
+    "type":"mea",
+    "category":"Global Multi-lateral Environmental Agreements (MEAs)"
+  },
+  {
+    "id":28,
+    "label":"United Nations Convention on the Law of the Sea (UNCLOS)",
+    "name":"Law of the Sea",
+    "type":"mea",
+    "category":"Global Multi-lateral Environmental Agreements (MEAs)"
+  },
+  {
+    "id":29,
+    "label":"Convention on Migratory Species",
+    "name":"CMS",
+    "type":"mea",
+    "category":"Global Multi-lateral Environmental Agreements (MEAs)"
+  },
+  {
+    "id":30,
+    "label":"Convention on Biological Diversity (CBD)",
+    "name":"Convention on Biological",
+    "type":"mea",
+    "category":"Global Multi-lateral Environmental Agreements (MEAs)"
+  },
+  {
+    "id":31,
+    "label":"Europe",
+    "name":"Europe",
+    "type":"mea",
+    "category":"Transnational Groups of Member States"
+  },
+  {
+    "id":32,
+    "label":"Least Developed Countries",
+    "name":"Least Developed Countries",
+    "type":"mea",
+    "category":"Transnational Groups of Member States"
+  },
+  {
+    "id":33,
+    "label":"G7",
+    "name":"G7",
+    "type":"mea",
+    "category":"Transnational Groups of Member States"
+  },
+  {
+    "id":34,
+    "label":"G20",
+    "name":"G20",
+    "type":"mea",
+    "category":"Transnational Groups of Member States"
+  },
+  {
+    "id":35,
+    "label":"European Union (EU)",
+    "name":"EU",
+    "type":"mea",
+    "category":"Transnational Groups of Member States"
+  },
+  {
+    "id":36,
+    "label":"Commonwealth",
+    "name":"Commonwealth",
+    "type":"mea",
+    "category":"Transnational Groups of Member States"
+  },
+  {
+    "id":37,
+    "label":"Association of Southeast Asian Nations (ASEAN)",
+    "name":"ASEAN",
+    "type":"mea",
+    "category":"Transnational Groups of Member States"
+  },
+  {
+    "id":38,
+    "label":"Small Island Developing states (SIDS)",
+    "name":"SIDS",
+    "type":"mea",
+    "category":"Transnational Groups of Member States"
+  },
+  {
+    "id":39,
+    "label":"Asia-Pacific Economic Cooperation (APEC)",
+    "name":"APEC",
+    "type":"mea",
+    "category":"Transnational Groups of Member States"
+  },
+  {
+    "id":40,
+    "label":"Group of 77 and China",
+    "name":"Group of 77 and China",
+    "type":"mea",
+    "category":"Transnational Groups of Member States"
+  }
+]
