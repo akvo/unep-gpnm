@@ -525,23 +525,9 @@
     "category":null
   },
   {
-    "id":1110,
-    "label":"ROPME Sea Area",
-    "name":"ROPME Sea Area",
-    "type":"mea",
-    "category":null
-  },
-  {
     "id":1109,
     "label":"Red Sea and Gulf of Aden (PERSGA)",
     "name":"Red Sea and Gulf of Aden (PERSGA)",
-    "type":"mea",
-    "category":null
-  },
-  {
-    "id":1108,
-    "label":"OSPAR",
-    "name":"OSPAR",
     "type":"mea",
     "category":null
   },
@@ -661,13 +647,6 @@
     "id":1021,
     "label":"Barcelona Dumping, 1976",
     "name":"Barcelona Dumping, 1976",
-    "type":"mea",
-    "category":null
-  },
-  {
-    "id":1017,
-    "label":"ASEAN Agreement on Transboundary Haze Pollution",
-    "name":"ASEAN Agreement on Transboundary Haze Pollution",
     "type":"mea",
     "category":null
   },
