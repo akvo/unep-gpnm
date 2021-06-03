@@ -135,19 +135,29 @@ const transformFormData = (data, formData, schema) => {
             }
             return d;
           });
-        } else {
+        } else if (
+          schema?.[key]?.enum &&
+          schema?.[key]?.enumNames &&
+          schema[key].enum.length > 0 &&
+          schema[key].enumNames.length > 0
+        ) {
+          const geoCoverageType =
+            formData?.["S3_G2_24"] && formData?.["S3_G2_24"].toLowerCase();
+          const value = {
+            [formData[key]]:
+              schema?.[key].enumNames?.[
+                schema[key].enum.indexOf(formData[key])
+              ],
+          };
+          data[`q${qKey}`] = value;
+          // handle geo coverage value
           if (
-            schema?.[key]?.enum &&
-            schema?.[key]?.enumNames &&
-            schema[key]?.enum.length > 0 &&
-            schema[key].enumNames.length > 0
+            qKey.includes("24_") &&
+            geoCoverageType &&
+            (geoCoverageType === "national" ||
+              geoCoverageType === "sub-national")
           ) {
-            data[`q${qKey}`] = {
-              [formData[key]]:
-                schema?.[key].enumNames?.[
-                  schema[key].enum.indexOf(formData[key])
-                ],
-            };
+            data[`q${qKey}`] = [value];
           }
         }
       }
