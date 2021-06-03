@@ -69,13 +69,13 @@
       "Closed Loop Partners",
       "Amazon",
       "3M",
-      "Coca-Cola",
+      "The Coca-Cola Company",
       "Colgate Palmolive",
       "Danone",
       "Johnson & Johnson",
       "Keurig Dr Pepper",
       "Pepsico",
-      "Nestle Waters",
+      "Nestlé Waters",
       "Procter & Gamble",
       "Unilever",
       "Walmart",
@@ -123,7 +123,7 @@
     "organisation": [
       "Closed Loop Partners",
       "American Beverage Association",
-      "Coca-Cola",
+      "The Coca-Cola Company",
       "Pepsico",
       "Keurig Dr Pepper",
       "The Recycling Partnership",
@@ -272,7 +272,7 @@
     "id": 8,
     "title": "APEC Sub-Fund for Marine Debris Management and Innovation (MDMI)",
     "organisation": [
-      "Asia Pacific Economic Cooperation (APEC)",
+      "Asia-Pacific Economic Cooperation (APEC)",
       "APEC Ocean and Fisheries Working Group (OFWG)"
     ],
     "type": "Financing Resource",
@@ -320,7 +320,8 @@
     "id": 9,
     "title": "Pacific Ocean Litter Project (POLP)",
     "organisation": [
-      "Australian Government Department of Foreign Affairs and Trade (DFAT), Australian Government Department of the Environment and Energy (DoEE)"
+      "Australian Government Department of Foreign Affairs and Trade (DFAT)",
+      "Australian Government Department of the Environment and Energy (DoEE)"
     ],
     "type": "Financing Resource",
     "year": 2019,
@@ -362,7 +363,9 @@
     "id": 10,
     "title": "Cutting River Plastic Waste",
     "organisation": [
-      "Benioff Ocean Initiative, The Coca-Cola Foundation, Clean Currents Coalition"
+      "Benioff Ocean Initiative",
+      "The Coca-Cola Foundation",
+      "Clean Currents Coalition"
     ],
     "type": "Financing Resource",
     "year": 2019,
@@ -484,14 +487,7 @@
     "id": 13,
     "title": "Circulate Capital Ocean Fund",
     "organisation": [
-      "Chevron Phillips Chemical",
-      "Circulate Capital",
-      "Coca-Cola",
-      "Danone",
-      "Dow Chemicals",
-      "Procter & Gamble",
-      "Pepsico",
-      "Unilever"
+      "Circulate Capital"
     ],
     "type": "Financing Resource",
     "year": 2020,
@@ -574,7 +570,7 @@
       "Cassa Depositi e Prestiti",
       "The European Investment Bank",
       "Instituto De Crédito Oficial",
-      "Kfw (Kreditanstalt Für Wiederaufbau)"
+      "Kreditanstalt Für Wiederaufbau (KFW)"
     ],
     "type": "Financing Resource",
     "year": 2019,
@@ -669,10 +665,10 @@
     "title": "Implementing Sustainable Low and Non-Chemical Development in SIDS (ISLANDS)",
     "organisation": [
       "Global Environment Facility (GEF)",
-      "UN Environment Programme (UNEP)",
+      "United Nations Environment Programme (UNEP)",
       "United Nations Development Program (UNDP)",
-      "the Food and Agriculture Organization of the United Nations (FAO)",
-      "Inter-American Development Bank (IADB)"
+      "Food and Agriculture Organization of the United Nations (FAO)",
+      "Inter-American Development Bank (IDB)"
     ],
     "type": "Financing Resource",
     "year": 2019,
@@ -944,7 +940,7 @@
     "title": "GloLitter Partnerships Project",
     "organisation": [
       "International Maritime Organization (IMO)",
-      "Food and Agriculture Organization (FAO)",
+      "Food and Agriculture Organization of the United Nations (FAO)",
       "Government of Norway"
     ],
     "type": "Financing Resource",
@@ -1030,7 +1026,7 @@
     "id": 21,
     "title": "Japans “MARINE Initiative” Toward Realization of the Osaka Blue Ocean Vision",
     "organisation": [
-      "Ministry of Foreign Affairs (MOFA), the Government of Japan"
+      "Ministry of Foreign Affairs of Japan (MOFA)"
     ],
     "type": "Financing Resource",
     "year": 2019,
@@ -1072,7 +1068,8 @@
     "id": 22,
     "title": "Promotion of Countermeasures Against Marine Plastic Litter in Southeast Asia and India",
     "organisation": [
-      "Ministry of Foreign Affairs (MOFA), the Government of Japan, United Nations Environment Programme (UNEP)"
+      "Ministry of Foreign Affairs of Japan (MOFA)",
+      "United Nations Environment Programme (UNEP)"
     ],
     "type": "Financing Resource",
     "year": 2019,
@@ -1123,7 +1120,7 @@
       "Agence Française de Developpement (AFD)",
       "European Investment Bank (EIB)",
       "German Federal Government",
-      "KfW Group"
+      "Kreditanstalt Für Wiederaufbau (KFW)"
     ],
     "type": "Financing Resource",
     "year": 2018,
@@ -1195,13 +1192,13 @@
       "Ocean Wise",
       "Pepsico",
       "The Procter & Gamble Company",
-      "Project AWARE",
+      "Project AWARE Foundation",
       "The Recycling Partnership",
       "Rozalia Project for a Clean Ocean",
       "Walmart Inc.",
-      "World Animal Protection US",
+      "World Animal Protection",
       "World Plastics Council",
-      "World Wildlife Fund US"
+      "World Wildlife Fund (WWF)"
     ],
     "type": "Financing Resource",
     "year": 2012,
@@ -1291,7 +1288,7 @@
       "Google Cloud",
       "Hubspot",
       "IBM",
-      "JDI",
+      "Japan Display Inc. (JDI)",
       "Klaxoon",
       "Stripe",
       "Trinet",
@@ -1330,10 +1327,10 @@
     "id": 27,
     "title": "Incubator Network to Accelerate Ocean Plastic Solutions",
     "organisation": [
-      "U.S. State Department",
+      "United States State Department",
       "Circulate Capital",
       "Second Muse",
-      "Australian Government's Department of Foreign Affairs and Trade"
+      "Australian Government Department of Foreign Affairs and Trade (DFAT)"
     ],
     "type": "Financing Resource",
     "year": 2018,
@@ -1376,8 +1373,8 @@
     "id": 28,
     "title": "Ocean Plastic Prevention Accelerator (OPPA)",
     "organisation": [
-      "Australian Government's Department of Foreign Affairs and Trade",
-      "U.S. State Department",
+      "Australian Government Department of Foreign Affairs and Trade (DFAT)",
+      "United States State Department",
       "Second Muse",
       "The Incubation Network"
     ],
@@ -1500,7 +1497,7 @@
     "id": 31,
     "title": "Tearfund's Matched Giving Appeal",
     "organisation": [
-      "UK Department for International Development (DFID)",
+      "United Kingdom Department for International Development (DFID)",
       "Tearfund"
     ],
     "type": "Financing Resource",
@@ -1538,13 +1535,13 @@
     "id": 32,
     "title": "The Sustainable Manufacturing and Environmental Pollution (SMEP) programme",
     "organisation": [
-      "UK Department for International Development (DFID)",
+      "United Kingdom Department for International Development (DFID)",
       "Foreign Commonwealth and Development Office (FCDO)",
       "United Nations Conference on Trade and Development (UNCTAD)",
       "Stockholm Environment Institute (SEI)",
       "South South North",
       "PEGASYS",
-      "ICCCAD"
+      "International Centre for Climate Change and Development (ICCCAD)"
     ],
     "type": "Financing Resource",
     "year": 2018,
@@ -1603,7 +1600,7 @@
     "id": 33,
     "title": "Waste Pilots",
     "organisation": [
-      "UK Department for International Development (DFID)",
+      "United Kingdom Department for International Development (DFID)",
       "Foreign Commonwealth and Development Office (FCDO)"
     ],
     "type": "Financing Resource",
@@ -1691,10 +1688,10 @@
     "title": "The Commonwealth Marine Plastics Research and Innovation Framework",
     "organisation": [
       "Department for Business, Energy & Industrial Strategy",
-      "Unilver",
+      "Unilever",
       "Waitrose",
       "British Plastics Federation",
-      "Ellen MacArthur Foundation",
+      "Ellen MacArthur Foundation (EMF)",
       "Waste and Resources Action Programme (WRiAP)",
       "RPC Group Plc",
       "Mott MacDonald"
@@ -1738,8 +1735,8 @@
     "id": 36,
     "title": "Commonwealth Marine Litter Programme (CLIP)",
     "organisation": [
-      "Centre for Environment Fisheries and Aquaculture Science (Cefas)",
-      "Department for Environment, Food & Rural Affairs (Defra)"
+      "Centre for Environment Fisheries and Aquaculture Science (CEFAS)",
+      "United Kingdom Department for Environment, Food and Rural Affairs (DEFRA)"
     ],
     "type": "Financing Resource",
     "year": 2018,
@@ -1777,12 +1774,12 @@
     "title": "Global Plastics Action Partnership (GPAP)",
     "organisation": [
       "Government of Canada",
-      "Department for Environment, Food & Rural Affairs (Defra)",
+      "United Kingdom Department for Environment, Food and Rural Affairs (DEFRA)",
       "Pepsico",
       "Coca-Cola",
       "Nestle",
-      "Dow",
-      "World Economic Forum (Wef)"
+      "Dow Chemical Company",
+      "World Economic Forum (WEF)"
     ],
     "type": "Financing Resource",
     "year": 2018,
@@ -1828,7 +1825,7 @@
     "id": 38,
     "title": "Loan-portfolio guarantee to mobilize outside private investment to combat plastic pollution in oceans throughout the Indo-Pacific region",
     "organisation": [
-      "United States Agency for International Developement  (USAID)",
+      "United States Agency for International Development (USAID)",
       "Circulate Capital"
     ],
     "type": "Financing Resource",
@@ -1911,7 +1908,7 @@
     "id": 40,
     "title": "Municipal Waste Recycling Program",
     "organisation": [
-      "United States Agency for International Developement  (USAID)"
+      "United States Agency for International Development (USAID)"
     ],
     "type": "Financing Resource",
     "year": 2020,
@@ -2130,7 +2127,7 @@
       "Government of Iceland",
       "Government of Norway",
       "Government of Sweden",
-      "Government of th United States"
+      "Government of the United States of America"
     ],
     "type": "Financing Resource",
     "year": 2018,
@@ -2631,7 +2628,7 @@
     ],
     "type": "Financing Resource",
     "year": 2012,
-    "summary": "The Global Partnership of Marine Litter (GPML) is a multi-stakeholder partnership that provides a unique mechanism to bring together all actors working to prevent marine litter and microplastics, with the aim of sharing knowledge and experience and advancing solutions to this pressing global issue. Its mission is to protect the global marine environment, human wellbeing and animal welfare by addressing the global problem of marine litter, in line with Target 14.1 of the Sustainable Development Goals: “by 2025, prevent and significantly reduce marine pollution of all kinds ”.",
+    "summary": "The Global Partnership on Marine Litter (GPML) is a multi-stakeholder partnership that provides a unique mechanism to bring together all actors working to prevent marine litter and microplastics, with the aim of sharing knowledge and experience and advancing solutions to this pressing global issue. Its mission is to protect the global marine environment, human wellbeing and animal welfare by addressing the global problem of marine litter, in line with Target 14.1 of the Sustainable Development Goals: “by 2025, prevent and significantly reduce marine pollution of all kinds ”.",
     "country": null,
     "url": [
       "http://marinelitternetwork.com/the-partnership/"
@@ -2663,7 +2660,7 @@
     "title": "Marine Plastics and Coastal Communities (MARPLASTICCs)",
     "organisation": [
       "Swedish International Development Cooperation Agency (SIDA)",
-      "International Union for the Conservation of Nature (IUCN )"
+      "International Union for Conservation of Nature (IUCN)"
     ],
     "type": "Financing Resource",
     "year": 2019,
@@ -2705,8 +2702,8 @@
     "title": "Close the Plastic Waste Free Islands",
     "organisation": [
       "Didier and Martine Primat Foundation",
-      "International Union for the Conservation of Nature (IUCN )",
-      "Norwegian Agency for Development Cooperation(NORAD)"
+      "International Union for Conservation of Nature (IUCN)",
+      "Norwegian Agency for Development Cooperation (NORAD)"
     ],
     "type": "Financing Resource",
     "year": 2019,
@@ -2748,9 +2745,9 @@
     "title": "Plastic Waste Free Islands – Mediterranean",
     "organisation": [
       "Didier and Martine Primat Foundation",
-      "International Union for the Conservation of Nature (IUCN )",
+      "International Union for Conservation of Nature (IUCN)",
       "Cyprus Sustainable Tourism Initiative(CSTI)",
-      "Observatory of Menorca(OBSAM)",
+      "Observatory of Menorca (OBSAM)",
       "Together Cyprus"
     ],
     "type": "Financing Resource",
@@ -2796,7 +2793,7 @@
     "organisation": [
       "Lottery Foundation",
       "Swedish Postcode Foundation",
-      "International Union for the Conservation of Nature (IUCN )"
+      "International Union for Conservation of Nature (IUCN)"
     ],
     "type": "Financing Resource",
     "year": 2019,
@@ -2992,7 +2989,8 @@
     "organisation": [
       "German Federal Ministry for Economic Cooperation and Development (BMZ)",
       "Ministry of Tourism and Environment (Albania)",
-      "Ministry of Foreign Trade and Economic Relations of Bosnia and Herzegovina (at Bosnia and Herzegovina state level) and Federal Ministry of Environment and Tourism (for the Federation of Bosnia and Herzegovina)",
+      "Ministry of Foreign Trade and Economic Relations of Bosnia and Herzegovina",
+      "Federal Ministry of Environment and Tourism of Bosnia and Herzegovina",
       "Ministry of Sustainable Development and Tourism (Montenegro)"
     ],
     "type": "Financing Resource",
@@ -3300,7 +3298,7 @@
     "id": 76,
     "title": "Circularity Indicators Methodology",
     "organisation": [
-      "Ellen MacArthur Foundation",
+      "Ellen MacArthur Foundation (EMF)",
       "Granta Design"
     ],
     "type": "Technical Resource",
@@ -3370,7 +3368,7 @@
     "id": 78,
     "title": "Further actions to address plastic waste under the Basel Convention",
     "organisation": [
-      "Norwegian Agency for Development Cooperation(NORAD)"
+      "Norwegian Agency for Development Cooperation (NORAD)"
     ],
     "type": "Financing Resource",
     "year": 2020,
@@ -3751,7 +3749,7 @@
     "id": 88,
     "title": "Full Circle - Accelerating the Circular Economy for Post-Consumer PET Bottles in Southeast Asia",
     "organisation": [
-      "GA Circular/Companies"
+      "GA Circular"
     ],
     "type": "Technical Resource",
     "year": 2019,
@@ -3890,7 +3888,7 @@
     "id": 91,
     "title": "Marine Litter Prevention",
     "organisation": [
-      "GIZ - Gesellschaft für international Zusammenarbeit (German Development Agency)"
+      "Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ), German Development Agency"
     ],
     "type": "Technical Resource",
     "year": 2018,
@@ -3932,7 +3930,7 @@
     "id": 92,
     "title": "Macrolitter Characteristics and Abundance/Volume - HELCOM",
     "organisation": [
-      "HELCOM - Baltic Marine Environment Protection Commission"
+      "Baltic Sea (HELCOM) (Helsinki Convention)"
     ],
     "type": "Technical Resource",
     "year": 2019,
@@ -4018,7 +4016,7 @@
     "id": 94,
     "title": "Survey of Polystyrene Foam (EPS and XPS) in the Baltic Sea",
     "organisation": [
-      "HELCOM - Baltic Marine Environment Protection Commission"
+      "Baltic Sea (HELCOM) (Helsinki Convention)"
     ],
     "type": "Technical Resource",
     "year": 2019,
@@ -4543,7 +4541,7 @@
     "id": 107,
     "title": "Exploring the potential for adopting alternative materials to reduce marine plastic litter",
     "organisation": [
-      "The Global Partnership of Marine Litter (GPML)"
+      "The Global Partnership on Marine Litter (GPML)"
     ],
     "type": "Technical Resource",
     "year": 2018,
@@ -4581,7 +4579,7 @@
     "title": "Sources, fate and effects of microplastics in the marine environment: a global assessment",
     "organisation": [
       "Group of Experts on the Scientific Aspects of Marine Environmental Protection (GESAMP)",
-      "The Global Partnership of Marine Litter (GPML)"
+      "The Global Partnership on Marine Litter (GPML)"
     ],
     "type": "Technical Resource",
     "year": 2014,
@@ -4617,8 +4615,8 @@
     "id": 109,
     "title": "Marine Litter Vital Graphics",
     "organisation": [
-      "GRID Arendal",
-      "The Global Partnership of Marine Litter (GPML)",
+      "GRID-Arendal",
+      "The Global Partnership on Marine Litter (GPML)",
       "United Nations Environment Programme (UNEP)"
     ],
     "type": "Technical Resource",
@@ -4658,7 +4656,7 @@
     "title": "Marine litter: abandoned, lost or otherwise discarded fishing gear",
     "organisation": [
       "European Topic Centre",
-      "The Global Partnership of Marine Litter (GPML)",
+      "The Global Partnership on Marine Litter (GPML)",
       "United Nations Environment Programme (UNEP)"
     ],
     "type": "Technical Resource",
@@ -4701,7 +4699,7 @@
     "id": 111,
     "title": "Single Use Plastics - A Roadmap for Sustainability",
     "organisation": [
-      "The Global Partnership of Marine Litter (GPML)",
+      "The Global Partnership on Marine Litter (GPML)",
       "United Nations Environment Programme (UNEP)"
     ],
     "type": "Technical Resource",
@@ -4738,7 +4736,7 @@
     "id": 112,
     "title": "Review of plastic footprint methodologies: Laying the foundation for the development of astandardised plastic footprint measurement tool",
     "organisation": [
-      "International Union for the Conservation of Nature (IUCN)"
+      "International Union for Conservation of Nature (IUCN)"
     ],
     "type": "Technical Resource",
     "year": 2019,
@@ -4773,7 +4771,7 @@
     "id": 114,
     "title": "IUCN Project Management Systems",
     "organisation": [
-      "International Union for the Conservation of Nature (IUCN)"
+      "International Union for Conservation of Nature (IUCN)"
     ],
     "type": "Technical Resource",
     "year": 2013,
@@ -5000,9 +4998,9 @@
     "id": 119,
     "title": "Addressing Marine Plastics - A Systemic Approach",
     "organisation": [
-      "Ellen McArthur foundation (EMF)",
-      "GRID Arendal",
-      "Global Environment Facility(GEF)",
+      "Ellen MacArthur Foundation (EMF)",
+      "GRID-Arendal",
+      "Global Environment Facility (GEF)",
       "Ocean Conservancy",
       "United Nations Environment Programme (UNEP)"
     ],
@@ -5144,7 +5142,7 @@
     "id": 122,
     "title": "HELCOM Regional action plan on marine litter",
     "organisation": [
-      "HELCOM - Baltic Marine Environment Protection Commission"
+      "Baltic Sea (HELCOM) (Helsinki Convention)"
     ],
     "type": "Action Plan",
     "year": 2015,
@@ -5246,7 +5244,7 @@
     "id": 124,
     "title": "Combating marine plastic litter and microplastics: An assessment of the effectiveness of relevant international, regional and subregional governance strategies and approaches",
     "organisation": [
-      "UNEA 3"
+      "Third session of the United Nations Environment Assembly (UNEA 3)"
     ],
     "type": "Technical Resource",
     "year": 2017,
@@ -5292,7 +5290,7 @@
     "id": 125,
     "title": "National Guidance for Marine Plastic Hotspotting and Shaping Actions",
     "organisation": [
-      "International Union for the Conservation of Nature (IUCN)",
+      "International Union for Conservation of Nature (IUCN)",
       "Lifecycle Initiative",
       "United Nations Environment Programme (UNEP)"
     ],
@@ -5403,7 +5401,7 @@
     "id": 128,
     "title": "Marine Debris Website",
     "organisation": [
-      "Asia Pacific Economic Cooperation (APEC)"
+      "Asia-Pacific Economic Cooperation (APEC)"
     ],
     "type": "Technical Resource",
     "year": null,
@@ -5446,7 +5444,7 @@
     "id": 129,
     "title": "Publication Database Search",
     "organisation": [
-      "Asia Pacific Economic Cooperation (APEC)"
+      "Asia-Pacific Economic Cooperation (APEC)"
     ],
     "type": "Technical Resource",
     "year": null,
@@ -5826,7 +5824,7 @@
     "summary": "Open Litter Map provides free and open data on littering, provided through citizen science.",
     "country": null,
     "url": [
-      "https://openlittermap.com/"
+      "https://Open Litter Map.com/"
     ],
     "value_amount": null,
     "value_currency": null,
@@ -5846,7 +5844,7 @@
     "resource_language_url": [
       {
         "language": "English",
-        "url": "https://openlittermap.com/"
+        "url": "https://Open Litter Map.com/"
       }
     ],
     "geo_coverage": null,
@@ -5909,7 +5907,7 @@
     "id": 137,
     "title": "Marine Litter Prevention",
     "organisation": [
-      "GIZ - Gesellschaft für international Zusammenarbeit (German Development Agency)"
+      "Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ), German Development Agency"
     ],
     "type": "Technical Resource",
     "year": 2018,
@@ -5998,8 +5996,8 @@
     "id": 139,
     "title": "Marine Plastic Footprint",
     "organisation": [
-      "EA",
-      "International Union for the Conservation of Nature (IUCN)"
+      "Environmental Action (EA)",
+      "International Union for Conservation of Nature (IUCN)"
     ],
     "type": "Technical Resource",
     "year": 2019,
@@ -6079,7 +6077,7 @@
     "id": 141,
     "title": "Plastic Leak Project",
     "organisation": [
-      "EA",
+      "Environmental Action (EA)",
       "Quantis"
     ],
     "type": "Technical Resource",
@@ -6119,7 +6117,7 @@
     "id": 142,
     "title": "Lixo nos Mares: do entendimento à solução/Marine debris: from understanding to the solution",
     "organisation": [
-      "Oceanographic Institute of University of Sao Paulo"
+      "Oceanographic Institute of the University of São Paulo"
     ],
     "type": "Technical Resource",
     "year": null,
@@ -6160,7 +6158,7 @@
     "id": 143,
     "title": "Comic book: Mariana e a batalha contra os SuperMacabros: a ameaça do lixo nos mares",
     "organisation": [
-      "Oceanographic Institute of University of Sao Paulo"
+      "Oceanographic Institute of the University of São Paulo"
     ],
     "type": "Technical Resource",
     "year": 2018,
@@ -7403,7 +7401,7 @@
     "id": 175,
     "title": "Waste Management Outlook for Mountain Regions: Sources and Solutions",
     "organisation": [
-      "GRID Arendal",
+      "GRID-Arendal",
       "International Solid Waste Association (ISWA)",
       "The International Environmental Technology Centre (IETC)",
       "United Nations Environment Programme (UNEP)"
@@ -7682,8 +7680,8 @@
     "id": 182,
     "title": "Plastic Waste Flow Diagram",
     "organisation": [
-      "EAWAG-SANDEC (Switzerland)",
-      "GIZ - Gesellschaft für international Zusammenarbeit (German development agency)",
+      "Swiss Federal Institute of Aquatic Science and Technology, Department of Sanitation, Water and Solid Waste for Development (EAWAG, SANDEC)",
+      "Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ), German Development Agency",
       "Wasteware (UK)"
     ],
     "type": "Technical Resource",
@@ -7843,7 +7841,7 @@
     "id": 186,
     "title": "Analysis of voluntary commitments targeting marine litter and microplastics pursuant to resolution 3/7",
     "organisation": [
-      "UNEA 4"
+      "Fourth Session of the United Nations Environment Assembly (UNEA 4)"
     ],
     "type": "Technical Resource",
     "year": 2019,
@@ -7932,7 +7930,7 @@
     "id": 188,
     "title": "Ubuntoo database",
     "organisation": [
-      "ubuntoo"
+      "Ubuntoo"
     ],
     "type": "Technical Resource",
     "year": null,
@@ -8193,7 +8191,7 @@
     "id": 195,
     "title": "Regional Action Plan on Marine Litter Management for The Wider Caribbean Region 2014",
     "organisation": [
-      "Cartagena   Convention"
+      "Cartagena Convention"
     ],
     "type": "Action Plan",
     "year": 2014,
@@ -8293,7 +8291,7 @@
     "id": 197,
     "title": "Regional Action Plan for Marine Litter in the Baltic Sea",
     "organisation": [
-      "Baltic Marine Environment Protection Commission (HELCOM)"
+      "Baltic Sea (HELCOM) (Helsinki Convention)"
     ],
     "type": "Action Plan",
     "year": 2015,
@@ -8415,7 +8413,7 @@
     "id": 200,
     "title": "NOWPAP Regional Action Plan on Marine Litter",
     "organisation": [
-      "Northwest Pacific Action Plan (NOWPAP )"
+      "Northwest Pacific Action Plan (NOWPAP)"
     ],
     "type": "Action Plan",
     "year": 2008,
@@ -8523,7 +8521,7 @@
     "id": 203,
     "title": "Regional Action Plan for the Sustainable Management of Marine Litter in the Red Sea and Gulf of Aden",
     "organisation": [
-      "The Regional Organization for the Conservation of the Environment of the Red Sea & Gulf of Aden (PERSGA)"
+      "Regional Organization for the Conservation of the Red Sea and Gulf of Aden (PERSGA)"
     ],
     "type": "Action Plan",
     "year": 2018,
@@ -8595,7 +8593,7 @@
     "id": 205,
     "title": "Pacific Regional Action Plan Marine Litter",
     "organisation": [
-      "Pacific Regional Environment Programme (SPREP )"
+      "Secretariat of the Pacific Regional Environment Programme (SPREP)."
     ],
     "type": "Action Plan",
     "year": 2018,
@@ -8631,7 +8629,7 @@
     "id": 206,
     "title": "Australia National Waste Policy Action Plan",
     "organisation": [
-      "Australian Government, Department of Agriculture, Water and the Environment"
+      "Australian Government Department of Agriculture, Water and the Environment"
     ],
     "type": "Action Plan",
     "year": 2019,
@@ -8790,7 +8788,7 @@
     "id": 210,
     "title": "Indonesia's Plan of Action on Marine Plastic Debris 2017-2025",
     "organisation": [
-      "Coordinating Ministry for Maritime & Investment Affairs , Indonesia ((Kementerian Koordinator Bidang Kemaritiman dan Investasi Republik Indonesia)"
+      "Coordinating Ministry for Maritime & Investment Affairs , Kementerian Koordinator Bidang Kemaritiman dan Investasi Republik Indonesia"
     ],
     "type": "Action Plan",
     "year": 2017,
@@ -8867,7 +8865,7 @@
     "id": 212,
     "title": "Panama Action Plan 2017-2019",
     "organisation": [
-      "The Government of the Republic of Panama"
+      "Government of the Republic of Panama"
     ],
     "type": "Action Plan",
     "year": 2017,
@@ -9354,7 +9352,7 @@
     "id": 249,
     "title": "Marine litter and microplastics: Promoting the environmentally sound management of plastic wastes and achieving the prevention and minimization of the generation of plastic wastes",
     "organisation": [
-      "Norwegian Agency for Development Cooperation(NORAD)"
+      "Norwegian Agency for Development Cooperation (NORAD)"
     ],
     "type": "Financing Resource",
     "year": 2020,
@@ -9426,7 +9424,7 @@
     "id": 251,
     "title": "Pilot projects on plastic waste as part of the Basel Conventions small grants programme",
     "organisation": [
-      "Norwegian Agency for Development Cooperation(NORAD)"
+      "Norwegian Agency for Development Cooperation (NORAD)"
     ],
     "type": "Financing Resource",
     "year": 2020,
@@ -9461,7 +9459,11 @@
     "id": 252,
     "title": "Strategic Plan For Monitoring And Evaluation Of Garbage In The Sea Of The State OfSão Paulo (PEMALM)",
     "organisation": [
-      "Brazilian Fund for Biodiversity (FUNBIO), UNESCO Chair for Sustainability of the Ocean, Institute for Advanced Studies, Oceanographic Institute of the University of São Paulo, Secretariat of Infrastructure and Environment of the State of São Paulo, Norwegian Embassy"
+      "Brazilian Fund for Biodiversity (FUNBIO)",
+      "UNESCO Chair for Sustainability of the Ocean",
+      "Institute for Advanced Studies, Oceanographic Institute of the University of São Paulo",
+      "Secretariat of Infrastructure and Environment of the State of São Paulo",
+      "Norwegian Embassy"
     ],
     "type": "Technical Resource",
     "year": 2021,
@@ -9530,11 +9532,13 @@
     "id": 254,
     "title": "2019 Hawai'i Marine Debris Action Plan Research Workshop",
     "organisation": [
-      "U.S. Department of Commerce, National Oceanic and Atmospheric Administration, National Ocean Service"
+      "United States Department of Commerce",
+      "National Oceanic and Atmospheric Administration (NOAA)",
+      "National Ocean Service"
     ],
     "type": "Technical Resource",
     "year": 2019,
-    "summary": "The Hawaii Marine Debris Action Plan (HI-MDAP) establishes a comprehensive framework for strategic action to reduce the ecological, health and safety, and economic impacts of marine debris in Hawaii by 2020. Goal 5 of the HI-MDAP is to conduct high quality research to understand marine debris. Strategy 1 of the goal is to develop an understanding of marine debris physical and chemical traits, life cycle, transport, quantity, impacts, and accumulation rates of marine debris. Action 5.1.1 is to identify and support marine debris research priorities through a collaborative workshop with a goal for island specific collaboration. To accomplish this action, the first HI-MDAP Research Workshop was held in 2017.In an effort to encourage continued information sharing and collaboration, the National Oceanic and Atmospheric Administration Marine Debris Program and the National Institute for Standards and Technology(link is external) partnered to co-facilitate the 2019 HI-MDAP Research Workshop. The workshop was held on July 25-26, 2019 at the Hawaii Pacific University Makapuu Campus.",
+    "summary": "The Hawaii Marine Debris Action Plan (HI-MDAP) establishes a comprehensive framework for strategic action to reduce the ecological, health and safety, and economic impacts of marine debris in Hawaii by 2020. Goal 5 of the HI-MDAP is to conduct high quality research to understand marine debris. Strategy 1 of the goal is to develop an understanding of marine debris physical and chemical traits, life cycle, transport, quantity, impacts, and accumulation rates of marine debris. Action 5.1.1 is to identify and support marine debris research priorities through a collaborative workshop with a goal for island specific collaboration. To accomplish this action, the first HI-MDAP Research Workshop was held in 2017.In an effort to encourage continued information sharing and collaboration, the National Oceanic and Atmospheric Administration (NOAA)Marine Debris Program and the National Institute for Standards and Technology(link is external) partnered to co-facilitate the 2019 HI-MDAP Research Workshop. The workshop was held on July 25-26, 2019 at the Hawaii Pacific University Makapuu Campus.",
     "country": "United States of America",
     "url": [
       "https://marinedebris.noaa.gov/regional-action-plan/2019-hawaii-marine-debris-action-plan-research-workshop"
@@ -9566,7 +9570,9 @@
     "id": 255,
     "title": "Florida Marine Debris Reduction Plan",
     "organisation": [
-      "U.S. Department of Commerce, National Oceanic and Atmospheric Administration, National Ocean Service"
+      "United States Department of Commerce",
+      "National Oceanic and Atmospheric Administration (NOAA)",
+      "National Ocean Service"
     ],
     "type": "Action Plan",
     "year": 2020,
@@ -9602,7 +9608,9 @@
     "id": 256,
     "title": "Great Lakes Marine Debris Action Plan",
     "organisation": [
-      "U.S. Department of Commerce, National Oceanic and Atmospheric Administration, National Ocean Service"
+      "United States Department of Commerce",
+      "National Oceanic and Atmospheric Administration (NOAA)",
+      "National Ocean Service"
     ],
     "type": "Action Plan",
     "year": 2020,
@@ -9638,7 +9646,9 @@
     "id": 257,
     "title": "Gulf of Maine Marine Debris Action Plan",
     "organisation": [
-      "U.S. Department of Commerce, National Oceanic and Atmospheric Administration, National Ocean Service"
+      "United States Department of Commerce",
+      "National Oceanic and Atmospheric Administration (NOAA)",
+      "National Ocean Service"
     ],
     "type": "Action Plan",
     "year": 2019,
@@ -9674,7 +9684,9 @@
     "id": 258,
     "title": "Oregon Marine Debris Action Plan",
     "organisation": [
-      "U.S. Department of Commerce, National Oceanic and Atmospheric Administration, National Ocean Service"
+      "United States Department of Commerce",
+      "National Oceanic and Atmospheric Administration (NOAA)",
+      "National Ocean Service"
     ],
     "type": "Action Plan",
     "year": 2019,
@@ -9710,11 +9722,13 @@
     "id": 259,
     "title": "Hawai'i Marine Debris Action Plan",
     "organisation": [
-      "U.S. Department of Commerce, National Oceanic and Atmospheric Administration, National Ocean Service"
+      "United States Department of Commerce",
+      "National Oceanic and Atmospheric Administration (NOAA)",
+      "National Ocean Service"
     ],
     "type": "Action Plan",
     "year": 2018,
-    "summary": "The Hawaii Marine Debris Action Plan (HI-MDAP) establishes a comprehensive framework for strategic action to reduce the ecological, health and safety, and economic impacts of marine debris in Hawaii by 2020. The HI-MDAP was built on the significant ongoing and past efforts of Hawaiis marine debris community. The National Oceanic and Atmospheric Administration (NOAA) Marine Debris Program (MDP) and the U.S. Environmental Protection Agency(EPA) facilitated the development of the HI-MDAP with active participation and input from Hawaiis marine debris community, from government agencies, nongovernmental organizations, academic institutions, and private entities.",
+    "summary": "The Hawaii Marine Debris Action Plan (HI-MDAP) establishes a comprehensive framework for strategic action to reduce the ecological, health and safety, and economic impacts of marine debris in Hawaii by 2020. The HI-MDAP was built on the significant ongoing and past efforts of Hawaiis marine debris community. The National Oceanic and Atmospheric Administration (NOAA)(NOAA) Marine Debris Program (MDP) and the U.S. Environmental Protection Agency(EPA) facilitated the development of the HI-MDAP with active participation and input from Hawaiis marine debris community, from government agencies, nongovernmental organizations, academic institutions, and private entities.",
     "country": "United States of America",
     "url": [
       "https://marinedebris.noaa.gov/report/hawaii-marine-debris-action-plan"
@@ -9746,7 +9760,9 @@
     "id": 260,
     "title": "Gulf of Mexico Alliance Regional Action Plan",
     "organisation": [
-      "U.S. Department of Commerce, National Oceanic and Atmospheric Administration, National Ocean Service"
+      "United States Department of Commerce",
+      "National Oceanic and Atmospheric Administration (NOAA)",
+      "National Ocean Service"
     ],
     "type": "Action Plan",
     "year": 2016,
@@ -9780,7 +9796,9 @@
     "id": 261,
     "title": "Southeast Marine Debris Action Plan",
     "organisation": [
-      "U.S. Department of Commerce, National Oceanic and Atmospheric Administration, National Ocean Service"
+      "United States Department of Commerce",
+      "National Oceanic and Atmospheric Administration (NOAA)",
+      "National Ocean Service"
     ],
     "type": "Action Plan",
     "year": 2019,
@@ -9816,7 +9834,9 @@
     "id": 262,
     "title": "Washington Marine Debris Action Plan",
     "organisation": [
-      "U.S. Department of Commerce, National Oceanic and Atmospheric Administration, National Ocean Service"
+      "United States Department of Commerce",
+      "National Oceanic and Atmospheric Administration (NOAA)",
+      "National Ocean Service"
     ],
     "type": "Action Plan",
     "year": 2018,
@@ -9852,7 +9872,9 @@
     "id": 263,
     "title": "California Ocean Litter Prevention Strategy",
     "organisation": [
-      "U.S. Department of Commerce, National Oceanic and Atmospheric Administration, National Ocean Service"
+      "United States Department of Commerce",
+      "National Oceanic and Atmospheric Administration (NOAA)",
+      "National Ocean Service"
     ],
     "type": "Action Plan",
     "year": 2018,
@@ -9888,7 +9910,9 @@
     "id": 264,
     "title": "Virginia Marine Debris Reduction Plan",
     "organisation": [
-      "U.S. Department of Commerce, National Oceanic and Atmospheric Administration, National Ocean Service"
+      "United States Department of Commerce",
+      "National Oceanic and Atmospheric Administration (NOAA)",
+      "National Ocean Service"
     ],
     "type": "Action Plan",
     "year": 2014,
@@ -9924,7 +9948,9 @@
     "id": 265,
     "title": "South Carolina Marine Debris Emergency Response Guide",
     "organisation": [
-      "U.S. Department of Commerce, National Oceanic and Atmospheric Administration, National Ocean Service"
+      "United States Department of Commerce",
+      "National Oceanic and Atmospheric Administration (NOAA)",
+      "National Ocean Service"
     ],
     "type": "Technical Resource",
     "year": 2020,
@@ -9961,7 +9987,9 @@
     "id": 266,
     "title": "Maryland Marine Debris Emergency Response Guide",
     "organisation": [
-      "U.S. Department of Commerce, National Oceanic and Atmospheric Administration, National Ocean Service"
+      "United States Department of Commerce",
+      "National Oceanic and Atmospheric Administration (NOAA)",
+      "National Ocean Service"
     ],
     "type": "Technical Resource",
     "year": 2020,
@@ -9998,7 +10026,9 @@
     "id": 267,
     "title": "Louisiana Marine Debris Emergency Response Guide",
     "organisation": [
-      "U.S. Department of Commerce, National Oceanic and Atmospheric Administration, National Ocean Service"
+      "United States Department of Commerce",
+      "National Oceanic and Atmospheric Administration (NOAA)",
+      "National Ocean Service"
     ],
     "type": "Technical Resource",
     "year": 2020,
@@ -10035,7 +10065,9 @@
     "id": 268,
     "title": "Delaware Marine Debris Emergency Response Guide",
     "organisation": [
-      "U.S. Department of Commerce, National Oceanic and Atmospheric Administration, National Ocean Service"
+      "United States Department of Commerce",
+      "National Oceanic and Atmospheric Administration (NOAA)",
+      "National Ocean Service"
     ],
     "type": "Technical Resource",
     "year": 2020,
@@ -10072,7 +10104,9 @@
     "id": 269,
     "title": "Mississippi Marine Debris Emergency Response Guide",
     "organisation": [
-      "U.S. Department of Commerce, National Oceanic and Atmospheric Administration, National Ocean Service"
+      "United States Department of Commerce",
+      "National Oceanic and Atmospheric Administration (NOAA)",
+      "National Ocean Service"
     ],
     "type": "Technical Resource",
     "year": 2020,
@@ -10109,7 +10143,9 @@
     "id": 270,
     "title": "North Carolina Marine Debris Emergency Response Guide",
     "organisation": [
-      "U.S. Department of Commerce, National Oceanic and Atmospheric Administration, National Ocean Service"
+      "United States Department of Commerce",
+      "National Oceanic and Atmospheric Administration (NOAA)",
+      "National Ocean Service"
     ],
     "type": "Technical Resource",
     "year": 2020,
@@ -10146,7 +10182,9 @@
     "id": 271,
     "title": "U.S. Virgin Islands Marine Debris Emergency Response Guide",
     "organisation": [
-      "U.S. Department of Commerce, National Oceanic and Atmospheric Administration, National Ocean Service"
+      "United States Department of Commerce",
+      "National Oceanic and Atmospheric Administration (NOAA)",
+      "National Ocean Service"
     ],
     "type": "Technical Resource",
     "year": 2020,
@@ -10183,7 +10221,9 @@
     "id": 272,
     "title": "Florida Marine Debris Emergency Response Guide",
     "organisation": [
-      "U.S. Department of Commerce, National Oceanic and Atmospheric Administration, National Ocean Service"
+      "United States Department of Commerce",
+      "National Oceanic and Atmospheric Administration (NOAA)",
+      "National Ocean Service"
     ],
     "type": "Technical Resource",
     "year": 2020,
@@ -10220,7 +10260,9 @@
     "id": 273,
     "title": "Texas Marine Debris Emergency Response Guide",
     "organisation": [
-      "U.S. Department of Commerce, National Oceanic and Atmospheric Administration, National Ocean Service"
+      "United States Department of Commerce",
+      "National Oceanic and Atmospheric Administration (NOAA)",
+      "National Ocean Service"
     ],
     "type": "Technical Resource",
     "year": 2020,
@@ -10257,7 +10299,9 @@
     "id": 274,
     "title": "Virginia Marine Debris Emergency Response Guide",
     "organisation": [
-      "U.S. Department of Commerce, National Oceanic and Atmospheric Administration, National Ocean Service"
+      "United States Department of Commerce",
+      "National Oceanic and Atmospheric Administration (NOAA)",
+      "National Ocean Service"
     ],
     "type": "Technical Resource",
     "year": 2020,
@@ -10294,7 +10338,9 @@
     "id": 275,
     "title": "Alabama Marine Debris Emergency Response Guide",
     "organisation": [
-      "U.S. Department of Commerce, National Oceanic and Atmospheric Administration, National Ocean Service"
+      "United States Department of Commerce",
+      "National Oceanic and Atmospheric Administration (NOAA)",
+      "National Ocean Service"
     ],
     "type": "Technical Resource",
     "year": 2019,
@@ -10331,7 +10377,9 @@
     "id": 276,
     "title": "Georgia Marine Debris Emergency Response Guide",
     "organisation": [
-      "U.S. Department of Commerce, National Oceanic and Atmospheric Administration, National Ocean Service"
+      "United States Department of Commerce",
+      "National Oceanic and Atmospheric Administration (NOAA)",
+      "National Ocean Service"
     ],
     "type": "Technical Resource",
     "year": 2019,
@@ -10368,8 +10416,8 @@
     "id": 277,
     "title": "NOAA Marine Debris Program Strategic Plan",
     "organisation": [
-      "U.S. Department of Commerce",
-      "National Oceanic and Atmospheric Administration",
+      "United States Department of Commerce",
+      "National Oceanic and Atmospheric Administration (NOAA)",
       "National Ocean Service"
     ],
     "type": "Technical Resource",
@@ -10425,13 +10473,52 @@
     "image": "https://storage.googleapis.com/akvo-unep-gpml/images/resource_278.png",
     "valid_from": null,
     "valid_to": null,
-    "tags": null,
-    "languages": null,
+    "tags": [
+      "package",
+      "package",
+      "plastic packaging",
+      "plastic waste"
+    ],
+    "languages": "English",
     "resource_language_url": null,
     "geo_coverage": null,
     "geo_coverage_type": "global",
     "attachments": [
       "https://planet-tracker.org/download/1604/"
+    ],
+    "remarks": null
+  },
+  {
+    "id": 279,
+    "title": "Third Regional Overview of Marine Litter in the Northwest Pacific Region",
+    "organisation": [
+      "United Nations Environment Programme (UNEP)",
+      "Northwest Pacific Action Plan (NOWPAP)",
+      "Our Sea of East Asia Network (OSEAN)"
+    ],
+    "type": "Technical Resource",
+    "year": 2020,
+    "summary": "The attention on marine litter, along with microplastics, has been growing rapidly in recent years. The plastic marine litter is presently found anywhere from the coast to the deep sea, from the equator to the polar region, and he Northwest Pacific (NOWPAP) region is not anexception.Eleven years have passed since adopting the NOWAP Regional Action Plan on Marine Litter (RAP MALI) in 2008. In the meantime, the four Regional Activity Centers (RACs) of NOWPAP have collected and reviewed a vast amount of information and data on marine litter in theregion. Many documents have been published to allow the NOWPAP Member States to be more active in managing and preventing marine litter. These promoted more stakeholders and the public to recognize the issue and bring about changes in their behavior. In 2011, the implementation evaluations of RAP MALI were carried out. Afterwards, the NOWPAP Member States' activities on addressing marine litter have increased noticeably. A comprehensive review report is needed to review the effectiveness of NOWPAP RAP MALI in the past decade. Against this backdrop, this review report is developed.",
+    "country": null,
+    "url": null,
+    "value_amount": null,
+    "value_currency": null,
+    "value_remaks": null,
+    "image": null,
+    "valid_from": null,
+    "valid_to": null,
+    "tags": [
+      "marine litter",
+      "marine plastic"
+    ],
+    "languages": "English",
+    "resource_language_url": null,
+    "geo_coverage": [
+      "North West Pacific"
+    ],
+    "geo_coverage_type": "transnational",
+    "attachments": [
+      "https://wedocs.unep.org/bitstream/handle/20.500.11822/35882/Third_Regional_Overview_of_marine_litter_in_the_NOWPAP_region.pdf?sequence=1&isAllowed=y"
     ],
     "remarks": null
   }
