@@ -156,7 +156,7 @@
                       (merge query option exclude-rows))]
             (swap! changed #(apply conj % (map :id rows)))))))
     (jdbc/execute! db ["TRUNCATE TABLE country_group"])
-    (println (str "Ref country removed"))))
+    (println (str "Ref country group removed"))))
 
 ;; initiative country updater
 
@@ -184,23 +184,24 @@
 
 ;; initiative country group updater
 
-(defn new-initiative-country-group-id [[k v] mapping]
-  (assoc {} (keyword (str (get mapping k))) v))
+(defn new-initiative-country-group-id [[k _] mapping json-file]
+    (let [new-id (keyword (str (get mapping k)))
+          new-group (filter #(= (:id %) (Integer/parseInt (name new-id))) json-file)]
+      (assoc {} new-id (-> new-group first :name))))
 
-(defn remap-initiative-country-group-objects [v mapping]
+(defn remap-initiative-country-group-objects [v mapping json-file]
   (cond
     (sequential? v)
-    (mapv #(new-initiative-country-group-id (-> % first) mapping) v)
+    (mapv #(new-initiative-country-group-id (-> % first) mapping json-file) v)
     (map? v)
-    (new-initiative-country-group-id (first v) mapping)
+    (new-initiative-country-group-id (first v) mapping json-file)
     :else v))
 
-(defn transform-initiative-group-query [row mapping]
-  (reduce into row
-          (map #(assoc {} % (remap-initiative-country-objects (-> row %) mapping))
-               [:q23 :q24_1 :q24_5])))
+(defn transform-initiative-group-query [row mapping json-file]
+  (reduce into row (map #(assoc {} % (remap-initiative-country-group-objects (-> row %) mapping json-file))
+               [:q24_1 :q24_5])))
 
-(defn update-initiative-country-group [db mapping]
-  (doseq [query (map #(transform-initiative-group-query % mapping)
+(defn update-initiative-country-group [db mapping json-file]
+  (doseq [query (map #(transform-initiative-group-query % mapping json-file)
                      (seeder.db/get-initiative-country-group-values db))]
     (db.initiative/update-initiative db query)))

@@ -93,7 +93,7 @@
 
 (defn seed-country-groups [db {:keys [old?]}]
   (let [file (if old? "country_group" "country_group-new")]
-    (doseq [data file]
+    (doseq [data (get-data (str file))]
       (db.country-group/new-country-group db data))))
 
 (defn get-country-group-countries [db file]
@@ -522,15 +522,19 @@
   ([db]
    (updater-country-group db {:revert? false}))
   ([db opts]
-  (let [cache-id (get-cache-id)
-        mapping-file (get-data "new_country_groups_mapping")]
-    (db.util/country-group-id-updater db cache-id mapping-file opts)
-    (seed-country-groups db {:old? (:revert? opts)})
-    (db.util/update-initiative-country-group
-      db (if (:revert? opts)
-           (revert-mapping mapping-file) mapping-file))
-    (db.util/revert-constraint db cache-id)
-    (seed-country-group-country db {:old (:revert? opts)}))))
+   (let [cache-id (get-cache-id)
+         mapping-file (get-data "new_country_groups_mapping")
+         json-file (get-data (if (:revert? opts)
+                               "country_group"
+                               "country_group-new"))]
+     (db.util/country-group-id-updater db cache-id mapping-file opts)
+     (seed-country-groups db {:old? (:revert? opts)})
+     (db.util/update-initiative-country-group
+       db
+       (if (:revert? opts) (revert-mapping mapping-file) mapping-file)
+       json-file)
+     (db.util/revert-constraint db cache-id)
+     (seed-country-group-country db {:old (:revert? opts)}))))
 
 (defn seed
   ([db {:keys [country? currency?
@@ -638,7 +642,7 @@
   ;; just run (updater-country db {:revert? true}) !
   ;; we might need to resync all topics when we reverting
   (updater-country db)
-
+  ;; same as above updater-country but country-group
   (updater-country-group db)
 
   ;; get view table of topic
@@ -657,7 +661,7 @@
                     (assoc topic :data (view-table-of topic))))
                x)))))
 
-  (->> (get-country-group-countries db)
+  (->> (get-country-group-countries db "country_group_countries")
        (filter #(= 2 (:country_group %)) ,,,)
        count)
 
