@@ -58,10 +58,10 @@
                            :table "country"
                            :json "countries.json"}))
 
-(defn drop-constraint-country-group [db cache-id]
+(defn drop-constraint-country-group [db cache-id file]
   (drop-all-constraint db {:cache cache-id
                            :table "country_group"
-                           :json "country_group.json"
+                           :json file
                            :child ["country_group_country"]}))
 
 (defn drop-constraint-organisation [db cache-id]

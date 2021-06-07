@@ -451,8 +451,9 @@
   ([db]
    (resync-country-group db {:old? false}))
   ([db opts]
-   (let [cache-id (get-cache-id)]
-     (db.util/drop-constraint-country-group db cache-id)
+   (let [cache-id (get-cache-id)
+         file (if (:old? opts) "country_group-new.json" "country_group.json")]
+     (db.util/drop-constraint-country-group db cache-id file)
      (println "Re-seeding country-group...")
      (seed-country-groups db opts)
      (db.util/revert-constraint db cache-id)
@@ -508,15 +509,15 @@
   ([db]
    (updater-country db {:revert? false}))
   ([db opts]
-  (let [cache-id (get-cache-id)
-        mapping-file (get-data "new_countries_mapping")]
-    (db.util/country-id-updater db cache-id mapping-file opts)
-    (seed-countries db {:old? (:revert? opts)})
-    (db.util/update-initiative-country
-      db (if (:revert? opts)
-           (revert-mapping mapping-file) mapping-file))
-    (db.util/revert-constraint db cache-id))
-  (resync-country-group db)))
+   (let [cache-id (get-cache-id)
+         mapping-file (get-data "new_countries_mapping")]
+     (db.util/country-id-updater db cache-id mapping-file opts)
+     (seed-countries db {:old? (:revert? opts)})
+     (db.util/update-initiative-country
+       db (if (:revert? opts)
+            (revert-mapping mapping-file) mapping-file))
+     (db.util/revert-constraint db cache-id))
+   (resync-country-group db {:old? (:revert? opts)})))
 
 (defn updater-country-group
   ([db]
