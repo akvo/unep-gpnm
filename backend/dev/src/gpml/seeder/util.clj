@@ -3,7 +3,6 @@
             [gpml.db.initiative :as db.initiative]
             [jsonista.core :as j]
             [clojure.java.jdbc :as jdbc]
-            [clojure.java.jdbc :as jdbc]
             [clojure.java.io :as io]))
 
 (def ^:private json-path "dev/resources/files/")
@@ -134,6 +133,31 @@
     (jdbc/execute! db ["TRUNCATE TABLE country"])
     (println (str "Ref country removed"))))
 
+;; country group updater
+(defn country-group-id-updater [db cache-id mapping-file {:keys [revert?]}]
+  (jdbc/execute! db ["TRUNCATE TABLE country_group_country"])
+  (let [table (seeder.db/get-foreign-key db {:table "country_group"})
+        new-map-list (mapv (fn [i] {:new_id (if revert?
+                                              (-> i first name read-string)
+                                              (-> i second read-string))
+                                    :old_id (if revert?
+                                              (-> i second read-string)
+                                              (-> i first name read-string))})
+                           mapping-file)]
+    (write-cache table cache-id)
+    (doseq [query (:deps table)]
+      (seeder.db/drop-constraint db query)
+      (println (str "Updating " (:col query) " on " (:tbl query)))
+      (let [changed (atom nil)]
+        (doseq [option new-map-list]
+          (let [exclude-rows {:exclude @changed}
+                rows (seeder.db/update-foreign-value
+                      db
+                      (merge query option exclude-rows))]
+            (swap! changed #(apply conj % (map :id rows)))))))
+    (jdbc/execute! db ["TRUNCATE TABLE country_group"])
+    (println (str "Ref country removed"))))
+
 ;; initiative country updater
 
 (defn new-initiative-country-id [[k v] mapping]
@@ -147,12 +171,36 @@
     (new-initiative-country-id (first v) mapping)
     :else v))
 
-(defn transform-initiative-query [row mapping]
+(defn transform-initiative-country-query [row mapping]
   (reduce into row
           (map #(assoc {} % (remap-initiative-country-objects (-> row %) mapping))
                [:q23 :q24_2 :q24_4])))
 
 (defn update-initiative-country [db mapping]
-  (doseq [query (map #(transform-initiative-query % mapping)
+  (doseq [query (map #(transform-initiative-country-query % mapping)
                      (seeder.db/get-initiative-country-values db))]
+    (db.initiative/update-initiative db query)))
+
+
+;; initiative country group updater
+
+(defn new-initiative-country-group-id [[k v] mapping]
+  (assoc {} (keyword (str (get mapping k))) v))
+
+(defn remap-initiative-country-group-objects [v mapping]
+  (cond
+    (sequential? v)
+    (mapv #(new-initiative-country-group-id (-> % first) mapping) v)
+    (map? v)
+    (new-initiative-country-group-id (first v) mapping)
+    :else v))
+
+(defn transform-initiative-group-query [row mapping]
+  (reduce into row
+          (map #(assoc {} % (remap-initiative-country-objects (-> row %) mapping))
+               [:q23 :q24_1 :q24_5])))
+
+(defn update-initiative-country-group [db mapping]
+  (doseq [query (map #(transform-initiative-group-query % mapping)
+                     (seeder.db/get-initiative-country-group-values db))]
     (db.initiative/update-initiative db query)))

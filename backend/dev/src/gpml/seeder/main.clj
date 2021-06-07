@@ -91,23 +91,25 @@
    (let [file (if old? "countries" "new_countries")]
    (jdbc/insert-multi! db :country (get-data (str file)))))
 
-(defn seed-country-groups [db]
-  (doseq [data (get-data "country_group")]
-    (db.country-group/new-country-group db data)))
+(defn seed-country-groups [db {:keys [old?]}]
+  (let [file (if old? "country_group" "country_group-new")]
+    (doseq [data file]
+      (db.country-group/new-country-group db data))))
 
-(defn get-country-group-countries [db]
+(defn get-country-group-countries [db file]
   (flatten
    (reduce (fn [acc [k v]]
              (let [group (:id (get-country-group db (name k)))]
                (conj acc (map (fn [x] {:country_group group :country x})
                               (get-ids (get-country db v))))))
            []
-           (get-data "country_group_countries"))))
+           (get-data file))))
 
 
-(defn seed-country-group-country [db]
-  (doseq [data (get-country-group-countries db)]
-    (db.country-group/new-country-group-country db data)))
+(defn seed-country-group-country [db {:keys [old?]}]
+  (let [file (if old? "country_group_countries" "country_group_countries-new")]
+    (doseq [data (get-country-group-countries db file)]
+      (db.country-group/new-country-group-country db data))))
 
 (defn map-organisation [db]
   (->> (get-data "organisations_new")
@@ -445,13 +447,16 @@
      (seed-countries db opts)
      (db.util/revert-constraint db cache-id))))
 
-(defn resync-country-group [db]
-  (let [cache-id (get-cache-id)]
-    (db.util/drop-constraint-country-group db cache-id)
-    (println "Re-seeding country-group...")
-    (seed-country-groups db)
-    (db.util/revert-constraint db cache-id)
-    (seed-country-group-country db)))
+(defn resync-country-group
+  ([db]
+   (resync-country-group db {:old? false}))
+  ([db opts]
+   (let [cache-id (get-cache-id)]
+     (db.util/drop-constraint-country-group db cache-id)
+     (println "Re-seeding country-group...")
+     (seed-country-groups db opts)
+     (db.util/revert-constraint db cache-id)
+     (seed-country-group-country db opts))))
 
 (defn resync-organisation [db]
   (let [cache-id (get-cache-id)]
@@ -512,6 +517,20 @@
            (revert-mapping mapping-file) mapping-file))
     (db.util/revert-constraint db cache-id))
   (resync-country-group db)))
+
+(defn updater-country-group
+  ([db]
+   (updater-country-group db {:revert? false}))
+  ([db opts]
+  (let [cache-id (get-cache-id)
+        mapping-file (get-data "new_country_groups_mapping")]
+    (db.util/country-group-id-updater db cache-id mapping-file opts)
+    (seed-country-groups db {:old? (:revert? opts)})
+    (db.util/update-initiative-country-group
+      db (if (:revert? opts)
+           (revert-mapping mapping-file) mapping-file))
+    (db.util/revert-constraint db cache-id)
+    (seed-country-group-country db {:old (:revert? opts)}))))
 
 (defn seed
   ([db {:keys [country? currency?
@@ -619,6 +638,8 @@
   ;; just run (updater-country db {:revert? true}) !
   ;; we might need to resync all topics when we reverting
   (updater-country db)
+
+  (updater-country-group db)
 
   ;; get view table of topic
   (defn view-table-of [association]
