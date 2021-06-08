@@ -92,7 +92,7 @@
    (jdbc/insert-multi! db :country (get-data (str file)))))
 
 (defn seed-country-groups [db {:keys [old?]}]
-  (let [file (if old? "country_group" "country_group-new")]
+  (let [file (if old? "country_group" "new_country_group")]
     (doseq [data (get-data (str file))]
       (db.country-group/new-country-group db data))))
 
@@ -107,7 +107,7 @@
 
 
 (defn seed-country-group-country [db {:keys [old?]}]
-  (let [file (if old? "country_group_countries" "country_group_countries-new")]
+  (let [file (if old? "country_group_countries" "new_country_group_countries")]
     (doseq [data (get-country-group-countries db file)]
       (db.country-group/new-country-group-country db data))))
 
@@ -452,7 +452,7 @@
    (resync-country-group db {:old? false}))
   ([db opts]
    (let [cache-id (get-cache-id)
-         file (if (:old? opts) "country_group-new.json" "country_group.json")]
+         file (if (:old? opts) "new_country_group.json" "country_group.json")]
      (db.util/drop-constraint-country-group db cache-id file)
      (println "Re-seeding country-group...")
      (seed-country-groups db opts)
@@ -505,29 +505,29 @@
   (map (fn [k] {(keyword (str (second k))) (-> k first name)})
        mapping-file))
 
-(defn is-old [checking mapping-file db]
+(defn is-old [check mapping-file db]
   (let [example-map (first (filter #(not= (first %) (second %)) mapping-file))
-        old-json (get-data (if (= checking "country")
+        old-json (get-data (if (= check "country")
                              "countries"
                              "country_group"))
         old-example (->> old-json
                          (filter #(= (-> example-map first name Integer/parseInt) (:id %)))
                          first)
-        current-record (if (= checking "country")
+        current-record (if (= check "country")
                         (db.country/country-by-id db old-example)
                         (db.country-group/country-group-by-id db old-example))]
-    (if (not current-record)
-      false
-      (= (:name old-example) (:name current-record)))))
+    (if current-record
+      (= (:name old-example) (:name current-record))
+      false)))
 
 (defn updater-country-group [db]
    (let [cache-id (get-cache-id)
          mapping-file (get-data "new_country_groups_mapping")
          old-data? (is-old "country group" mapping-file db)
          mapping-data (if old-data?
-                        (revert-mapping mapping-file)
-                        mapping-file)
-         json-file (get-data (if old-data? "country_group-new" "country_group"))]
+                        mapping-file
+                        (revert-mapping mapping-file))
+         json-file (get-data (if old-data? "new_country_group" "country_group"))]
      (println (str "Migrating Country group from " (if old-data? "old to new" "new to old")))
      (db.util/country-group-id-updater db cache-id mapping-data)
      (seed-country-groups db {:old? (not old-data?)})
@@ -540,14 +540,14 @@
          mapping-file (get-data "new_countries_mapping")
          old-data? (is-old "country" mapping-file db)
          mapping-file (if old-data?
-                        (revert-mapping mapping-file)
-                        mapping-file)]
+                        mapping-file
+                        (revert-mapping mapping-file))
+         json-file (get-data (if old-data? "new_countries" "countries"))]
      (println (str "Migrating Country from " (if old-data? "old to new" "new to old")))
      (db.util/country-id-updater db cache-id mapping-file)
-     (seed-countries db {:old? old-data?})
-     (db.util/update-initiative-country db mapping-file)
-     (db.util/revert-constraint db cache-id))
-   (updater-country-group db))
+     (seed-countries db {:old? (not old-data?)})
+     (db.util/update-initiative-country db mapping-file json-file)
+     (db.util/revert-constraint db cache-id)))
 
 (defn seed
   ([db {:keys [country? currency?
@@ -654,8 +654,9 @@
 
   ;; update country id with new id
   ;; should only run once, how to revert to old id?
-  ;; just run (updater-country db {:revert? true}) !
+  ;; just run (updater-country db) again !
   ;; we might need to resync all topics when we reverting
+  ;; this will also update country-group data
   (updater-country db)
   ;; same as above updater-country but country-group
   (updater-country-group db)
