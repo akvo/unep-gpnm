@@ -113,10 +113,10 @@
                                    "project_tag"]}))
 
 ;; country updater
-(defn country-id-updater [db cache-id mapping-file {:keys [revert?]}]
+(defn country-id-updater [db cache-id mapping-file]
   (let [table (seeder.db/get-foreign-key db {:table "country"})
-        new-map-list (mapv (fn [i] {:new_id (if revert? (-> i first name read-string) (-> i second))
-                                    :old_id (if revert? (-> i second) (-> i first name read-string))})
+        new-map-list (mapv (fn [i] {:new_id (-> i second)
+                                    :old_id (-> i first name read-string)})
                            mapping-file)]
     (write-cache table cache-id)
     (doseq [query (:deps table)]
@@ -134,15 +134,11 @@
     (println (str "Ref country removed"))))
 
 ;; country group updater
-(defn country-group-id-updater [db cache-id mapping-file {:keys [revert?]}]
+(defn country-group-id-updater [db cache-id mapping-file]
   (jdbc/execute! db ["TRUNCATE TABLE country_group_country"])
   (let [table (seeder.db/get-foreign-key db {:table "country_group"})
-        new-map-list (mapv (fn [i] {:new_id (if revert?
-                                              (-> i first name read-string)
-                                              (-> i second read-string))
-                                    :old_id (if revert?
-                                              (-> i second read-string)
-                                              (-> i first name read-string))})
+        new-map-list (mapv (fn [i] {:new_id (-> i second read-string)
+                                    :old_id (-> i first name read-string)})
                            mapping-file)]
     (write-cache table cache-id)
     (doseq [query (:deps table)]

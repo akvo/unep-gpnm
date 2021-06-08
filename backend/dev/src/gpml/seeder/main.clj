@@ -505,37 +505,49 @@
   (map (fn [k] {(keyword (str (second k))) (-> k first name)})
        mapping-file))
 
-(defn updater-country
-  ([db]
-   (updater-country db {:revert? false}))
-  ([db opts]
-   (let [cache-id (get-cache-id)
-         mapping-file (get-data "new_countries_mapping")]
-     (db.util/country-id-updater db cache-id mapping-file opts)
-     (seed-countries db {:old? (:revert? opts)})
-     (db.util/update-initiative-country
-       db (if (:revert? opts)
-            (revert-mapping mapping-file) mapping-file))
-     (db.util/revert-constraint db cache-id))
-   (resync-country-group db {:old? (:revert? opts)})))
+(defn is-old [checking mapping-file db]
+  (let [example-map (first (filter #(not= (first %) (second %)) mapping-file))
+        old-json (get-data (if (= checking "country")
+                             "countries"
+                             "country_group"))
+        old-example (->> old-json
+                         (filter #(= (-> example-map first name Integer/parseInt) (:id %)))
+                         first)
+        current-record (if (= checking "country")
+                        (db.country/country-by-id db old-example)
+                        (db.country-group/country-group-by-id db old-example))]
+    (if (not current-record)
+      false
+      (= (:name old-example) (:name current-record)))))
 
-(defn updater-country-group
-  ([db]
-   (updater-country-group db {:revert? false}))
-  ([db opts]
+(defn updater-country-group [db]
    (let [cache-id (get-cache-id)
          mapping-file (get-data "new_country_groups_mapping")
-         json-file (get-data (if (:revert? opts)
-                               "country_group"
-                               "country_group-new"))]
-     (db.util/country-group-id-updater db cache-id mapping-file opts)
-     (seed-country-groups db {:old? (:revert? opts)})
-     (db.util/update-initiative-country-group
-       db
-       (if (:revert? opts) (revert-mapping mapping-file) mapping-file)
-       json-file)
+         old-data? (is-old "country group" mapping-file db)
+         mapping-data (if old-data?
+                        (revert-mapping mapping-file)
+                        mapping-file)
+         json-file (get-data (if old-data? "country_group-new" "country_group"))]
+     (println (str "Migrating Country group from " (if old-data? "old to new" "new to old")))
+     (db.util/country-group-id-updater db cache-id mapping-data)
+     (seed-country-groups db {:old? (not old-data?)})
+     (db.util/update-initiative-country-group db mapping-data json-file)
      (db.util/revert-constraint db cache-id)
-     (seed-country-group-country db {:old (:revert? opts)}))))
+     (seed-country-group-country db {:old? (not old-data?)})))
+
+(defn updater-country [db]
+   (let [cache-id (get-cache-id)
+         mapping-file (get-data "new_countries_mapping")
+         old-data? (is-old "country" mapping-file db)
+         mapping-file (if old-data?
+                        (revert-mapping mapping-file)
+                        mapping-file)]
+     (println (str "Migrating Country from " (if old-data? "old to new" "new to old")))
+     (db.util/country-id-updater db cache-id mapping-file)
+     (seed-countries db {:old? old-data?})
+     (db.util/update-initiative-country db mapping-file)
+     (db.util/revert-constraint db cache-id))
+   (updater-country-group db))
 
 (defn seed
   ([db {:keys [country? currency?
@@ -625,6 +637,8 @@
 
   ;; example resyncing
 
+
+
   (resync-country db)
   (resync-country-group db)
   (resync-organisation db)
@@ -645,6 +659,9 @@
   (updater-country db)
   ;; same as above updater-country but country-group
   (updater-country-group db)
+
+
+  (is-old "country group" (get-data "new_country_groups_mapping") db)
 
   ;; get view table of topic
   (defn view-table-of [association]
