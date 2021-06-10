@@ -27,13 +27,19 @@ const collectDependSchemaRefactor = (
   schema,
   required,
   index = null,
-  oldIndex = null
+  oldIndex = null,
+  section = null
 ) => {
   if (!schema?.properties) {
     return;
   }
   if (schema?.required) {
-    required.push({ group: oldIndex, key: index, required: schema.required });
+    required.push({
+      section: section,
+      group: oldIndex,
+      key: index,
+      required: schema.required,
+    });
   }
   const { properties } = schema;
   Object.keys(properties).forEach((key) => {
@@ -65,9 +71,10 @@ const collectDependSchemaRefactor = (
     if (
       index &&
       oldIndex &&
+      !section &&
       properties?.[key]?.depend &&
       !checkDependencyAnswer(
-        formData?.[oldIndex][index]?.[properties?.[key]?.depend.id],
+        formData?.[oldIndex]?.[index]?.[properties?.[key]?.depend?.id],
         properties?.[key]?.depend
       )
     ) {
@@ -77,6 +84,24 @@ const collectDependSchemaRefactor = (
         tmp.push(`.${oldIndex}.${index}.${key}`);
       }
     }
+    if (
+      index &&
+      oldIndex &&
+      section &&
+      properties?.[key]?.depend &&
+      !checkDependencyAnswer(
+        formData?.[section]?.[oldIndex]?.[index]?.[
+          properties?.[key]?.depend?.id
+        ],
+        properties?.[key]?.depend
+      )
+    ) {
+      if (key.includes(".")) {
+        tmp.push(`.${section}.${oldIndex}.${index}['${key}']`);
+      } else {
+        tmp.push(`.${section}.${oldIndex}.${index}.${key}`);
+      }
+    }
     if (properties?.[key]?.properties) {
       !collectDependSchemaRefactor(
         tmp,
@@ -84,7 +109,8 @@ const collectDependSchemaRefactor = (
         properties?.[key],
         required,
         key,
-        index
+        index,
+        oldIndex
       );
     }
   });
@@ -221,10 +247,11 @@ const AddInitiativeForm = ({
       dependFields,
       requiredFields
     );
+    // calculate required fields
     let sectionRequiredFields = {};
     let groupRequiredFields = {};
-    requiredFields.forEach(({ group, key, required }) => {
-      let index = group ? group : key;
+    requiredFields.forEach(({ section, group, key, required }) => {
+      let index = section ? section : group ? group : key;
       let filterRequired = required.filter((r) => requiredFilledIn.includes(r));
       sectionRequiredFields = {
         ...sectionRequiredFields,
@@ -232,7 +259,7 @@ const AddInitiativeForm = ({
           ? sectionRequiredFields?.[index].concat(filterRequired)
           : filterRequired,
       };
-      if (!group) {
+      if (!section && !group) {
         groupRequiredFields = {
           ...groupRequiredFields,
           [key]: {
@@ -243,7 +270,7 @@ const AddInitiativeForm = ({
           },
         };
       }
-      if (group) {
+      if (!section && group) {
         groupRequiredFields = {
           ...groupRequiredFields,
           [group]: {
@@ -251,6 +278,21 @@ const AddInitiativeForm = ({
             required: {
               ...groupRequiredFields?.[group]?.required,
               [key]: filterRequired,
+            },
+          },
+        };
+      }
+      if (section && group) {
+        groupRequiredFields = {
+          ...groupRequiredFields,
+          [section]: {
+            ...groupRequiredFields[section],
+            required: {
+              ...groupRequiredFields?.[section]?.required,
+              [group]: [
+                ...groupRequiredFields?.[section]?.required?.[group],
+                ...filterRequired,
+              ],
             },
           },
         };

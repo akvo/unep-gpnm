@@ -188,7 +188,7 @@ export const checkRequiredFieldFilledIn = (
     }
 
     // for initiative form
-    if (item?.group === null && item.key) {
+    if (item?.section === null && item?.group === null && item.key) {
       item.required.forEach((x) => {
         !(x in formData?.[item.key]) &&
           dependFields.filter((d) => d.includes(x)).length === 0 &&
@@ -196,13 +196,29 @@ export const checkRequiredFieldFilledIn = (
       });
     }
     // for initiative form
-    if (item?.group && item.key) {
+    if (item?.section === null && item?.group && item.key) {
       item.required.forEach((x) => {
         let search = x.includes(".")
           ? `${item.group}.${item.key}['${x}']`
           : `${item.group}.${item.key}.${x}`;
-        !(x in formData?.[item.group]?.[item.key]) &&
+        formData?.[item.group]?.[item.key] &&
+          !(x in formData?.[item.group]?.[item.key]) &&
           dependFields.filter((d) => d.includes(search)).length === 0 &&
+          res.push(x);
+      });
+    }
+    // for initiative form
+    if (item?.section && item?.group && item.key) {
+      item.required.forEach((x) => {
+        let search = x.includes(".")
+          ? `${item.section}.${item.group}.${item.key}['${x}']`
+          : `${item.section}.${item.group}.${item.key}.${x}`;
+        formData?.[item.section]?.[item.group]?.[item.key] &&
+          !(x in formData?.[item.section]?.[item.group]?.[item.key]) &&
+          dependFields.filter((d) => d.includes(search)).length === 0 &&
+          dependFields.filter(
+            (d) => d === `${item.section}.${item.group}.${item.key}`
+          ).length === 0 &&
           res.push(x);
       });
     }

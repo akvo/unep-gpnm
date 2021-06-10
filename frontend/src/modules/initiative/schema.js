@@ -70,7 +70,7 @@ const sdgsOptions = [
     name: "Partnerships for the Goals",
   },
 ];
-const { geoCoverageTypeOptions } = UIStore.currentState;
+const { geoCoverageTypeOptions, organisationType } = UIStore.currentState;
 
 export const schema = {
   type: "object",
@@ -811,13 +811,101 @@ export const schema = {
               type: "string",
               enum: [],
               enumNames: [],
+              dependency: [
+                {
+                  value: ["-1"],
+                  questions: ["S3_G1_17"],
+                },
+              ],
             },
             S3_G1_17: {
               title: '17. If you selected "Other", please specify.',
-              type: "string",
+              type: "object",
               depend: {
                 id: "S3_G1_16",
-                value: [-1],
+                value: ["-1"],
+              },
+              required: [
+                "name",
+                "type",
+                "country",
+                "url",
+                "geoCoverageType",
+                "geoCoverageValueNational",
+                "geoCoverageValueRegional",
+                "geoCoverageValueTransnational",
+                "geoCoverageValueGlobalSpesific",
+                "geoCoverageValueSubNational",
+              ],
+              properties: {
+                name: {
+                  title: "Name",
+                  type: "string",
+                },
+                type: {
+                  title: "Type of the Entity",
+                  enum: organisationType,
+                  enumNames: organisationType,
+                },
+                country: {
+                  title: "Country",
+                  $ref: "#/properties/S3/properties/S3_G2/properties/S3_G2_23",
+                },
+                url: {
+                  title: "Entity URL",
+                  type: "string",
+                  format: "url",
+                },
+                geoCoverageType: {
+                  title: "Geo coverage type",
+                  enum: geoCoverageTypeOptions.map((x) => x.toLowerCase()),
+                  enumNames: geoCoverageTypeOptions,
+                },
+                geoCoverageValueRegional: {
+                  title: "Geo Coverage",
+                  $ref:
+                    "#/properties/S3/properties/S3_G2/properties/S3_G2_24.1",
+                  depend: {
+                    id: "geoCoverageType",
+                    value: ["regional"],
+                  },
+                },
+                geoCoverageValueNational: {
+                  title: "Geo coverage",
+                  $ref:
+                    "#/properties/S3/properties/S3_G2/properties/S3_G2_24.2",
+                  depend: {
+                    id: "geoCoverageType",
+                    value: ["national"],
+                  },
+                },
+                geoCoverageValueTransnational: {
+                  title: "Geo coverage",
+                  $ref:
+                    "#/properties/S3/properties/S3_G2/properties/S3_G2_24.4",
+                  depend: {
+                    id: "geoCoverageType",
+                    value: ["transnational"],
+                  },
+                },
+                geoCoverageValueSubNational: {
+                  title: "Geo coverage",
+                  $ref:
+                    "#/properties/S3/properties/S3_G2/properties/S3_G2_24.3",
+                  depend: {
+                    id: "geoCoverageType",
+                    value: ["sub-national"],
+                  },
+                },
+                geoCoverageValueGlobalSpesific: {
+                  title: "Geo coverage",
+                  $ref:
+                    "#/properties/S3/properties/S3_G2/properties/S3_G2_24.5",
+                  depend: {
+                    id: "geoCoverageType",
+                    value: ["global with elements in specific areas"],
+                  },
+                },
               },
             },
             S3_G1_18: {
@@ -826,13 +914,101 @@ export const schema = {
               type: "string",
               enum: [],
               enumNames: [],
+              dependency: [
+                {
+                  value: ["-1"],
+                  questions: ["S3_G1_19"],
+                },
+              ],
             },
             S3_G1_19: {
               title: '19. If you selected "Other", please specify.',
-              type: "string",
+              type: "object",
               depend: {
                 id: "S3_G1_18",
-                value: [-1],
+                value: ["-1"],
+              },
+              required: [
+                "name",
+                "type",
+                "country",
+                "url",
+                "geoCoverageType",
+                "geoCoverageValueNational",
+                "geoCoverageValueRegional",
+                "geoCoverageValueTransnational",
+                "geoCoverageValueGlobalSpesific",
+                "geoCoverageValueSubNational",
+              ],
+              properties: {
+                name: {
+                  title: "Name",
+                  type: "string",
+                },
+                type: {
+                  title: "Type of the Entity",
+                  enum: organisationType,
+                  enumNames: organisationType,
+                },
+                country: {
+                  title: "Country",
+                  $ref: "#/properties/S3/properties/S3_G2/properties/S3_G2_23",
+                },
+                url: {
+                  title: "Entity URL",
+                  type: "string",
+                  format: "url",
+                },
+                geoCoverageType: {
+                  title: "Geo coverage type",
+                  enum: geoCoverageTypeOptions.map((x) => x.toLowerCase()),
+                  enumNames: geoCoverageTypeOptions,
+                },
+                geoCoverageValueRegional: {
+                  title: "Geo Coverage",
+                  $ref:
+                    "#/properties/S3/properties/S3_G2/properties/S3_G2_24.1",
+                  depend: {
+                    id: "geoCoverageType",
+                    value: ["regional"],
+                  },
+                },
+                geoCoverageValueNational: {
+                  title: "Geo coverage",
+                  $ref:
+                    "#/properties/S3/properties/S3_G2/properties/S3_G2_24.2",
+                  depend: {
+                    id: "geoCoverageType",
+                    value: ["national"],
+                  },
+                },
+                geoCoverageValueTransnational: {
+                  title: "Geo coverage",
+                  $ref:
+                    "#/properties/S3/properties/S3_G2/properties/S3_G2_24.4",
+                  depend: {
+                    id: "geoCoverageType",
+                    value: ["transnational"],
+                  },
+                },
+                geoCoverageValueSubNational: {
+                  title: "Geo coverage",
+                  $ref:
+                    "#/properties/S3/properties/S3_G2/properties/S3_G2_24.3",
+                  depend: {
+                    id: "geoCoverageType",
+                    value: ["sub-national"],
+                  },
+                },
+                geoCoverageValueGlobalSpesific: {
+                  title: "Geo coverage",
+                  $ref:
+                    "#/properties/S3/properties/S3_G2/properties/S3_G2_24.5",
+                  depend: {
+                    id: "geoCoverageType",
+                    value: ["global with elements in specific areas"],
+                  },
+                },
               },
             },
             S3_G1_20: {
@@ -840,13 +1016,101 @@ export const schema = {
               type: "string",
               enum: [],
               enumNames: [],
+              dependency: [
+                {
+                  value: ["-1"],
+                  questions: ["S3_G1_21"],
+                },
+              ],
             },
             S3_G1_21: {
               title: '21. If you selected "Other", please specify.',
-              type: "string",
+              type: "object",
               depend: {
                 id: "S3_G1_20",
-                value: [-1],
+                value: ["-1"],
+              },
+              required: [
+                "name",
+                "type",
+                "country",
+                "url",
+                "geoCoverageType",
+                "geoCoverageValueNational",
+                "geoCoverageValueRegional",
+                "geoCoverageValueTransnational",
+                "geoCoverageValueGlobalSpesific",
+                "geoCoverageValueSubNational",
+              ],
+              properties: {
+                name: {
+                  title: "Name",
+                  type: "string",
+                },
+                type: {
+                  title: "Type of the Entity",
+                  enum: organisationType,
+                  enumNames: organisationType,
+                },
+                country: {
+                  title: "Country",
+                  $ref: "#/properties/S3/properties/S3_G2/properties/S3_G2_23",
+                },
+                url: {
+                  title: "Entity URL",
+                  type: "string",
+                  format: "url",
+                },
+                geoCoverageType: {
+                  title: "Geo coverage type",
+                  enum: geoCoverageTypeOptions.map((x) => x.toLowerCase()),
+                  enumNames: geoCoverageTypeOptions,
+                },
+                geoCoverageValueRegional: {
+                  title: "Geo Coverage",
+                  $ref:
+                    "#/properties/S3/properties/S3_G2/properties/S3_G2_24.1",
+                  depend: {
+                    id: "geoCoverageType",
+                    value: ["regional"],
+                  },
+                },
+                geoCoverageValueNational: {
+                  title: "Geo coverage",
+                  $ref:
+                    "#/properties/S3/properties/S3_G2/properties/S3_G2_24.2",
+                  depend: {
+                    id: "geoCoverageType",
+                    value: ["national"],
+                  },
+                },
+                geoCoverageValueTransnational: {
+                  title: "Geo coverage",
+                  $ref:
+                    "#/properties/S3/properties/S3_G2/properties/S3_G2_24.4",
+                  depend: {
+                    id: "geoCoverageType",
+                    value: ["transnational"],
+                  },
+                },
+                geoCoverageValueSubNational: {
+                  title: "Geo coverage",
+                  $ref:
+                    "#/properties/S3/properties/S3_G2/properties/S3_G2_24.3",
+                  depend: {
+                    id: "geoCoverageType",
+                    value: ["sub-national"],
+                  },
+                },
+                geoCoverageValueGlobalSpesific: {
+                  title: "Geo coverage",
+                  $ref:
+                    "#/properties/S3/properties/S3_G2/properties/S3_G2_24.5",
+                  depend: {
+                    id: "geoCoverageType",
+                    value: ["global with elements in specific areas"],
+                  },
+                },
               },
             },
           },

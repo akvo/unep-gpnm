@@ -132,28 +132,29 @@ const getSchema = (
 ) => {
   const prop = cloneDeep(schema.properties);
   const orgs = [...organisations];
-  // const orgs = [...organisations, { id: -1, name: "Other" }].map((x) => x);
+  const orgsWithOtherOption = [...organisations, { id: -1, name: "Other" }];
   // organisation options
   prop.S1.properties["S1_G1_1.1"].enum = orgs?.map((it) => it.id);
   prop.S1.properties["S1_G1_1.1"].enumNames = orgs?.map((it) => it.name);
-  prop.S3.properties.S3_G1.properties["S3_G1_16"].enum = orgs?.map((it) =>
-    String(it.id)
-  );
-  prop.S3.properties.S3_G1.properties["S3_G1_16"].enumNames = orgs?.map(
-    (it) => it.name
-  );
-  prop.S3.properties.S3_G1.properties["S3_G1_18"].enum = orgs?.map((it) =>
-    String(it.id)
-  );
-  prop.S3.properties.S3_G1.properties["S3_G1_18"].enumNames = orgs?.map(
-    (it) => it.name
-  );
-  prop.S3.properties.S3_G1.properties["S3_G1_20"].enum = orgs?.map((it) =>
-    String(it.id)
-  );
-  prop.S3.properties.S3_G1.properties["S3_G1_20"].enumNames = orgs?.map(
-    (it) => it.name
-  );
+  // organisation options with other
+  prop.S3.properties.S3_G1.properties[
+    "S3_G1_16"
+  ].enum = orgsWithOtherOption?.map((it) => String(it.id));
+  prop.S3.properties.S3_G1.properties[
+    "S3_G1_16"
+  ].enumNames = orgsWithOtherOption?.map((it) => it.name);
+  prop.S3.properties.S3_G1.properties[
+    "S3_G1_18"
+  ].enum = orgsWithOtherOption?.map((it) => String(it.id));
+  prop.S3.properties.S3_G1.properties[
+    "S3_G1_18"
+  ].enumNames = orgsWithOtherOption?.map((it) => it.name);
+  prop.S3.properties.S3_G1.properties[
+    "S3_G1_20"
+  ].enum = orgsWithOtherOption?.map((it) => String(it.id));
+  prop.S3.properties.S3_G1.properties[
+    "S3_G1_20"
+  ].enumNames = orgsWithOtherOption?.map((it) => it.name);
   // MEA options
   prop.S2.properties.S2_G2.properties[
     "S2_G2_7.2"
