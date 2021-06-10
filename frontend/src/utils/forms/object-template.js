@@ -112,7 +112,13 @@ const ObjectFieldTemplate = ({
       });
       let questions = flatten(results.map((item) => item.questions));
       questions.forEach((key) => {
-        formData?.[key] && delete formData?.[key];
+        if (typeof formData?.[key] !== "object") {
+          formData?.[key] && delete formData?.[key];
+        } else {
+          formData?.[key] &&
+            Object.values(formData?.[key]).length > 0 &&
+            delete formData?.[key];
+        }
       });
     }
 
