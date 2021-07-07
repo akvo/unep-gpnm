@@ -20,6 +20,10 @@ export const schema = {
     "geoCoverageValueGlobalSpesific",
     "geoCoverageValueSubNational",
     "tags",
+    "developmentStage",
+    "organisationType",
+    "url",
+    "remarks",
   ],
   properties: {
     name: {
