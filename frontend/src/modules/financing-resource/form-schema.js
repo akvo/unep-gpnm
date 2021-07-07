@@ -21,6 +21,8 @@ export const schema = {
     "geoCoverageValueGlobalSpesific",
     "geoCoverageValueSubNational",
     "tags",
+    "summary",
+    "image",
   ],
   properties: {
     title: {
