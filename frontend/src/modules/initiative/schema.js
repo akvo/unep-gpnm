@@ -481,6 +481,9 @@ export const schema = {
             "S2_G2_8",
             "S2_G2_9",
             "S2_G2_10",
+            "S2_G2_11",
+            "S2_G2_12",
+            "S2_G2_13",
           ],
           properties: {
             S2_G2_5: {
