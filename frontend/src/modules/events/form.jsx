@@ -120,12 +120,17 @@ const defaultFormSchema = [
         },
       },
     },
-    description: { label: "Event description", control: "textarea" },
+    description: {
+      label: "Event description",
+      control: "textarea",
+      required: true,
+    },
     photo: {
       label: "Photo",
       control: "file",
       accept: "image/*",
       maxFileSize: 1,
+      required: true,
     },
   },
   {
