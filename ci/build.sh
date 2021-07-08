@@ -59,8 +59,16 @@ frontend_build () {
 	   --tag "${image_prefix}/frontend:${CI_COMMIT}" frontend
 }
 
-backend_build
-frontend_build
+if [ "${1:-}" == "backend" ];
+then
+    backend_build
+elif [ "${1:-}" == "frontend" ]
+then
+    frontend_build
+else
+    echo "Pass an argument 'backend' or 'frontend' to $0"
+    exit 1
+fi
 
 if ! dci run -T ci ./basic.sh; then
   dci logs

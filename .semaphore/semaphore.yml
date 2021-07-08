@@ -29,7 +29,8 @@ global_job_config:
         /usr/lib/jvm \
         /opt/*
 blocks:
-  - name: "Build and test"
+  - name: "Build and test backend"
+    dependencies: []
     skip:
       when: "tag =~ '.*'"
     task:
@@ -37,21 +38,52 @@ blocks:
         commands:
           - checkout
           - cache restore "m2-$(checksum backend/project.clj)"
-          - cache restore "npm-$(checksum frontend/package.json)"
-          - cache restore "node-modules-$(checksum frontend/package.json)"
-          - cache restore "$SEMAPHORE_PROJECT_ID-$SEMAPHORE_GIT_BRANCH"
+          - cache restore "$SEMAPHORE_PROJECT_ID-$SEMAPHORE_GIT_BRANCH-backend"
       epilogue:
         commands:
           - cache store "m2-$(checksum backend/project.clj)" "$HOME/.m2"
+          - cache store "$SEMAPHORE_PROJECT_ID-$SEMAPHORE_GIT_BRANCH-backend" "$HOME/.cache"
+      jobs:
+        - name: Build and test backend
+          commands:
+            - ./ci/build.sh "backend"
+  - name: "Build and test frontend"
+    dependencies: []
+    skip:
+      when: "tag =~ '.*'"
+    task:
+      prologue:
+        commands:
+          - checkout
+          - cache restore "npm-$(checksum frontend/package.json)"
+          - cache restore "node-modules-$(checksum frontend/package.json)"
+          - cache restore "$SEMAPHORE_PROJECT_ID-$SEMAPHORE_GIT_BRANCH-frontend"
+      epilogue:
+        commands:
           - cache store "npm-$(checksum frontend/package.json)" "$HOME/.npm"
           - cache store "node-modules-$(checksum frontend/package.json)" "frontend/node_modules"
-          - cache store "$SEMAPHORE_PROJECT_ID-$SEMAPHORE_GIT_BRANCH" "$HOME/.cache"
+          - cache store "$SEMAPHORE_PROJECT_ID-$SEMAPHORE_GIT_BRANCH-frontend" "$HOME/.cache"
       jobs:
-        - name: Build and test
+        - name: Build and test frontend
           commands:
-            - ./ci/build.sh
+            - ./ci/build.sh "frontend"
+  - name: "Deploy"
+    dependencies: ["Build and test backend", "Build and test frontend"]
+    skip:
+      when: "tag =~ '.*'"
+    task:
+      prologue:
+        commands:
+          - cache restore "$SEMAPHORE_PROJECT_ID-$SEMAPHORE_GIT_BRANCH-deploy"
+      epilogue:
+        commands:
+          - cache store "$SEMAPHORE_PROJECT_ID-$SEMAPHORE_GIT_BRANCH-deploy" "$HOME/.cache"
+      jobs:
+        - name: Deploy
+          commands:
             - ./ci/deploy.sh
   - name: "Promote to production"
+    dependencies: []
     run:
       when: "tag =~ '.*'"
     task:
