@@ -9,9 +9,13 @@
             [gpml.email-util :as email]
             [gpml.auth :as auth]
             [integrant.core :as ig]
-            [ring.util.response :as resp]))
+            [ring.util.response :as resp])
+  (:import [java.time Instant]
+           [java.sql Timestamp])
+  )
 
 (defn create-event [conn {:keys [tags urls title start_date end_date
+                                 url
                                  description remarks geo_coverage_type
                                  country city geo_coverage_value photo
                                  geo_coverage_countries geo_coverage_country_groups
@@ -19,6 +23,7 @@
   (let [data {:title title
               :start_date start_date
               :end_date end_date
+              :url url
               :description (or description "")
               :remarks remarks
               :image (handler.image/assoc-image conn photo "event")
@@ -30,7 +35,7 @@
               :country country
               :owners owners
               :created_by created_by}
-        event-id (->> data (db.event/new-event conn) :id)]
+        event-id (:id (db.event/new-event data conn) )]
     (when (not-empty tags)
       (db.event/add-event-tags conn {:tags (map #(vector event-id %) tags)}))
     (when (not-empty owners)

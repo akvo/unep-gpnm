@@ -13,6 +13,7 @@ insert into event(
 --~ (when (contains? params :id) ", id")
 --~ (when (contains? params :review_status) ", review_status")
 --~ (when (contains? params :created_by) ", created_by")
+--~ (when (contains? params :url) ", url")
 )
 values(
     :title,
@@ -27,6 +28,7 @@ values(
 --~ (when (contains? params :id) ", :id")
 --~ (when (contains? params :review_status) ", :v:review_status::review_status")
 --~ (when (contains? params :created_by) ", :created_by")
+--~ (when (contains? params :url) ", :url")
 ) RETURNING id;
 
 -- :name add-event-tags :<! :1
