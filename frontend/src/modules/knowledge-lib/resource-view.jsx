@@ -9,16 +9,10 @@ import ResourceCards, {
 } from "../../components/resource-cards/resource-cards";
 import { LoadingOutlined, DownOutlined } from "@ant-design/icons";
 import { ReactComponent as SortIcon } from "../../images/knowledge-library/sort-icon.svg";
-import { ReactComponent as GlobeIcon } from "../../images/transnational.svg";
-import { ReactComponent as TopicIcon } from "../../images/topic-view.svg";
-import { ReactComponent as GridIcon } from "../../images/grid-view.svg";
-import { ReactComponent as GraphIcon } from "../../images/graph-view.svg";
 import { ReactComponent as SearchIcon } from "../../images/search-icon.svg";
 import { Button } from "antd";
 import Maps from "../map/map";
-import { UIStore } from "../../store";
 import { isEmpty } from "lodash";
-import { Link, useHistory } from "react-router-dom";
 import { useQuery, topicNames } from "../../utils/misc";
 import TopicView from "./topic-view";
 import { useParams, useLocation, withRouter } from "react-router-dom";

@@ -3,10 +3,8 @@ import { Button } from "antd";
 import { useQuery } from "../../utils/misc";
 import { Icon } from "../../components/svg-icon/svg-icon";
 import { ReactComponent as FilterIcon } from "../../images/knowledge-library/filter-icon.svg";
-import { ReactComponent as OverviewIcon } from "../../images/overview.svg";
 import CountryTransnationalFilter from "../../components/select/country-transnational-filter";
 import LocationDropdown from "../../components/location-dropdown/location-dropdown";
-import api from "../../utils/api";
 import { LeftOutlined } from "@ant-design/icons";
 import { withRouter } from "react-router-dom";
 
@@ -119,7 +117,9 @@ const FilterBar = ({
             onClick={() => {
               if (type === it.key)
                 history.push({
-                  pathname: `/knowledge/library/resource/${view ? view : "map"}`,
+                  pathname: `/knowledge/library/resource/${
+                    view ? view : "map"
+                  }`,
                   search: search,
                 });
               else
