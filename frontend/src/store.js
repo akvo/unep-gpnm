@@ -269,22 +269,15 @@ const mainContentType = [
     ],
     childs: [
       {
-        title: "Legislations, Regulations & Standards",
-        tags: ["policy", "legislations, regulations & standards"],
-        des:
-          "Measures taken by governmental units to influence people by means of formulated rules and directives which mandate receivers act in accordance with what is ordered in these rules or directives.",
-      },
-      {
-        title: "Prohibitive Regulations, Bans & Restrictions",
+        title: "Bans & Restrictions",
         tags: ["policy", "legislations, regulations & standards"],
         des:
           "Rules of an obligatory nature that are negative, disallowing certain phenomena or actions.",
       },
       {
-        title: "Strategies & Action Plans",
+        title: "Combined Actions",
         tags: ["policy", "strategies & action plans"],
-        des:
-          "Decisions designed to create favorable impact on key factors to create a desired outcome.",
+        des: "",
       },
       {
         title: "Economic Instruments",
@@ -293,16 +286,24 @@ const mainContentType = [
           "Incentive measures bring about an intended behaviour or outcome as an alternative to command and control measures - legal codes and prescriptions.",
       },
       {
-        title: "Certification, Licensing and Registration",
+        title: "Extended Producer Responsability (EPR) Schemes",
         tags: ["policy", "certification, licensing, and registration"],
-        des:
-          "Process of checking, verifying, and attaining general information about the abilityl to comply with the standard. ",
+        des: "",
       },
       {
-        title: "Policy Guidance and Information",
+        title: "Other Actions",
         tags: ["policy", "policy guidance"],
-        des:
-          "Help and advice provided on a set of ideas or plans that is used as a basis for making decisions, especially in politics, economics, or business.",
+        des: "",
+      },
+      {
+        title: "Product standards Certification and Labeling requirements",
+        tags: ["policy", "policy guidance"],
+        des: "",
+      },
+      {
+        title: "Waste Management Legislation",
+        tags: ["policy", "policy guidance"],
+        des: "",
       },
     ],
     desc:
