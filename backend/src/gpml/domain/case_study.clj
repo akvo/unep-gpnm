@@ -101,11 +101,14 @@
        :description "The Case Study's review's stakeholder reference."}}
      pos-int?]
     [:review_status
-     {:swagger
+     {:default :SUBMITTED
+      :decode/string keyword
+      :decode/json keyword
+      :swagger
       {:description "Review status of the Case Study"
        :type "string"
        :enum dom.types/review-statuses}}
-     (apply conj [:enum] dom.types/review-statuses)]
+     (apply conj [:enum] (map keyword dom.types/review-statuses))]
     [:created_by
      {:swagger
       {:type "integer"
