@@ -107,9 +107,11 @@
 
     .esri-widget__table{ width: 100%;}
 
-    .esri-feature-fields__field-header{ border-bottom: 1px solid black;}
-
-    .esri-feature-fields__field-data{ border-bottom: 1px solid black;}
+    .esri-feature-fields__field-header{ border-bottom: 1px solid gray;}
+    .esri-component.esri-zoom {
+      display: none;
+    }
+    .esri-feature-fields__field-data{ border-bottom: 1px solid gray;}
     .show-hide-btn {
       background-color: transparent;
       padding: 0;
