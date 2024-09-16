@@ -1,0 +1,163 @@
+@import '../../styles/vars.scss';
+
+.knowledgeHub {
+  display: flex;
+  @media screen and (max-width: $bpMobile) {
+    flex-direction: column;
+  }
+  :global {
+    .filter-sidebar {
+      background: #f5f7ff;
+      padding: 20px;
+
+      @media screen and (min-width: 768px) {
+        width: 350px;
+        min-width: 350px;
+        min-height: calc(100vh - 300px);
+      }
+
+      .src {
+        line-height: 32px;
+        height: 32px;
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+
+        input {
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          border-radius: 0;
+        }
+      }
+
+      .sticky {
+        position: sticky;
+        top: 20px;
+      }
+
+      .ant-collapse {
+        border: none;
+        background-color: transparent;
+        .ant-collapse-item {
+          border: none;
+          margin-top: 10px;
+          .ant-collapse-header {
+            background-color: transparent;
+            padding: 0;
+            position: relative;
+            border: none;
+            margin-bottom: 5px;
+            .ant-collapse-expand-icon {
+              position: absolute;
+              right: -10px;
+            }
+          }
+          .ant-collapse-content {
+            border: none;
+            background-color: transparent;
+            padding: 0;
+            margin: 0;
+            .ant-collapse-content-box {
+              padding: 0;
+            }
+          }
+        }
+      }
+      .h-xs {
+        margin-bottom: 10px;
+      }
+
+      .ant-select {
+        border: 1px solid #ccc;
+        width: 100%;
+      }
+      // .section {
+      //   margin-top: 15px;
+      // }
+
+      .filters {
+        display: flex;
+        flex-wrap: wrap;
+
+        .filter {
+          display: flex;
+          margin: 0 10px 10px 0;
+          line-height: 30px;
+          padding: 0 10px;
+          border-radius: 15px;
+          background-color: $primaryPurple2;
+          font-family: $ff2;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.12s ease-out;
+          color: inherit;
+
+          &:hover {
+            background-color: $primaryPurple3;
+          }
+
+          &.on {
+            background-color: $primaryPurple4;
+          }
+
+          svg {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+
+    .content {
+      position: relative;
+      width: 100%;
+
+      .no-results {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: calc(50vh - 70px);
+      }
+
+      .sorting {
+        margin: 25px 0 5px 20px;
+
+        a {
+          color: $primaryDarkBlue4 !important;
+          font-family: $ff1;
+          font-weight: 500;
+        }
+      }
+    }
+
+    .loading {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      // align-items: center;
+      justify-content: center;
+      z-index: 2;
+      background-color: rgba(255, 255, 255, 0.75);
+
+      .ant-spin {
+        margin-top: calc(50vh - 100px);
+      }
+    }
+
+    .results {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+
+      .resource-card {
+        margin: 15px 0 0 15px;
+      }
+    }
+
+    .load-more {
+      margin: 40px auto;
+    }
+  }
+}

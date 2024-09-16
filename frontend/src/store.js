@@ -1,21 +1,8 @@
 import { languages } from 'countries-list'
 import { Store } from 'pullstate'
 import BookIcon from './images/book-open.svg'
-import CaseStudiesSvg from './images/folder.svg'
 import CapacityBuildingSvg from './images/owl.svg'
-import HelpCenterSvg from './images/help.svg'
-import IconCommunity from './images/community.svg'
-import ExpertIcon from './images/education.svg'
-import IconEvent from './images/calendar.svg'
-import IconPartner from './images/partners.svg'
-import IconForum from './images/engage.svg'
-import AnalyticAndStatisticSvg from './images/statistics.svg'
-import DataCatalogueSvg from './images/archive.svg'
-import GlossarySvg from './images/glossary.svg'
-import MapSvg from './images/map.svg'
-import ExploreSvg from './images/api.svg'
 import { t, msg } from '@lingui/macro'
-import { i18n } from '@lingui/core'
 
 const geoCoverageTypeOptions = ['Global', 'Transnational', 'National']
 
@@ -25,7 +12,7 @@ const menuList = [
     id: 'Knowledge Hub',
     children: [
       {
-        to: '/knowledge/library',
+        to: '/knowledge-hub',
         title: msg`Library`,
         key: msg`Library`,
         id: 'Library',
@@ -110,7 +97,7 @@ const menuList = [
       {
         key: msg`Digital Platform`,
         id: 'Digital Platform',
-        to: '/page/regional-nodes',
+        to: '/page/about-platform',
       },
       {
         key: msg`Contact Us`,
@@ -775,6 +762,13 @@ const mainContentType = [
     ],
     desc: msg`The definition of capacity development is broad. It is a holistic enterprise, encompassing a multitude of activities. It means building abilities, relationships and values that will enable organisations, groups and individuals to improve their performance and achieve their development objectives. It includes strengthening the processes, systems and rules that influence collective and individual behaviour and performance in all development endeavours. And it means enhancing people’s technical ability and willingness to play new developmental roles and adapt to new demands and situations.`,
   },
+  {
+    code: 'data_catalog',
+    name: msg`Data Catalog`,
+    examples: [],
+    childs: [],
+    desc: msg`Data Catalog`,
+  },
 ]
 
 const UIStore = new Store({
@@ -793,6 +787,7 @@ const UIStore = new Store({
   regionOptions: [],
   meaOptions: [],
   transnationalOptions: [],
+  featuredOptions: [],
   organisationType: sectorOptions,
   sectorOptions: sectorOptions,
   representativeGroup: representativeGroup,
