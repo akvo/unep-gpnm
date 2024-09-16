@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_values_layer_value_per_countries",
+  "info": {
+    "displayName": "CountryValue",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Value": {
+      "type": "float"
+    },
+    "Year": {
+      "type": "string"
+    },
+    "CountryName": {
+      "type": "string"
+    },
+    "country": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::country.country"
+    }
+  }
+}
