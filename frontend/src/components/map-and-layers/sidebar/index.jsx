@@ -6,7 +6,7 @@ import Subcategories from './partials/subcategories'
 import styles from './index.module.scss'
 import CategoriesNested from './partials/categoriesNested'
 
-const Sidebar = ({ alt }) => {
+const Sidebar = ({ alt, countryDashboard }) => {
   const [showLayerSidebar, setShowLayerSidebar] = useState(false)
 
   const { categories, loading } = useCategories()
@@ -27,7 +27,12 @@ const Sidebar = ({ alt }) => {
 
   return (
     <div className={styles.container}>
-      {alt ? (
+         <CategoriesNested
+            categories={categories}
+            subcategories={subcategories}
+            countryDashboard={countryDashboard}
+          />
+      {/* {alt ? (
         <>
           <CategoriesNested
             categories={categories}
@@ -42,7 +47,7 @@ const Sidebar = ({ alt }) => {
           />
           {showLayerSidebar && <Subcategories subcategories={subcategories} />}
         </>
-      )}
+      )} */}
     </div>
   )
 }

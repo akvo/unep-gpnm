@@ -77,12 +77,10 @@
     "layerPortalItemId": {
       "type": "string"
     },
-    "thumbnail": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": false
+    "ValuePerCountry": {
+      "type": "component",
+      "repeatable": true,
+      "component": "values.layer-value-per-country"
     }
   }
 }

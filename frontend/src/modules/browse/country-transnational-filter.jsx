@@ -25,6 +25,8 @@ const CountryTransnationalFilter = ({
     transnationalOptions: s.transnationalOptions,
   }));
 
+  console.log('countrieees', countries)
+
   const isLoaded = () => !isEmpty(countries) && !isEmpty(transnationalOptions);
 
   const countryOpts = isLoaded()

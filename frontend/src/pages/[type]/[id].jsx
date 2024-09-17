@@ -104,7 +104,7 @@ export async function getServerSideProps(context) {
   const baseUrl = `${protocol}://${req.headers.host}/`
 
   const API_ENDPOINT = process.env.REACT_APP_FEENV
-    ? 'https://unep-gpml.akvotest.org/api/'
+    ? 'https://digital.gpmarinelitter.org/api/'
     : `${baseUrl}/api/`
 
   if (!VALID_TYPES.includes(type)) {

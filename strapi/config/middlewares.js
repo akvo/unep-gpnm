@@ -6,11 +6,11 @@ module.exports = [
       contentSecurityPolicy: {
         useDefaults: true,
         directives: {
-          "script-src": ["'self'", "*.tinymce.com", "*.tiny.cloud", "https:"],
-          "connect-src": ["'self'", "*.tinymce.com", "*.tiny.cloud", "blob:", "*.strapi.io"],
+          "script-src": ["'self'", "*.tiny.cloud", "https:"],
+          "connect-src": ["'self'", "*.tiny.cloud", "blob:", "*.strapi.io"],
           "img-src": [
             "'self'",
-            "*.tinymce.com",
+          
             "*.tiny.cloud",
             "data:",
             "blob:",
@@ -23,10 +23,9 @@ module.exports = [
           "style-src": [
             "'self'",
             "'unsafe-inline'",
-            "*.tinymce.com",
             "*.tiny.cloud",
           ],
-          "font-src": ["'self'", "*.tinymce.com", "*.tiny.cloud"],
+          "font-src": ["'self'",  "*.tiny.cloud"],
           "media-src": ["'self'", "data:", "blob:", "storage.googleapis.com"],
         },
         upgradeInsecureRequests: null,

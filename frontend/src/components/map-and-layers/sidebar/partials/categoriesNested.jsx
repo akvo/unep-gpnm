@@ -1,18 +1,52 @@
 import React, { useState } from 'react'
-import { Layout, Typography, Menu, Tag } from 'antd'
+import { Layout, Typography, Menu, Tag, Select } from 'antd'
 import { CloseCircleFilled } from '@ant-design/icons'
 import useQueryParameters from '../../../../hooks/useQueryParameters'
 import useIndicators from '../../../../hooks/useIndicators'
 import Subcategories from './../partials/subcategories'
 import useSubcategories from '../../../../hooks/useSubcategories'
 import { useRouter } from 'next/router'
+import { UIStore } from '../../../../store'
+import { isEmpty } from 'lodash'
 
 const { Sider } = Layout
 
-const CategoriesNested = ({ categories }) => {
+const CategoriesNested = ({ categories, countryDashboard }) => {
   const { queryParameters, setQueryParameters } = useQueryParameters()
   const [selectedCategory, setSelectedCategory] = useState(null)
+  const [selectedCountry, setSelectedCountry] = useState(null)
   const router = useRouter()
+
+  const { countries, transnationalOptions, landing } = UIStore.useState(
+    (s) => ({
+      countries: s.countries,
+      transnationalOptions: s.transnationalOptions,
+      landing: s.landing,
+    })
+  )
+
+  const isLoaded = () => !isEmpty(countries) && !isEmpty(transnationalOptions)
+
+  const countryOpts = isLoaded()
+    ? countries
+        .filter(
+          (country) => country.description.toLowerCase() === 'member state'
+        )
+        .map((it) => ({ value: it.id, label: it.name }))
+        .sort((a, b) => a.label.localeCompare(b.label))
+    : []
+
+  const handleChangeCountry = (val) => {
+    const selected = countries?.find((x) => x.id === val)
+
+    const newParams = {
+      country: selected?.name,
+    }
+
+    setQueryParameters(newParams)
+
+    setSelectedCountry(selectedCountry?.name)
+  }
 
   const categoryId = router.isReady ? router.query.categoryId : undefined
 
@@ -32,6 +66,7 @@ const CategoriesNested = ({ categories }) => {
   )
   const { layers, loading } = useIndicators()
   const handleCloseLayer = (layerId) => {
+    console.log('buggg',queryParameters.layers)
     const updatedLayers = queryParameters.layers?.filter(
       (layer) => layer.id !== layerId
     )
@@ -42,9 +77,38 @@ const CategoriesNested = ({ categories }) => {
   }
 
   return (
-    <Sider breakpoint="lg" collapsedWidth="0" width={360}>
+    <Sider breakpoint="lg" collapsedWidth="0" overflow={'auto'} width={360}>
+      <Select
+        size="small"
+        // className={styles.countryDropdown}
+        showArrow
+        allowClear
+        // dropdownClassName="multiselection-dropdown"
+        // dropdownMatchSelectWidth={false}
+        // mode={countrySelectMode || ''}
+        placeholder={`Countries`}
+        options={countryOpts}
+        optionFilterProp="children"
+        filterOption={(input, option) =>
+          option?.label?.toLowerCase().indexOf(input.toLowerCase()) >= 0
+        }
+        //  value={query.country}
+        onChange={handleChangeCountry}
+        // suffixIcon={<SearchIcon />}
+
+        virtual={false}
+        style={{
+          marginLeft:'15px',
+          width: '95%',
+          height:'52px',
+          padding: '4px',
+          fontSize: '16px',
+          border: '1px solid #ccc',
+          borderRadius: '4px',
+        }}
+      />
       <div className="caps-heading-s">Topics</div>
-      <Menu defaultSelectedKeys={['1']}>
+      <Menu defaultSelectedKeys={['1']} overflow={'auto'}>
         {categories.map((category) => (
           <div key={category.attributes.categoryId}>
             <Menu.Item
@@ -65,7 +129,7 @@ const CategoriesNested = ({ categories }) => {
                 {category.attributes.name}
               </span>
             </Menu.Item>
-            {isCategorySelected(category) && (
+            {isCategorySelected(category) && !countryDashboard && (
               <Subcategories
                 subcategories={subcategoriesByCategory}
                 layers={layers}
@@ -73,7 +137,8 @@ const CategoriesNested = ({ categories }) => {
               />
             )}
             {queryParameters.layers &&
-              queryParameters.layers
+              !countryDashboard &&
+              [queryParameters.layers]
                 ?.filter(
                   (layer) => layer.categoryId === category.attributes.categoryId
                 )

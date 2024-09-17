@@ -1,65 +1,101 @@
 module.exports = ({ env }) => ({
-    tinymce: {
-        enabled: true,
-        config: {
-            editor: {
-                outputFormat: "html",
-                editorConfig: {
-                    language: "en",
-                    height: 500,
-                    menubar: false,
-                    extended_valid_elements: "span, img, small",
-                    forced_root_block: "",
-                    convert_urls: false,
-                    entity_encoding: "raw",
-                    plugins: "preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons accordion",
-                    menubar: "file edit view insert format tools table help",
-                    toolbar: "undo redo | accordion accordionremove | blocks fontfamily fontsize | bold italic underline strikethrough | align numlist bullist | link image | table media | lineheight outdent indent| forecolor backcolor removeformat | charmap emoticons | code fullscreen preview | save print | pagebreak anchor codesample | ltr rtl",
-                    style_formats: [
-                        {
-                            title: "Headings",
-                            items: [
-                                { title: "h1", block: "h1" },
-                                { title: "h2", block: "h2" },
-                                { title: "h3", block: "h3" },
-                                { title: "h4", block: "h4" },
-                                { title: "h5", block: "h5" },
-                                { title: "h6", block: "h6" },
-                            ],
-                        },
+  // Other plugin configurations...
 
-                        {
-                            title: "Text",
-                            items: [
-                                { title: "Paragraph", block: "p" },
-                                {
-                                    title: "Paragraph with small letters",
-                                    block: "small",
-                                },
-                            ],
-                        },
-                    ],
-                },
-            },
-        },
+  'import-export-entries': {
+    enabled: true,
+    config: {
+     
     },
-    upload: {
-      config: {
-        provider: '@strapi-community/strapi-provider-upload-google-cloud-storage',
-        providerOptions: {
-          serviceAccount: env.json('GCS_SERVICE_ACCOUNT'),
-          bucketName: env('GCS_BUCKET_NAME'),
-          basePath: env('GCS_BASE_PATH'),
-          baseUrl: env('GCS_BASE_URL'),
-          publicFiles: env('GCS_PUBLIC_FILES'),
-          uniform: env('GCS_UNIFORM'),
-          skipCheckBucket: true
+  },
+  
+
+  'documentation': {
+    enabled: true,
+    config: {
+      openapi: {
+        info: {
+          title: 'Import-Export Entries API Documentation',
+          description: 'API documentation for import and export entries feature in Strapi.',
+          version: '1.0.0',
+          contact: {
+            name: 'Support Team',
+            email: 'support@example.com',
+          },
+        },
+        components: {
+          securitySchemes: {
+            bearerAuth: {
+              type: 'http',
+              scheme: 'bearer',
+              bearerFormat: 'JWT',
+            },
+          },
+        },
+        security: [
+          {
+            bearerAuth: [],
+          },
+        ],
+        tags: [
+          {
+            name: 'Import-Export Entries',
+            description: 'APIs related to importing and exporting entries.',
+          },
+        ],
+        paths: {
+          '/import-export-entries/import': {
+            post: {
+              tags: ['Import-Export Entries'],
+              summary: 'Import entries into the system',
+              operationId: 'importEntries',
+              requestBody: {
+                content: {
+                  'application/json': {
+                    schema: {
+                      type: 'object',
+                      properties: {
+                        data: { type: 'string' },
+                      },
+                      required: ['data'],
+                    },
+                  },
+                },
+              },
+              responses: {
+                200: {
+                  description: 'Import successful',
+                },
+                400: {
+                  description: 'Bad request',
+                },
+              },
+            },
+          },
+          '/import-export-entries/export': {
+            get: {
+              tags: ['Import-Export Entries'],
+              summary: 'Export entries from the system',
+              operationId: 'exportEntries',
+              responses: {
+                200: {
+                  description: 'Export successful',
+                  content: {
+                    'application/json': {
+                      schema: {
+                        type: 'array',
+                        items: { type: 'object' },
+                      },
+                    },
+                  },
+                },
+                400: {
+                  description: 'Bad request',
+                },
+              },
+            },
+          },
         },
       },
     },
-    'import-export-entries': {
-      enabled: true,
-    },
-
-    //...
+  },
 });

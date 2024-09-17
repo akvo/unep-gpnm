@@ -6,4 +6,18 @@
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::layer.layer');
+
+
+module.exports = {
+    routes: [
+      {
+        method: 'GET',
+        path: '/layers/populate-countries',
+        handler: 'layer.populateCountries',
+        config: {
+          auth: false, 
+        },
+      },
+    ],
+  };
+  

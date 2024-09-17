@@ -1,15 +1,11 @@
-import React, { useState } from "react";
-import classNames from "classnames";
-import { Link, NavLink } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import React, { useState } from 'react'
+import classNames from 'classnames'
+import { Link, NavLink } from 'react-router-dom'
 
-import "./styles.scss";
+// import './styles.scss'
 
 const LeftSidebar = ({ sidebar, active = 1 }) => {
-  const [activeMenu, setActiveMenu] = useState(active);
-  const location = useLocation();
-
-  console.log(location);
+  const [activeMenu, setActiveMenu] = useState(active)
 
   return (
     <>
@@ -17,7 +13,7 @@ const LeftSidebar = ({ sidebar, active = 1 }) => {
         <aside id="mainNavigation">
           <ul className="sidebar sidebar-desktop">
             {sidebar?.map((s, sx) => (
-              <li className={classNames("item-sidebar")} key={sx}>
+              <li className={classNames('item-sidebar')} key={sx}>
                 {s?.url ? (
                   <NavLink
                     to={s.url}
@@ -27,7 +23,7 @@ const LeftSidebar = ({ sidebar, active = 1 }) => {
                     {s.icon}
                     <p>{s?.title}</p>
                   </NavLink>
-                ) : s.title.toLowerCase() === "forums" ? (
+                ) : s.title?.toLowerCase() === 'forums' ? (
                   <a
                     href="https://communities.gpmarinelitter.org/"
                     className="item-menu"
@@ -48,7 +44,7 @@ const LeftSidebar = ({ sidebar, active = 1 }) => {
           <ul className="ant-row ant-row-center sidebar-mobile">
             {sidebar?.map((s, sx) => (
               <li
-                className={classNames("ant-col ant-col-8 item-sidebar", {
+                className={classNames('ant-col ant-col-8 item-sidebar', {
                   active: activeMenu === s?.id,
                 })}
                 key={sx}
@@ -74,7 +70,7 @@ const LeftSidebar = ({ sidebar, active = 1 }) => {
         </aside>
       )}
     </>
-  );
-};
+  )
+}
 
-export default LeftSidebar;
+export default LeftSidebar

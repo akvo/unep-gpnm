@@ -47,11 +47,11 @@ const menuList = [
         id: 'Maps',
         to: '/data/maps',
       },
-      // {
-      //   key: msg`Dashboard`,
-      //   id: 'Dashboard',
-      //   href: 'https://datahub.gpmarinelitter.org/',
-      // },
+      {
+        key: msg`Country dashboard`,
+        id: 'Country dashboard',
+        to: '/country-dashboard',
+      },
       {
         key: msg`Data Catalogue`,
         id: 'Data Catalogue',
