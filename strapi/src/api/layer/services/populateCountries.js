@@ -1,64 +1,47 @@
-// // path: src/api/layer/services/populateCountries.js
-
-// module.exports = {
-//   async populateCountriesForLayers() {
-//     try {
-//       const countries = await strapi.entityService.findMany('api::country.country', {
-//         fields: ['id', "CountryName"], 
-//       });
-
-//       if (!countries.length) {
-//         console.log('No countries found.');
-//         return;
-//       }
-
-//       const layers = await strapi.entityService.findMany('api::layer.layer');
-//       console.log(countries[0])
-//       for (const layer of layers) {
-
-
-
-//         const valuePerCountryData = countries.map(country => ({
-//           Value: 0,  
-//           Year: new Date().getFullYear().toString(),  
-//           CountryName: country["CountryName"],
-//           country: country["id"]
-//         }));
-
-//         await strapi.entityService.update('api::layer.layer', layer.id, {
-//           data: {
-//             ValuePerCountry: valuePerCountryData,
-//           },
-//         });
-//         console.log(`Updated layer ${layer.id} with countries.`);
-//       }
-
-//     } catch (err) {
-//       console.error('Error populating countries:', err);
-//     }
-//   },
-// };
-
-
-
-
-const xlsx = require('xlsx');
-const path = require('path'); // For handling file paths
+const axios = require('axios');
 
 module.exports = {
-  async populateCountriesForLayers() {
+  async populateCountriesForLayers(arcgislayerId) {
     try {
-      // Load the Excel file (assuming it's located in the /data folder)
-      const workbook = xlsx.readFile(path.resolve(__dirname, './LayerDataValues.csv'));
+      const layer = await strapi.entityService.findMany('api::layer.layer', {
+        filters: {
+          arcgislayerId,
+        }
+      });
 
-      // Get the first sheet in the workbook
-      const sheetName = workbook.SheetNames[0];
-      const sheet = workbook.Sheets[sheetName];
+      if (!layer.length) {
+        console.log(`Layer with arcgislayerid not found.`);
+        return;
+      }
 
-      // Convert the sheet to JSON
-      const excelData = xlsx.utils.sheet_to_json(sheet);
+      const layerId = layer[0].id;
 
-      // Fetch all countries from Strapi
+      const arcgisUrl = `https://services3.arcgis.com/pI4ewELlDKS2OpCN/arcgis/rest/services/${arcgislayerId}/FeatureServer/0/query?where=1=1&outFields=Year,Value,Country&f=json`;
+
+      const response = await axios.get(arcgisUrl);
+
+      const arcgisData = response.data.features.map(feature => feature.attributes);
+
+      const groupedData = arcgisData.reduce((acc, current) => {
+        const country = current.Country;
+
+        if (!acc[country]) {
+          acc[country] = [];
+        }
+        acc[country].push(current);
+        return acc;
+      }, {});
+
+      const latestCountryData = Object.keys(groupedData).map(country => {
+        const countryRows = groupedData[country];
+
+        const latestRow = countryRows.reduce((prev, current) => {
+          return parseInt(current.Year) > parseInt(prev.Year) ? current : prev;
+        });
+
+        return latestRow;
+      });
+
       const countries = await strapi.entityService.findMany('api::country.country', {
         fields: ['id', 'CountryName'],
       });
@@ -68,35 +51,36 @@ module.exports = {
         return;
       }
 
-      // Fetch all layers from Strapi
-      const layers = await strapi.entityService.findMany('api::layer.layer');
+      const valuePerCountryData = countries.map(country => {
+        const allCountryRows = [];
 
-      for (const layer of layers) {
-        // Map the countries to the Excel data
-        const valuePerCountryData = countries.map(country => {
+        countries.forEach(country => {
+          const countryRows = latestCountryData.filter(row => row.Country === country["CountryName"]);
 
-          const excelRow = excelData.find(row => row.Country === country["CountryName"]);
-
-          return {
-            Value: excelRow ? excelRow.OBS_Value : 0,  // Default value if not found
-            Year: excelRow ? excelRow.Time_Period.toString() : new Date().getFullYear().toString(),  // Default year if not found
-            CountryName: country["CountryName"],
-            country: country["id"]
-          };
+          if (countryRows.length > 0) {
+            allCountryRows.push(...countryRows);
+          }
         });
 
-        // Update each layer with the mapped ValuePerCountry data
-        await strapi.entityService.update('api::layer.layer', layer.id, {
-          data: {
-            ValuePerCountry: valuePerCountryData,
-          },
-        });
+        const currentCountry = allCountryRows.find(row => row.Country === country["CountryName"])
 
-        console.log(`Updated layer ${layer.id} with values from Excel.`);
-      }
+        return {
+          Value: currentCountry ? currentCountry["Value"] : 0,
+          Year: currentCountry ? currentCountry["Year"].toString() : null,
+          CountryName: country["CountryName"],
+          country: country["id"]
+        };
+      });
 
+      await strapi.entityService.update('api::layer.layer', layerId, {
+        data: {
+          ValuePerCountry: valuePerCountryData,
+        },
+      });
+
+      console.log(`Updated layer ${layerId} with values from ArcGIS.`);
     } catch (err) {
-      console.error('Error populating countries:', err);
+      console.error('Error populating countries for layer:', err);
     }
   },
 };

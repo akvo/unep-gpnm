@@ -12,7 +12,7 @@ module.exports = {
     routes: [
       {
         method: 'GET',
-        path: '/layers/populate-countries',
+        path: '/layers/populate-countries/:arcgislayerId',
         handler: 'layer.populateCountries',
         config: {
           auth: false, 
