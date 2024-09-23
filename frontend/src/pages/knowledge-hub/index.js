@@ -17,6 +17,7 @@ import { multicountryGroups } from '../../modules/knowledge-library/multicountry
 import { DownOutlined, LoadingOutlined } from '@ant-design/icons'
 import { loadCatalog } from '../../translations/utils'
 import Link from 'next/link'
+import { lifecycleStageTags } from '../../utils/misc'
 
 const getCountryIdsFromGeoGroups = (
   selectedGeoCountryGroup,
@@ -49,9 +50,6 @@ const KnowledgeHub = ({
   const [loading, setLoading] = useState(false)
   const selectedThemes = router.query.tag ? router.query.tag.split(',') : []
   const selectedTypes = router.query.topic ? router.query.topic.split(',') : []
-  const selectedCountries = router.query.country
-    ? router.query.country.split(',')
-    : []
   const selectedGeoCountryGroup = router.query.geo
     ? router.query.geo.split(',')
     : []
@@ -133,14 +131,7 @@ const KnowledgeHub = ({
     }
   }, [modalVisible])
 
-  const themes = [
-    'Plastic Production & Distribution',
-    'Plastic Consumption',
-    'Reuse',
-    'Recycle',
-    'Waste Management',
-    'Just Transition of Informal Sector',
-  ].map((it) => ({ name: it }))
+  const themes = lifecycleStageTags.map((it) => ({ name: it }))
 
   const types = [
     { name: 'Technical Resource', value: 'technical_resource' },
@@ -154,9 +145,10 @@ const KnowledgeHub = ({
   ]
 
   const handleThemeToggle = (theme) => {
-    const newThemes = selectedThemes.includes(theme)
-      ? selectedThemes.filter((t) => t !== theme)
-      : [...selectedThemes, theme]
+    const lowerCaseTheme = theme.toLowerCase()
+    const newThemes = selectedThemes.includes(lowerCaseTheme)
+      ? selectedThemes.filter((t) => t !== lowerCaseTheme)
+      : [...selectedThemes, lowerCaseTheme]
     updateQueryParams({
       tag: newThemes.length > 0 ? newThemes.join(',') : undefined,
     })
@@ -183,7 +175,7 @@ const KnowledgeHub = ({
   }
 
   const handleCountryChange = (value) => {
-    updateQueryParams({ ...router.query, countries: value })
+    updateQueryParams({ ...router.query, country: value })
   }
 
   const showModal = ({ e, item }) => {
@@ -292,15 +284,20 @@ const KnowledgeHub = ({
           <Collapse onChange={handleCollapseChange} activeKey={collapseKeys}>
             <Collapse.Panel
               key="p1"
-              header={<h4 className="h-xs w-semi">Theme</h4>}
+              header={<h4 className="h-xs w-semi">Life Cycle Stage</h4>}
             >
               <div className="filters">
                 {themes?.map((theme) => (
                   <FilterToggle
                     key={theme.name}
                     onToggle={() => handleThemeToggle(theme.name)}
-                    isSelected={selectedThemes.includes(theme.name)}
-                    href={`/knowledge-hub?tag=${theme.name.toLowerCase()}`}
+                    isSelected={selectedThemes.some(
+                      (selectedTheme) =>
+                        selectedTheme.toLowerCase() === theme.name.toLowerCase()
+                    )}
+                    href={`/knowledge-hub?tag=${encodeURIComponent(
+                      theme.name.toLowerCase()
+                    )}`}
                   >
                     {theme.name}
                   </FilterToggle>
@@ -347,6 +344,7 @@ const KnowledgeHub = ({
                 mode="multiple"
                 dropdownClassName="multiselection-dropdown"
                 dropdownMatchSelectWidth={false}
+                placement="topLeft"
                 placeholder={t`Countries`}
                 options={countryOpts}
                 optionFilterProp="children"

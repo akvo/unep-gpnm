@@ -2,19 +2,27 @@
 import useQueryParameters from "./useQueryParameters";
 import FeatureLayer from "@arcgis/core/layers/FeatureLayer.js";
 import LabelClass from "@arcgis/core/layers/support/LabelClass.js";
+import useLayerInfo from "./useLayerInfo";
 
 const useLayers = (renderers) => {
   const { queryParameters } = useQueryParameters();
-  const { layers: layersFromQuery } = queryParameters;
+  let { layers: layersFromQuery } = queryParameters;
+  const { layer: layerFromQuery } = queryParameters;
 
-  const featureLayers = [layersFromQuery]?.reverse().map(layer => {
-    const baseUrl = `https://services3.arcgis.com/pI4ewELlDKS2OpCN/arcgis/rest/services/${layer?.attributes.arcgislayerId}/FeatureServer`;
+  const allLayers = useLayerInfo()
+
+  if (layerFromQuery) {
+    layersFromQuery = allLayers?.layers.filter(lay => lay.attributes.arcgislayerId === layerFromQuery)
+  }
+
+  const featureLayers = layersFromQuery?.reverse().map(layer => {
+    const baseUrl = `https://services3.arcgis.com/pI4ewELlDKS2OpCN/arcgis/rest/services/${layer.attributes.arcgislayerId}/FeatureServer`;
 
     const url = layer?.attributes.featureId ? `${baseUrl}/${layer?.attributes.featureId}` : baseUrl;
     const layerRendererObject = renderers.find(renderer => renderer.key === layer?.attributes.name)
     const renderer = layerRendererObject ? layerRendererObject.renderer : null
 
-    const parts = layer?.attributes.outFields?.split(',');
+    const parts = layer?.attributes?.outFields?.split(',');
 
     const arrayFields = []
     const quotedParts = parts?.map(part => `${part}`);

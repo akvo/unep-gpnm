@@ -116,7 +116,7 @@ const Search = ({ setLoginVisible, isAuthenticated }) => {
                     key={`${it.type}-${it.id}`}
                     onClick={({ e, item }) => {
                       router.push(
-                        `/data/maps?categoryId=${item.categoryId}&subcategoryId=${item.subcategoryId}&layers=${item.arcgislayerId}`
+                        `/data/maps?categoryId=${item.categoryId}&subcategoryId=${item.subcategoryId}&layer=${item.arcgislayerId}`
                       )
                     }}
                   />
@@ -172,14 +172,13 @@ export const SearchBar = ({ onSearch, loading }) => {
     }
   }
   const suggestions = [
-    'Data on plastic waste in Africa',
     'Potential partners for recycling in Cambodia',
+    'Data on beach litter',
+    'Funds on plastic pollution in Asia',
     'Is there any legislation currently in force regarding waste management in Guatemala',
     'Data on protected marine areas',
-    'Funds on plastic pollution in Asia',
     'What initiatives is UNEP a partner of',
     'What technical resources are funded by UNEP',
-    'Datasets on beach litter',
   ]
   const [showModal, setShowModal] = useState(false)
 
@@ -188,12 +187,12 @@ export const SearchBar = ({ onSearch, loading }) => {
       setVal(router.query.q)
       onSearch(router.query.q)
     }
-  }, [])
+  }, [router.query])
   return (
     <div className={classNames(styles.searchBar, 'search-bar')}>
       <Form
         onFinish={() => {
-          onSearch(val)
+          router.push(`/search?q=${val.replace(/ /g, '+')}`)
         }}
       >
         <Input
@@ -208,7 +207,7 @@ export const SearchBar = ({ onSearch, loading }) => {
             type="primary"
             size="small"
             onClick={() => {
-              onSearch(val)
+              router.push(`/search?q=${val.replace(/ /g, '+')}`)
             }}
           >
             Search
