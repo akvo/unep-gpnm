@@ -55,6 +55,14 @@
           "localized": true
         }
       }
+    },
+    "categoryCountryDashboardText": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text"
     }
   }
 }
