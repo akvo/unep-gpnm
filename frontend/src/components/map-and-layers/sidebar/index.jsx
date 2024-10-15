@@ -1,49 +1,48 @@
-import React, { useState } from 'react'
-import Categories from './partials/categories'
-import useCategories from '../../../hooks/useCategories'
-import useSubcategories from '../../../hooks/useSubcategories'
-import Subcategories from './partials/subcategories'
-import styles from './index.module.scss'
-import CategoriesNested from './partials/categoriesNested'
+import React, { useState } from 'react';
+import Categories from './partials/categories';
+import useCategories from '../../../hooks/useCategories';
+import useSubcategories from '../../../hooks/useSubcategories';
+import Subcategories from './partials/subcategories';
+import styles from './index.module.scss';
+import CategoriesNested from './partials/categoriesNested';
+import CategoriesNestedDashboard from './partials/CategoriesNestedDashboard';
 
-const Sidebar = ({ alt }) => {
-  const [showLayerSidebar, setShowLayerSidebar] = useState(false)
 
-  const { categories, loading } = useCategories()
+const Sidebar = ({ alt, countryDashboard }) => {
+  const [showLayerSidebar, setShowLayerSidebar] = useState(false);
 
-  const subcategories = useSubcategories()
+  const { categories, loading } = useCategories();
+  const subcategories = useSubcategories();
 
   if (loading) {
-    return <div>Loading...</div>
+    return <div>Loading...</div>;
   }
 
   if (!categories || categories.length === 0 || !Array.isArray(categories)) {
-    return <div>No categories available.</div>
+    return <div>No categories available.</div>;
   }
 
   const handleCategoryClick = () => {
-    setShowLayerSidebar(true)
-  }
+    setShowLayerSidebar(true);
+  };
 
   return (
     <div className={styles.container}>
-      {alt ? (
-        <>
-          <CategoriesNested
-            categories={categories}
-            subcategories={subcategories}
-          />
-        </>
+      {countryDashboard ? (
+        <CategoriesNestedDashboard
+          categories={categories}
+          subcategories={subcategories}
+          countryDashboard={countryDashboard}
+        />
       ) : (
-        <>
-          <Categories
-            categories={categories}
-            onCategoryClick={handleCategoryClick}
-          />
-          {showLayerSidebar && <Subcategories subcategories={subcategories} />}
-        </>
+        <CategoriesNested
+          categories={categories}
+          subcategories={subcategories}
+          countryDashboard={countryDashboard}
+        />
       )}
     </div>
-  )
-}
-export default Sidebar
+  );
+};
+
+export default Sidebar;
