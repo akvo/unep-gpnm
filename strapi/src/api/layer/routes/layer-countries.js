@@ -18,13 +18,13 @@ module.exports = {
         auth: false,
       },
     },
-    {
-      method: 'GET',
-      path: '/category/template/:categoryId',
-      handler: 'layer-countries-controller.generateTemplate',
-      config: {
-        auth: false,
-      },
-    },
+    // {
+    //   method: 'GET',
+    //   path: '/category/template/:categoryId',
+    //   handler: 'layer-countries-controller.generateTemplate',
+    //   config: {
+    //     auth: false,
+    //   },
+    // },
   ],
 };
