@@ -84,27 +84,7 @@ const CategoriesNestedDashboard = ({ categories }) => {
       />
 
       <div style={{ marginTop: '20px' }}>
-        <div
-          onClick={() =>
-            handleCategoryClick({ attributes: { categoryId: 'overview' } })
-          }
-          style={{
-            padding: '10px 20px',
-            fontSize: '16px',
-            color: '#1B2738',
-            fontWeight: selectedCategory === 'overview' ? 'bold' : 'normal',
-            backgroundColor:
-              selectedCategory === 'overview' ? '#E3DDFD' : 'transparent',
-            borderRadius: '8px',
-            marginBottom: '10px',
-            cursor: 'pointer',
-            userSelect: 'none',
-            border: 'none',
-            boxShadow: 'none',
-          }}
-        >
-          Overview
-        </div>
+
 
         {categories.map((category) => (
           <div

@@ -1,15 +1,56 @@
-import React from 'react'
-import ReactEcharts from 'echarts-for-react'
+import React, { useEffect, useState } from 'react';
+import ReactEcharts from 'echarts-for-react';
+import axios from 'axios';
+import { useParams } from 'react-router-dom'; 
+import { useRouter } from 'next/router';
 
 const PlasticImportExportChart = () => {
-  const years = ['2017', '2018', '2019', '2020', '2021']
-  const totalImports = [100000, 150000, 200000, 250000, 458203]
-  const totalExports = [50000, 60000, 75000, 80000, 152029]
+  const router = useRouter(); 
+  const {country}=router.query;
+  const [years, setYears] = useState([]);
+  const [totalImports, setTotalImports] = useState([]);
+  const [totalExports, setTotalExports] = useState([]);
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const importUrl = `https://services3.arcgis.com/pI4ewELlDKS2OpCN/arcgis/rest/services/Total_plastic___weight__import__WFL1/FeatureServer/0/query?where=1=1&outFields=Year,Value,Country&f=json`;
+      const exportUrl = `https://services3.arcgis.com/pI4ewELlDKS2OpCN/arcgis/rest/services/Total_plastic___weight__export__WFL1/FeatureServer/0/query?where=1=1&outFields=Year,Value,Country&f=json`;
+
+      try {
+        const [importRes, exportRes] = await Promise.all([axios.get(importUrl), axios.get(exportUrl)]);
+
+        const filteredImports = importRes.data.features.filter(item => item.attributes.Country === country);
+        const filteredExports = exportRes.data.features.filter(item => item.attributes.Country === country);
+
+        const yearsSet = new Set();
+        const importValues = [];
+        const exportValues = [];
+
+        filteredImports.forEach(item => {
+          yearsSet.add(item.attributes.Year);
+          importValues.push(item.attributes.Value);
+        });
+
+        filteredExports.forEach(item => {
+          exportValues.push(item.attributes.Value);
+        });
+
+        setYears(Array.from(yearsSet));
+        setTotalImports(importValues);
+        setTotalExports(exportValues);
+      } catch (error) {
+        console.error('Error fetching data from ArcGIS:', error);
+      }
+    };
+
+    fetchData();
+  }, [country]);
 
   const getOption = () => {
     return {
       title: {
-        text: 'Plastic Import & Export (kUSD)',
+        text: `Plastic Import & Export for ${country} (kUSD)`,
         left: 'center',
       },
       tooltip: {
@@ -19,7 +60,7 @@ const PlasticImportExportChart = () => {
         },
       },
       legend: {
-        data: ['Total exports (1000$)', 'Total imports (1000$)'],
+        data: ['Total exports', 'Total imports'], // Only show names, no values
         bottom: 0,
       },
       xAxis: {
@@ -32,7 +73,7 @@ const PlasticImportExportChart = () => {
       },
       series: [
         {
-          name: 'Total exports (1000$)',
+          name: 'Total exports',
           type: 'line',
           data: totalExports,
           symbol: 'circle',
@@ -41,7 +82,7 @@ const PlasticImportExportChart = () => {
           },
         },
         {
-          name: 'Total imports (1000$)',
+          name: 'Total imports',
           type: 'line',
           data: totalImports,
           symbol: 'circle',
@@ -50,15 +91,16 @@ const PlasticImportExportChart = () => {
           },
         },
       ],
-    }
-  }
+    };
+  };
+  
 
   return (
     <ReactEcharts
       option={getOption()}
       style={{ height: '400px', width: '100%' }}
     />
-  )
-}
+  );
+};
 
-export default PlasticImportExportChart
+export default PlasticImportExportChart;

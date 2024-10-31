@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Row, Col, Button, Tooltip } from 'antd'
 import { InfoCircleOutlined } from '@ant-design/icons'
 import { useRouter } from 'next/router'
@@ -6,11 +6,12 @@ import useCategories from '../../hooks/useCategories'
 import useReplacedText from '../../hooks/useReplacePlaceholders'
 import PlasticImportExportChart from './PlasticImportExportChart'
 import PlasticImportExportTonnesChart from './PlasticImportExportTonnesChart'
-import styles from './CountryOverview.module.scss'
+import PlasticImportExportPieCharts from './PlasticImportExportPieChart' 
 import MSWGenerationChart from './MSWGeneration'
 import PlasticOceanBeachChart from './PlasticOceanBeachCHart'
 import SmallCards from './OverviewCards'
 import PolicyComponent from './PolicyCOmponent'
+import RequestDataUpdateModal from './RequestDataUpdateModal'
 
 const splitTextInHalf = (text) => {
   const words = text.split(' ')
@@ -25,6 +26,16 @@ const CountryOverview = () => {
 
   const categories = useCategories()
 
+  const [isModalVisible, setModalVisible] = useState(false)
+
+  const showModal = () => {
+    setModalVisible(true)
+  }
+
+  const handleClose = () => {
+    setModalVisible(false)
+  }
+
   const text = categories.categories.find(
     (cat) => cat.attributes.categoryId === router.query.categoryId
   )?.attributes?.categoryCountryDashboardText
@@ -33,13 +44,13 @@ const CountryOverview = () => {
     router.query.country,
     router.query.categoryId
   )
-  console.log('categoryText', categoryText)
+
   const [firstHalfText, secondHalfText] = splitTextInHalf(
     categoryText.replacedText || ''
   )
 
   return (
-    <div style={{ padding: '20px' }}>
+    <div style={{ padding: '20px', overflow: 'auto' }}>
       <Row className="header-row" style={{ marginBottom: '20px' }}>
         <Col span={18}>
           <div style={{ marginBottom: '10px' }}>
@@ -80,6 +91,7 @@ const CountryOverview = () => {
           <Tooltip title="Update country data by sending a request to the GPML Data Hub team.">
             <Button
               type="primary"
+              onClick={showModal}
               style={{
                 marginTop: '10px',
                 backgroundColor: '#00C49A',
@@ -92,6 +104,7 @@ const CountryOverview = () => {
             >
               Request Data Update
             </Button>
+            <RequestDataUpdateModal visible={isModalVisible} onClose={handleClose} />
           </Tooltip>
         </Col>
       </Row>
@@ -120,32 +133,63 @@ const CountryOverview = () => {
       )}
 
       {router.query.categoryId === 'industry-and-trade' && (
-        <Row gutter={[32, 16]}>
-          <Col span={12}>
-            <div
-              style={{
-                backgroundColor: '#FFFFFF',
-                borderRadius: '12px',
-                padding: '20px',
-                boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
-              }}
-            >
-              <PlasticImportExportChart />
-            </div>
-          </Col>
-          <Col span={12}>
-            <div
-              style={{
-                backgroundColor: '#FFFFFF',
-                borderRadius: '12px',
-                padding: '20px',
-                boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
-              }}
-            >
-              <PlasticImportExportTonnesChart />
-            </div>
-          </Col>
-        </Row>
+        <>
+          <Row style={{ marginBottom: '40px' }}>
+            <Col span={24}>
+              <div
+                style={{
+                  backgroundColor: '#FFFFFF',
+                  borderRadius: '12px',
+                  padding: '20px',
+                  boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
+                }}
+              >
+                <PlasticImportExportChart />
+              </div>
+            </Col>
+          </Row>
+          <Row style={{ marginBottom: '40px' }}>
+            <Col span={24}>
+              <div
+                style={{
+                  backgroundColor: '#FFFFFF',
+                  borderRadius: '12px',
+                  padding: '20px',
+                  boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
+                }}
+              >
+                <PlasticImportExportTonnesChart />
+              </div>
+            </Col>
+          </Row>
+
+          <Row gutter={[32, 16]}>
+            <Col span={12}>
+              <div
+                style={{
+                  backgroundColor: '#FFFFFF',
+                  borderRadius: '12px',
+                  padding: '20px',
+                  boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
+                }}
+              >
+                <PlasticImportExportPieCharts chartType="import" />
+              </div>
+            </Col>
+            <Col span={12}>
+              <div
+                style={{
+                  backgroundColor: '#FFFFFF',
+                  borderRadius: '12px',
+                  padding: '20px',
+                  boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
+                }}
+              >
+                <PlasticImportExportPieCharts chartType="export" />
+              </div>
+            </Col>
+          </Row>
+        </>
       )}
 
       {router.query.categoryId === 'waste-management' && (

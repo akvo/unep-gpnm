@@ -718,7 +718,19 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    order: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     categoryCountryDashboardText: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    textTemplate: Attribute.JSON &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1002,6 +1014,18 @@ export interface ApiLayerLayer extends Schema.CollectionType {
         };
       }>;
     thumbnail: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    order: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    HideNoData: Attribute.Boolean &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
