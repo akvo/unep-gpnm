@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { Row, Col, Button, Tooltip } from 'antd'
-import { InfoCircleOutlined } from '@ant-design/icons'
 import { useRouter } from 'next/router'
 import useCategories from '../../hooks/useCategories'
 import useReplacedText from '../../hooks/useReplacePlaceholders'
 import PlasticImportExportChart from './PlasticImportExportChart'
 import PlasticImportExportTonnesChart from './PlasticImportExportTonnesChart'
-import PlasticImportExportPieCharts from './PlasticImportExportPieChart' 
+import PlasticImportExportPieCharts from './PlasticImportExportPieChart'
+import WasteProportionPieChart from './WasteProportionPieChart'
 import MSWGenerationChart from './MSWGeneration'
 import PlasticOceanBeachChart from './PlasticOceanBeachCHart'
 import SmallCards from './OverviewCards'
@@ -50,12 +50,12 @@ const CountryOverview = () => {
   )
 
   return (
-    <div style={{ padding: '20px', overflow: 'auto' }}>
+    <div style={{ maxWidth: '70%', margin: '0 auto', padding: '16px' }}>
       <Row className="header-row" style={{ marginBottom: '20px' }}>
-        <Col span={18}>
+        <Col xs={24} md={18}>
           <div style={{ marginBottom: '10px' }}>
             <span
-              style={{ color: '#6236FF', fontSize: '18px', fontWeight: 'bold' }}
+              style={{ color: '#6236FF', fontSize: '24px', fontWeight: 'bold' }}
             >
               {decodeURIComponent(router.query.country)?.toUpperCase()}
             </span>
@@ -74,7 +74,7 @@ const CountryOverview = () => {
             </h3>
           </div>
         </Col>
-        <Col span={6} style={{ textAlign: 'right' }}>
+        <Col xs={24} md={6} style={{ textAlign: 'right' }}>
           <span style={{ color: '#7C7C7C', fontSize: '14px' }}>
             <span
               style={{
@@ -104,31 +104,36 @@ const CountryOverview = () => {
             >
               Request Data Update
             </Button>
-            <RequestDataUpdateModal visible={isModalVisible} onClose={handleClose} />
+            <RequestDataUpdateModal
+              visible={isModalVisible}
+              onClose={handleClose}
+            />
           </Tooltip>
         </Col>
       </Row>
 
       {router.query.categoryId !== 'overview' ? (
-        <Row gutter={[32, 16]} style={{ marginBottom: '40px' }}>
-          <Col span={12}>
-            <p style={{ fontSize: '16px', color: '#1B2738' }}>
-              {firstHalfText}
-            </p>
+        <Row gutter={[16, 16]} style={{ marginBottom: '40px' }}>
+          <Col xs={24} md={12}>
+            <p
+              style={{ fontSize: '16px', color: '#1B2738' }}
+              dangerouslySetInnerHTML={{ __html: firstHalfText }}
+            />
           </Col>
-          <Col span={12}>
-            <p style={{ fontSize: '16px', color: '#1B2738' }}>
-              {secondHalfText}
-            </p>
+          <Col xs={24} md={12}>
+            <p
+              style={{ fontSize: '16px', color: '#1B2738' }}
+              dangerouslySetInnerHTML={{ __html: secondHalfText }}
+            />
           </Col>
         </Row>
       ) : (
-        <Row style={{ marginBottom: '40px', width: '1600px' }}>
+        <Row style={{ marginBottom: '40px', width: '100%' }}>
           <p style={{ fontSize: '16px', color: '#1B2738' }}>
             {'Explore highlighted data to find plastic data.'}
           </p>
 
-          <SmallCards></SmallCards>
+          <SmallCards />
         </Row>
       )}
 
@@ -163,8 +168,8 @@ const CountryOverview = () => {
             </Col>
           </Row>
 
-          <Row gutter={[32, 16]}>
-            <Col span={12}>
+          <Row gutter={[16, 16]}>
+            <Col xs={24} md={12}>
               <div
                 style={{
                   backgroundColor: '#FFFFFF',
@@ -176,7 +181,7 @@ const CountryOverview = () => {
                 <PlasticImportExportPieCharts chartType="import" />
               </div>
             </Col>
-            <Col span={12}>
+            <Col xs={24} md={12}>
               <div
                 style={{
                   backgroundColor: '#FFFFFF',
@@ -193,8 +198,8 @@ const CountryOverview = () => {
       )}
 
       {router.query.categoryId === 'waste-management' && (
-        <Row gutter={[32, 16]}>
-          <Col span={12}>
+        <Row gutter={[16, 16]}>
+          <Col xs={24} md={12}>
             <div
               style={{
                 backgroundColor: '#FFFFFF',
@@ -206,18 +211,31 @@ const CountryOverview = () => {
               <MSWGenerationChart />
             </div>
           </Col>
-        </Row>
-      )}
-
-      {router.query.categoryId === 'governance-and-regulations' && (
-        <Row gutter={[32, 16]}>
-          <Col span={12}>
+          <Col xs={24} md={12}>
             <div
               style={{
                 backgroundColor: '#FFFFFF',
                 borderRadius: '12px',
                 padding: '20px',
                 boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
+              }}
+            >
+              <WasteProportionPieChart chartType="import" />
+            </div>
+          </Col>
+        </Row>
+      )}
+
+      {router.query.categoryId === 'governance-and-regulations' && (
+        <Row>
+          <Col span={24}>
+            {' '}
+            {/* Use span={24} to make it full width */}
+            <div
+              style={{
+                backgroundColor: 'transparent',
+                width: '105%',
+                paddingRight: '530px',
               }}
             >
               <PolicyComponent replacedText={categoryText.replacedText} />
@@ -227,8 +245,8 @@ const CountryOverview = () => {
       )}
 
       {router.query.categoryId === 'environmental-impact' && (
-        <Row gutter={[32, 16]}>
-          <Col span={12}>
+        <Row gutter={[16, 16]}>
+          <Col xs={24} md={12}>
             <div
               style={{
                 backgroundColor: '#FFFFFF',

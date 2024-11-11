@@ -130,9 +130,9 @@ function ResourceView({ history }) {
           display: 'flex',
           flexDirection: 'row',
           justifyContent: 'space-between',
-          height: '100vh',
+          maxHeight: '1000px',
           width: '100%',
-          overflow: 'hidden',
+           overflow: 'auto',
           paddingTop: '50px',
         }}
       >

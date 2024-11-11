@@ -1,124 +1,158 @@
 import React, { useEffect, useState } from 'react'
 import ReactEcharts from 'echarts-for-react'
-import axios from 'axios'
 import { useRouter } from 'next/router'
+import useLayerInfo from '../../hooks/useLayerInfo'
 
 const PlasticImportExportChart = () => {
   const router = useRouter()
   const { country } = router.query
+  const { layers, loading } = useLayerInfo()
 
   const [importData, setImportData] = useState([])
   const [exportData, setExportData] = useState([])
 
   const categories = [
-    'Plastic in primary forms',
-    'Intermediate forms of plastic',
-    'Final manufactured plastic goods',
-    'Intermediate manufactured plastic goods',
-    'Plastic waste',
+    'plasticinPrimaryForm',
+    'intermediateFormsOfPlastic',
+    'finalManufacturedPlasticGoods',
+    'intermediateManufacturedPlasticGoods',
+    'plasticWaste',
   ]
 
-  const layerUrls = {
-    import: {
-      plasticinPrimaryForm:
-        'https://services3.arcgis.com/pI4ewELlDKS2OpCN/arcgis/rest/services/Plastics_in_primary_forms___weight__import__WFL1/FeatureServer/0/query',
-      intermediateFormsOfPlastic:
-        'https://services3.arcgis.com/pI4ewELlDKS2OpCN/arcgis/rest/services/Intermediate_forms_of_plastic_weight____import__WFL1/FeatureServer/0/query',
-      finalManufacturedPlasticGoods:
-        'https://services3.arcgis.com/pI4ewELlDKS2OpCN/arcgis/rest/services/Final_manufactured_plastics_goods___weight__import__WFL1/FeatureServer/0/query',
+  const categoriesTitle = [
+    { plasticinPrimaryForm: 'Plastic in primary form' },
+    { intermediateFormsOfPlastic: 'Intermediate forms of plastic' },
+    { finalManufacturedPlasticGoods: 'Final manufactured plastic goods' },
+    {
       intermediateManufacturedPlasticGoods:
-        'https://services3.arcgis.com/pI4ewELlDKS2OpCN/arcgis/rest/services/Intermediate___weight__import__WFL1/FeatureServer/0/query',
-      plasticWaste:
-        'https://services3.arcgis.com/pI4ewELlDKS2OpCN/arcgis/rest/services/Plastic_waste_weigth____import__WFL1/FeatureServer/0/query',
+        'Intermediate manufactured plastic goods',
     },
-    export: {
-      plasticinPrimaryForm:
-        'https://services3.arcgis.com/pI4ewELlDKS2OpCN/arcgis/rest/services/Plastics_in_primary_forms___weight__export__WFL1/FeatureServer/0/query',
-      intermediateFormsOfPlastic:
-        'https://services3.arcgis.com/pI4ewELlDKS2OpCN/arcgis/rest/services/Intermediate_forms_of_plastic_weight____export__WFL1/FeatureServer/0/query',
-      finalManufacturedPlasticGoods:
-        'https://services3.arcgis.com/pI4ewELlDKS2OpCN/arcgis/rest/services/Final_manufactured_plastics_goods_weight____export__WFL1/FeatureServer/0/query',
-      intermediateManufacturedPlasticGoods:
-        'https://services3.arcgis.com/pI4ewELlDKS2OpCN/arcgis/rest/services/Intermediate___weight__export__WFL1/FeatureServer/0/query',
-      plasticWaste:
-        'https://services3.arcgis.com/pI4ewELlDKS2OpCN/arcgis/rest/services/Plastic_waste_weigth____export__WFL1/FeatureServer/0/query',
-    },
-  }
-
-  const fetchCategoryData = async (url, country) => {
-    const query = `?where=Country='${country}'&outFields=Year,Value&orderByFields=Year DESC&f=json&resultRecordCount=1`
-    const { data } = await axios.get(`${url}${query}`)
-
-    return data.features.length > 0 ? data.features[0].attributes.Value : 0
-  }
+    { plasticWaste: 'Plastic waste' },
+  ]
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const importResults = await Promise.all(
-          Object.values(layerUrls.import).map((url) =>
-            fetchCategoryData(url, country)
-          )
-        )
+    const fetchData = () => {
+      if (loading || !country || !layers.length) return
 
-        const exportResults = await Promise.all(
-          Object.values(layerUrls.export).map((url) =>
-            fetchCategoryData(url, country)
-          )
-        )
-
-        setImportData(importResults)
-        setExportData(exportResults)
-      } catch (error) {
-        console.error('Error fetching data from ArcGIS:', error)
+      const importLayers = {
+        plasticinPrimaryForm: layers.find(
+          (layer) =>
+            layer.attributes.arcgislayerId ===
+            'Plastic_in_primary_form___value__import__WFL1'
+        ),
+        intermediateFormsOfPlastic: layers.find(
+          (layer) =>
+            layer.attributes.arcgislayerId ===
+            'Intermediate___value__import__WFL1' 
+        ),
+        finalManufacturedPlasticGoods: layers.find(
+          (layer) =>
+            layer.attributes.arcgislayerId ===
+            'Final_manufactured_plastics_goods___Import__million__WFL1'
+        ),
+        intermediateManufacturedPlasticGoods: layers.find(
+          (layer) =>
+            layer.attributes.arcgislayerId ===
+            'Inter__man_plastic_goods___value_V3_WFL1' 
+        ),
+        plasticWaste: layers.find(
+          (layer) =>
+            layer.attributes.arcgislayerId ===
+            'Plastic_waste___value__import__WFL1'
+        ),
       }
+
+      const exportLayers = {
+        plasticinPrimaryForm: layers.find(
+          (layer) =>
+            layer.attributes.arcgislayerId ===
+            'Plastic_in_primary_form___value__export__WFL1'
+        ),
+        intermediateFormsOfPlastic: layers.find(
+          (layer) =>
+            layer.attributes.arcgislayerId ===
+            'Intermediate_forms_of_plastic___value__export__WFL1'
+        ),
+        finalManufacturedPlasticGoods: layers.find(
+          (layer) =>
+            layer.attributes.arcgislayerId ===
+            'Final_manufactured_plastic_goods___value__export__WFL1'
+        ),
+        intermediateManufacturedPlasticGoods: layers.find(
+          (layer) =>
+            layer.attributes.arcgislayerId ===
+            'Intermediate_V2___value__export__WFL1' 
+        ),
+        plasticWaste: layers.find(
+          (layer) =>
+            layer.attributes.arcgislayerId ===
+            'Plastic_waste___value__export__WFL1'
+        ),
+      }
+
+      const importResults = categories.map((category) => {
+        const layer = importLayers[category]
+
+        const data = layer?.attributes.ValuePerCountry.find(
+          (item) => item.CountryName === country
+        )
+        return data ? data.Value : 0
+      })
+
+      const exportResults = categories.map((category) => {
+        const layer = exportLayers[category]
+        const data = layer?.attributes.ValuePerCountry.find(
+          (item) => item.CountryName === country
+        )
+        return data ? data.Value : 0
+      })
+
+      setImportData(importResults)
+      setExportData(exportResults)
     }
 
-    if (country) {
-      fetchData()
-    }
-  }, [country])
+    fetchData()
+  }, [country, layers, loading])
 
-  const getOption = () => {
-    return {
-      title: {
-        text: `Plastic Import & Export (tonnes) for ${country}`,
-        left: 'center',
+  const getOption = () => ({
+    title: {
+      text: `Plastic Import & Export (value) for ${country}`,
+      left: 'center',
+    },
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: {
+        type: 'shadow',
       },
-      tooltip: {
-        trigger: 'axis',
-        axisPointer: {
-          type: 'shadow',
-        },
+    },
+    legend: {
+      data: categoriesTitle.map((category) => Object.values(category)[0]),
+      bottom: 0,
+    },
+    grid: {
+      left: '3%',
+      right: '4%',
+      bottom: '20%',
+      containLabel: true,
+    },
+    xAxis: {
+      type: 'value',
+    },
+    yAxis: {
+      type: 'category',
+      name: 'million US dollars',
+      data: ['Import', 'Export'],
+    },
+    series: categories.map((category, index) => ({
+      name: Object.values(categoriesTitle[index])[0],
+      type: 'bar',
+      stack: 'ImportExport',
+      data: [importData[index], exportData[index]],
+      itemStyle: {
+        color: ['#384E85', '#FFB800', '#f56a00', '#A7AD3E', '#FFA424'][index],
       },
-      legend: {
-        data: categories,
-        bottom: 0,
-      },
-      grid: {
-        left: '3%',
-        right: '4%',
-        bottom: '20%',
-        containLabel: true,
-      },
-      xAxis: {
-        type: 'value',
-      },
-      yAxis: {
-        type: 'category',
-        data: ['Import', 'Export'],
-      },
-      series: categories.map((category, index) => ({
-        name: category,
-        type: 'bar',
-        stack: 'ImportExport',
-        data: [importData[index], exportData[index]],
-        itemStyle: {
-          color: ['#4E91CC', '#EB578F', '#BFD648', '#6AB044', '#F8B544'][index],
-        },
-      })),
-    }
-  }
+    })),
+  })
 
   return (
     <ReactEcharts

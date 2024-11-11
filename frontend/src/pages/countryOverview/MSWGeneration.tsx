@@ -1,153 +1,157 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
 import ReactEcharts from 'echarts-for-react'
 import { useRouter } from 'next/router'
+import useLayerInfo from '../../hooks/useLayerInfo'
 
 const MSWGenerationChart = () => {
   const router = useRouter()
   const { country } = router.query
-  const [years, setYears] = useState([])
-  const [nationalEstimate, setNationalEstimate] = useState([])
-  const [dakarEstimate, setDakarEstimate] = useState([])
+  const { layers, loading } = useLayerInfo()
+  const [nationalEstimate, setNationalEstimate] = useState(0)
+  const [dakarEstimate, setDakarEstimate] = useState(0)
+  const [city, setCity] = useState('')
+  const [year, setYear] = useState('')
 
   useEffect(() => {
-    const fetchData = async () => {
-      const mswNationalUrl = `https://services3.arcgis.com/pI4ewELlDKS2OpCN/arcgis/rest/services/Municipal_solid_waste_generated_daily_per_capita_V3_WFL1/FeatureServer/0/query?where=1=1&outFields=Time_Perio,OBS_Valu_1,ROMNAM&f=json`
-      const mswDakarUrl = `https://services3.arcgis.com/pI4ewELlDKS2OpCN/arcgis/rest/services/Municipal_solid_waste_generated_daily_per_capita_V3_WFL1/FeatureServer/0/query?where=1=1&outFields=Time_Perio,OBS_Valu_1,ROMNAM&f=json`
+    const fetchData = () => {
+      if (loading || !country || !layers.length) return
 
-      try {
-        const [nationalRes, dakarRes] = await Promise.all([
-          axios.get(mswNationalUrl),
-          axios.get(mswDakarUrl),
-        ])
-
-        const filteredNational = nationalRes.data.features.filter(
-          (item) => item.attributes.ROMNAM === country
-        )
-        const filteredDakar = dakarRes.data.features.filter(
-          (item) => item.attributes.ROMNAM === country
-        )
-
-        const yearsSet = new Set()
-        const nationalValues = []
-        const dakarValues = []
-
-        filteredNational.forEach((item) => {
-          yearsSet.add(item.attributes.Time_Perio)
-          nationalValues.push(item.attributes.OBS_Valu_1)
-        })
-
-        filteredDakar.forEach((item) => {
-          dakarValues.push(item.attributes.OBS_Valu_1)
-        })
-
-        setYears(Array.from(yearsSet))
-
-        console.log('nationalRes', nationalValues)
-        setNationalEstimate(nationalValues)
-        setDakarEstimate(dakarValues)
-      } catch (error) {
-        console.error('Error fetching data from ArcGIS:', error)
+      const layerMapping = {
+        national: 'Municipal_solid_waste_generated_daily_per_capita_V3_WFL1',
+        dakar: 'Plastic_waste_generation_from_MSW__kg_capita_year__V2_WFL1',
       }
+
+      const nationalLayer = layers.find(
+        (layer) => layer.attributes.arcgislayerId === layerMapping.national
+      )
+      const dakarLayer = layers.find(
+        (layer) => layer.attributes.arcgislayerId === layerMapping.dakar
+      )
+
+      const nationalData = nationalLayer?.attributes.ValuePerCountry.find(
+        (item) => item.CountryName === country
+      )
+      const dakarData = dakarLayer?.attributes.ValuePerCountry.find(
+        (item) => item.CountryName === country
+      )
+
+      console.log('dsdad', nationalData)
+      setNationalEstimate(nationalData ? nationalData.Value : 0)
+      setDakarEstimate(dakarData ? dakarData.Value / 365 : 0)
+      setYear(nationalData.Year)
+      setCity(dakarData?.City)
     }
 
     fetchData()
-  }, [country])
+  }, [country, layers, loading])
 
-  const getOption = () => {
-    return {
-      title: {
-        text: `Per capita MSW generation (kg/person/day) for ${country}`,
-        left: 'center',
-        textStyle: {
-          fontSize: 18,
+  console.log('dsdad', year)
+
+  const getOption = () => ({
+    title: {
+      text: `Per capita MSW generation for ${country}`,
+      left: 'center',
+      textStyle: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: '#1F3A93',
+      },
+    },
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: {
+        type: 'shadow',
+      },
+    },
+    legend: {
+      data: [`National average ${year}`, ` ${city} estimate ${year}`],
+      bottom: 0,
+      itemGap: 20,
+      textStyle: {
+        fontSize: 12,
+        color: '#1F3A93',
+      },
+    },
+    xAxis: {
+      type: 'category',
+      data: [`National average ${year}`, ` ${city} estimate ${year}`],
+      axisLabel: {
+        color: '#1F3A93',
+        fontSize: 12,
+        fontWeight: 'bold',
+      },
+    },
+    yAxis: {
+      type: 'value',
+      name: 'kg/person/day',
+      min: 0,
+      max: 2, 
+      interval: 1,
+      nameTextStyle: {
+        fontSize: 12,
+        color: '#1F3A93',
+        fontWeight: 'bold',
+      },
+      axisLabel: {
+        formatter: '{value} ',
+        fontSize: 12,
+        color: '#1F3A93',
+        rotate: 90,
+      },
+    },
+    
+    series: [
+      {
+        name: 'National estimate',
+        type: 'bar',
+        barWidth: '40%',
+        data: [nationalEstimate, null],
+        itemStyle: { color: '#00A4EC' },
+        label: {
+          show: true,
+          position: 'top',
+          formatter: (params) => (params.value ? params.value.toFixed(2) : ''),
+          color: '#1F3A93',
           fontWeight: 'bold',
         },
       },
-      tooltip: {
-        trigger: 'axis',
-        axisPointer: {
-          type: 'shadow',
+      {
+        name: 'Dakar estimate',
+        type: 'bar',
+        barWidth: '40%',
+        data: [null, dakarEstimate],
+        itemStyle: { color: '#FF6F00' },
+        label: {
+          show: true,
+          position: 'top',
+          formatter: (params) => (params.value ? params.value.toFixed(2) : ''),
+          color: '#1F3A93',
+          fontWeight: 'bold',
         },
       },
-      legend: {
-        data: ['National estimate', 'Dakar estimate'],
-        bottom: 0,
-      },
-      xAxis: {
-        type: 'category',
-        data: years,
-        axisLabel: {
-          formatter: function (value) {
-            return value === 'National estimate' ? '2020' : '2022'
-          },
-        },
-      },
-      yAxis: {
-        type: 'value',
-        name: 'Kg per capita annually',
-        min: 0,
-        max: 400,
-        axisLabel: {
-          formatter: '{value}kg',
-        },
-      },
-      series: [
-        {
-          name: 'National estimate',
-          type: 'bar',
-          barWidth: '50%',
-          data: nationalEstimate,
-          itemStyle: { color: '#00aaff' },
-          label: {
-            show: true,
-            position: 'top',
-            formatter: '{c}kg',
-          },
-        },
-        {
-          name: 'Dakar estimate',
-          type: 'bar',
-          barWidth: '50%',
-          data: dakarEstimate,
-          itemStyle: { color: '#ff6f00' },
-          label: {
-            show: true,
-            position: 'top',
-            formatter: '{c}kg',
-          },
-        },
-        {
-          name: 'Regional Average',
-          type: 'line',
-          markLine: {
-            data: [
-              {
-                yAxis: 192,
-                label: {
-                  formatter: 'Regional average 192kg',
-                  position: 'middle',
-                  color: '#000',
-                  backgroundColor: '#66bb6a',
-                  padding: [5, 10],
-                },
-                lineStyle: {
-                  type: 'dashed',
-                  color: '#1e90ff',
-                },
-              },
-            ],
-          },
-        },
-      ],
-    }
-  }
+    ],
+  })
 
   return (
-    <ReactEcharts
-      option={getOption()}
-      style={{ height: '400px', width: '100%' }}
-    />
+    <div style={{ position: 'relative' }}>
+      <ReactEcharts
+        option={getOption()}
+        style={{ height: '400px', width: '100%' }}
+      />
+      <div
+        style={{
+          textAlign: 'left',
+          padding: '10px',
+          color: '#1F3A93',
+          fontSize: '12px',
+        }}
+      >
+        Data provided by UNEP.{' '}
+        <a href="https://example.com" style={{ color: '#1F3A93' }}>
+          See source here
+        </a>
+      </div>
+    </div>
   )
 }
 

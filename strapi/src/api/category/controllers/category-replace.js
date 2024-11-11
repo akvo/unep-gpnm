@@ -46,22 +46,22 @@ module.exports = {
                     if (layerValues) {
                         switch (suffix) {
                             case 'last':
-                                return layerValues.sort((a, b) => b.Year - a.Year)[0]?.Value || 0;
+                                return Math.round(layerValues.sort((a, b) => b.Year - a.Year)[0]?.Value || 0);
                             case 'first':
-                                return layerValues.sort((a, b) => a.Year - b.Year)[0]?.Value || 0;
+                                return Math.round(layerValues.sort((a, b) => a.Year - b.Year)[0]?.Value || 0);
                             case 'total':
-                                return layerValues.reduce((sum, entry) => sum + (entry.Value || 0), 0);
+                                return Math.round(layerValues.reduce((sum, entry) => sum + (entry.Value || 0), 0));
                             case 'city':
                                 return layerValues[0]?.City || "No data";
                             default:
-                                return layerValues[0]?.Value || 0;
+                                return Math.round(layerValues.sort((a, b) => b.Year - a.Year)[0]?.Value || 0);
                         }
                     }
                     return 0;
                 });
 
                 try {
-                    return new Intl.NumberFormat().format(Math.round(eval(evaluatedFormula) * 100) / 100);
+                    return new Intl.NumberFormat().format(eval(evaluatedFormula));
                 } catch (error) {
                     console.error('Error evaluating formula:', formula, error);
                     return "No data";
@@ -101,14 +101,15 @@ module.exports = {
 
                     } else if (/total$/i.test(placeholder)) {
                         const totalSum = countryData.reduce((sum, entry) => sum + (entry.Value || 0), 0);
-                        replacementValue = new Intl.NumberFormat().format(totalSum);
+                        replacementValue = new Intl.NumberFormat().format(Math.round(totalSum));
 
                     } else if (/city$/i.test(placeholder)) {
-                        console.log('countryDatacountryData', countryData)
                         replacementValue = countryData[0]?.City || "No data";
 
                     } else {
-                        replacementValue = new Intl.NumberFormat().format(countryData[0]?.Value || "No data");
+                        replacementValue = new Intl.NumberFormat().format(
+                            Math.round(countryData.sort((a, b) => b.Year - a.Year)[0]?.Value || 0)
+                        );
                     }
 
                     calculatedValues[placeholder] = replacementValue;

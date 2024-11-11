@@ -4,6 +4,7 @@ export interface ValuePerCountryValuePerCountry extends Schema.Component {
   collectionName: 'components_value_per_country_value_per_countries';
   info: {
     displayName: 'ValuePerCountry';
+    description: '';
   };
   attributes: {
     country: Attribute.Relation<
@@ -14,6 +15,7 @@ export interface ValuePerCountryValuePerCountry extends Schema.Component {
     CountryName: Attribute.String;
     Value: Attribute.Decimal;
     Year: Attribute.String;
+    City: Attribute.String;
   };
 }
 

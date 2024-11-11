@@ -1,47 +1,61 @@
-import React, { useState, useEffect } from 'react';
-import { Layout, Button, Select } from 'antd';
-import { useRouter } from 'next/router'; 
-import { UIStore } from '../../store'; 
-import { isEmpty } from 'lodash';
+import React, { useState, useEffect } from 'react'
+import { Layout, Button, Select } from 'antd'
+import { useRouter } from 'next/router'
+import { isEmpty } from 'lodash'
 
-const { Content } = Layout;
-const { Option } = Select;
+const { Content } = Layout
 
 const DashboardLanding = () => {
-  const [countryOpts, setCountryOpts] = useState([]);
-  const router = useRouter(); 
+  const [countryOpts, setCountryOpts] = useState([])
+  const [countries, setCountries] = useState([])
+  const router = useRouter()
 
-  const { countries, transnationalOptions } = UIStore.useState(
-    (s) => ({
-      countries: s.countries,
-      transnationalOptions: s.transnationalOptions,
-    })
-  );
+  useEffect(() => {
+    const fetchCountries = async () => {
+      try {
+        const response = await fetch(
+          'https://digital.gpmarinelitter.org/api/country'
+        )
+        const data = await response.json()
+        setCountries(data)
+      } catch (error) {
+        console.error('Error fetching countries:', error)
+      }
+    }
+
+    fetchCountries()
+  }, [])
 
   useEffect(() => {
     if (!isEmpty(countries)) {
       const filteredCountries = countries
-        .filter((country) => country.description.toLowerCase() === 'member state')
+        .filter(
+          (country) => country.description.toLowerCase() === 'member state'
+        )
         .map((it) => ({ value: it.id, label: it.name }))
-        .sort((a, b) => a.label.localeCompare(b.label));
+        .sort((a, b) => a.label.localeCompare(b.label))
 
-      setCountryOpts(filteredCountries);
+      setCountryOpts(filteredCountries)
     }
-  }, [countries]);
+  }, [countries])
 
   const handleCountryChange = (value) => {
-    const selectedCountry = countries.find((country) => country.id === value);
-    
+    const selectedCountry = countries.find((country) => country.id === value)
+
     if (selectedCountry) {
-      router.push({
-        pathname: router.pathname,
-        query: {
-          ...router.query,
-          country: selectedCountry.name, 
+      router.push(
+        {
+          pathname: router.pathname,
+          query: {
+            ...router.query,
+            country: selectedCountry.name,
+          },
         },
-      }, undefined, { shallow: true }); 
+        undefined,
+        { shallow: true }
+      )
     }
-  };
+  }
 
   return (
     <Layout style={{ height: '100vh' }}>
@@ -60,22 +74,31 @@ const DashboardLanding = () => {
             color: '#FFFFFF',
           }}
         >
-          Explore <span style={{ textDecoration: 'underline' }}>national data</span> for more transparency
+          Explore{' '}
+          <span style={{ textDecoration: 'underline' }}>national data</span> for
+          more transparency
         </h1>
         <p style={{ fontSize: '18px', marginBottom: '40px' }}>
-          The national data allows you to view key plastic statistics for your country in one place. It presents the latest available data covering key stages of the plastics and highlights indicators on plastic waste management, trade, governance, and environment.
+          The national data allows you to view key plastic statistics for your
+          country in one place. It presents the latest available data covering
+          key stages of the plastics and highlights indicators on plastic waste
+          management, trade, governance, and environment.
         </p>
 
         <p style={{ fontSize: '16px', marginBottom: '20px' }}>
-          Most data are sourced from quality assured global datasets, enabling the opportunity to compare the status of plastics management among countries.
+          Most data are sourced from quality assured global datasets, enabling
+          the opportunity to compare the status of plastics management among
+          countries.
         </p>
 
-        <div style={{ display: 'flex', alignItems: 'center', marginTop: '40px' }}>
+        <div
+          style={{ display: 'flex', alignItems: 'center', marginTop: '40px' }}
+        >
           <Select
             placeholder="Search for a country..."
             size="large"
             showSearch
-            options={countryOpts} 
+            options={countryOpts}
             style={{
               width: '300px',
               marginRight: '20px',
@@ -100,7 +123,7 @@ const DashboardLanding = () => {
         </div>
       </Content>
     </Layout>
-  );
-};
+  )
+}
 
-export default DashboardLanding;
+export default DashboardLanding
