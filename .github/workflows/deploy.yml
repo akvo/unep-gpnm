@@ -26,9 +26,9 @@ jobs:
       - name: Docker Build Nginx
         uses: ./composite-actions/.github/actions/docker-build
         with:
-          app-name: "unep-gpml-hpa"
+          app-name: "unep-gpnm"
           service-name: "nginx"
-          dockerfile-location: "nginx/Dockerfile-hpa"
+          dockerfile-location: "nginx/Dockerfile"
           cluster-name: "test"
 
       - name: Docker Build Frontend
@@ -44,7 +44,7 @@ jobs:
       - name: Docker Build Strapi
         uses: ./composite-actions/.github/actions/docker-build
         with:
-          app-name: "unep-gpml-hpa"
+          app-name: "unep-gpnm"
           service-name: "strapi"
           dockerfile-location: "strapi/Dockerfile.prod"
           cluster-name: "test"
@@ -52,7 +52,7 @@ jobs:
       - name: Docker Push Nginx
         uses: ./composite-actions/.github/actions/docker-push
         with:
-          app-name: "unep-gpml-hpa"
+          app-name: "unep-gpnm"
           service-name: "nginx"
           gcloud-sa:  ${{ secrets.GCLOUD_SERVICE_ACCOUNT_REGISTRY }}
           cluster-name: "test"
@@ -60,7 +60,7 @@ jobs:
       - name: Docker Push Frontend
         uses: ./composite-actions/.github/actions/docker-push
         with:
-          app-name: "unep-gpml-hpa"
+          app-name: "unep-gpnm"
           service-name: "frontend"
           gcloud-sa:  ${{ secrets.GCLOUD_SERVICE_ACCOUNT_REGISTRY }}
           cluster-name: "test"
@@ -68,7 +68,7 @@ jobs:
       - name: Docker Push Backend
         uses: ./composite-actions/.github/actions/docker-push
         with:
-          app-name: "unep-gpml-hpa"
+          app-name: "unep-gpnm"
           service-name: "backend"
           gcloud-sa:  ${{ secrets.GCLOUD_SERVICE_ACCOUNT_REGISTRY }}
           cluster-name: "test"
@@ -76,7 +76,7 @@ jobs:
       - name: Docker Push Strapi
         uses: ./composite-actions/.github/actions/docker-push
         with:
-          app-name: "unep-gpml-hpa"
+          app-name: "unep-gpnm"
           service-name: "strapi"
           gcloud-sa:  ${{ secrets.GCLOUD_SERVICE_ACCOUNT_REGISTRY }}
           cluster-name: "test"
@@ -103,40 +103,40 @@ jobs:
       - name: Rollout Nginx
         uses: ./composite-actions/.github/actions/k8s-rollout
         with:
-          app-name: "unep-gpml-hpa"
+          app-name: "unep-gpnm"
           deployment-name: "nginx-deployment"
           container-name: "nginx"
           cluster-name: "test"
-          namespace-name: "unep-gpml-hpa-namespace"
+          namespace-name: "unep-gpnm-namespace"
           gcloud-sa:  ${{ secrets.GCLOUD_SERVICE_ACCOUNT_K8S }}
 
 
       - name: Rollout Frontend
         uses: ./composite-actions/.github/actions/k8s-rollout
         with:
-          app-name: "unep-gpml-hpa"
+          app-name: "unep-gpnm"
           deployment-name: "frontend-deployment"
           container-name: "frontend"
           cluster-name: "test"
-          namespace-name: "unep-gpml-hpa-namespace"
+          namespace-name: "unep-gpnm-namespace"
           gcloud-sa:  ${{ secrets.GCLOUD_SERVICE_ACCOUNT_K8S }}
 
       - name: Rollout Backend
         uses: ./composite-actions/.github/actions/k8s-rollout
         with:
-          app-name: "unep-gpml-hpa"
+          app-name: "unep-gpnm"
           deployment-name: "backend-deployment"
           container-name: "backend"
           cluster-name: "test"
-          namespace-name: "unep-gpml-hpa-namespace"
+          namespace-name: "unep-gpnm-namespace"
           gcloud-sa:  ${{ secrets.GCLOUD_SERVICE_ACCOUNT_K8S }}
 
       - name: Rollout Strapi
         uses: ./composite-actions/.github/actions/k8s-rollout
         with:
-          app-name: "unep-gpml-hpa"
+          app-name: "unep-gpnm"
           deployment-name: "backend-deployment"
           container-name: "strapi"
           cluster-name: "test"
-          namespace-name: "unep-gpml-hpa-namespace"
+          namespace-name: "unep-gpnm-namespace"
           gcloud-sa:  ${{ secrets.GCLOUD_SERVICE_ACCOUNT_K8S }}
