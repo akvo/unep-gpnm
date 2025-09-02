@@ -2,7 +2,7 @@
 
 set -Eeuxo pipefail
 
-image_prefix="eu.gcr.io/akvo-lumen/unep-gpml-hpa"
+image_prefix="eu.gcr.io/akvo-lumen/unep-gpnm"
 image_version="${1}"
 cluster_name="${2}"
 
