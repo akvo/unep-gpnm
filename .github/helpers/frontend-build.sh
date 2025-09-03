@@ -10,8 +10,8 @@ cluster_name="${2}"
 frontend_build () {
 
   rm -rf frontend/.env
-  echo 'REACT_APP_AUTH0_CLIENT_ID="dxfYNPO4D9ovQr5NHFkOU3jwJzXhcq5J"' >> frontend/.env
-  echo 'REACT_APP_AUTH0_DOMAIN="unep-gpml-test.eu.auth0.com"' >> frontend/.env
+  echo 'REACT_APP_AUTH0_CLIENT_ID="khoLGCtL03oLmR1q42NQ72e4bPj277Xk"' >> frontend/.env
+  echo 'REACT_APP_AUTH0_DOMAIN="gpnm-test.eu.auth0.com"' >> frontend/.env
   echo 'NEXT_PUBLIC_CHAT_API_DOMAIN_URL="https://rocket-chat.akvotest.org"' >> frontend/.env
   echo 'NEXT_PUBLIC_ENV=test' >> frontend/.env
   echo 'NEXT_PUBLIC_DSC_URL="https://deadsimplechat.com"' >> frontend/.env
