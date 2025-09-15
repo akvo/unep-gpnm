@@ -302,7 +302,7 @@ export async function getServerSideProps(context) {
   const baseUrl = `${protocol}://${req.headers.host}/`
 
   const API_ENDPOINT = process.env.REACT_APP_FEENV
-    ? 'https://unep-gpml.akvotest.org/api/'
+    ? 'https://gpnm.akvotest.org/api/'
     : `${baseUrl}/api/`
 
   const limit = 20

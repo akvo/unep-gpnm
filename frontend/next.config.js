@@ -68,14 +68,11 @@ module.exports = {
       domain = 'http://localhost:3000'
     }
     if (process.env.REACT_APP_FEENV) {
-      domain = 'https://unep-gpml.akvotest.org'
+      domain = 'https://gpnm.akvotest.org'
     }
-    if (process.env.REACT_APP_FEENV_STAGING) {
-      domain = 'https://unep-gpml-staging.akvotest.org'
-    }
-    if (process.env.REACT_APP_FEENV_PROD) {
-      domain = 'https://globalplasticshub.org'
-    }
+    // if (process.env.REACT_APP_FEENV_PROD) {
+    //   domain = 'https://globalplasticshub.org' // TODO: assign prod
+    // }
     return [
       {
         source: '/api/:path*',
