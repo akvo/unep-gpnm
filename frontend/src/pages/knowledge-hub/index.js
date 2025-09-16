@@ -190,8 +190,8 @@ const KnowledgeHub = ({
     { name: t`Technology`, value: 'technology' },
     { name: t`Action Plan`, value: 'action_plan' },
     { name: t`Legislation`, value: 'policy' },
-    { name: t`Financing Resource`, value: 'financing_resource' },
     { name: t`Case Study`, value: 'case_study' },
+    { name: t`Financing Resource`, value: 'financing_resource' },
     { name: t`Initiative`, value: 'initiative' },
     { name: t`Event`, value: 'event' },
     { name: t`Data Portal`, value: 'data_catalog' },
@@ -368,11 +368,7 @@ const KnowledgeHub = ({
           <Collapse onChange={handleCollapseChange} activeKey={collapseKeys}>
             <Collapse.Panel
               key="p1"
-              header={
-                <h4 className="h-xs w-semi">
-                  <Trans>Life Cycle Stage</Trans>
-                </h4>
-              }
+              header={<h4 className="h-xs w-semi">Nutrient Focus Area</h4>}
             >
               <div className="filters">
                 {themes?.map((theme) => (

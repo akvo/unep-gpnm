@@ -326,24 +326,34 @@ export const getBadgeTitle = (badgeKey) => {
 }
 
 export const lifecycleStageTags = [
-  'Production',
-  'Consumption',
-  'Waste Management',
-  'Legacy Plastics',
-  'Full Life Cycle',
+  'Nitrogen',
+  'Phosphorus',
+  'Other Nutrients',
+  'Assessment & Indicators',
+  'Monitoring & Data',
+  'Management & Use Efficiency',
+  'Recovery & Recycling',
+  'Pollution & Emissions',
+  'Impacts on Ecosystems & Health',
+  'Sectors & Systems',
 ]
 
 export const useLifecycleStageTags = () => {
-  const { i18n } = useLingui()
-  const tags = [
-    i18n._(t`Production`),
-    i18n._(t`Consumption`),
-    i18n._(t`Waste Management`),
-    i18n._(t`Legacy Plastics`),
-    i18n._(t`Full Life Cycle`),
-  ]
+  // const { i18n } = useLingui()
+  // const tags = [
+  //   i18n._(t`Nitrogen`),
+  //   i18n._(t`Phosphorus`),
+  //   i18n._(t`Other Nutrients`),
+  //   i18n._(t`Assessment & Indicators`),
+  //   i18n._(t`Monitoring & Data`),
+  //   i18n._(t`Management & Use Efficiency`),
+  //   i18n._(t`Recovery & Recycling`),
+  //   i18n._(t`Pollution & Emissions`),
+  //   i18n._(t`Impacts on Ecosystems & Health`),
+  //   i18n._(t`Sectors & Systems`),
+  // ]
 
-  return tags
+  return lifecycleStageTags
 }
 
 export const formatTime = (isoString) => {

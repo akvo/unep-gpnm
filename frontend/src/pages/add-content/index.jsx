@@ -109,7 +109,7 @@ const formConfigs = {
       ],
       [
         { name: 'lifecycleStage', span: 12, required: true },
-        { name: 'tags', span: 12, required: true },
+        { name: 'tags', span: 12 },
       ],
       [
         { name: 'image', span: 12 },
@@ -180,10 +180,10 @@ const formConfigs = {
       ],
       [
         { name: 'lifecycleStage', span: 12, required: true },
-        { name: 'tags', span: 12, required: true },
+        { name: 'tags', span: 12 },
       ],
       [
-        { name: 'image', span: 12, required: true },
+        { name: 'image', span: 12 },
         { name: 'thumbnail', span: 12 },
       ],
       [
@@ -232,10 +232,10 @@ const formConfigs = {
       ],
       [
         { name: 'lifecycleStage', span: 12, required: true },
-        { name: 'tags', span: 12, required: true },
+        { name: 'tags', span: 12 },
       ],
       [
-        { name: 'image', span: 12, required: true },
+        { name: 'image', span: 12 },
         { name: 'thumbnail', span: 12 },
       ],
       [
@@ -288,10 +288,10 @@ const formConfigs = {
       ],
       [
         { name: 'lifecycleStage', span: 12, required: true },
-        { name: 'tags', span: 12, required: true },
+        { name: 'tags', span: 12 },
       ],
       [
-        { name: 'image', span: 12, required: true },
+        { name: 'image', span: 12 },
         { name: 'thumbnail', span: 12 },
       ],
       [
@@ -348,10 +348,10 @@ const formConfigs = {
       ],
       [
         { name: 'lifecycleStage', span: 12, required: true },
-        { name: 'tags', span: 12, required: true },
+        { name: 'tags', span: 12 },
       ],
       [
-        { name: 'image', span: 12, required: true },
+        { name: 'image', span: 12 },
         { name: 'thumbnail', span: 12 },
       ],
       [
@@ -393,10 +393,10 @@ const formConfigs = {
       ],
       [
         { name: 'lifecycleStage', span: 12, required: true },
-        { name: 'tags', span: 12, required: true },
+        { name: 'tags', span: 12 },
       ],
       [
-        { name: 'image', span: 12, required: true },
+        { name: 'image', span: 12 },
         { name: 'thumbnail', span: 12 },
       ],
       [
@@ -437,10 +437,10 @@ const formConfigs = {
       ],
       [
         { name: 'lifecycleStage', span: 12, required: true },
-        { name: 'tags', span: 12, required: true },
+        { name: 'tags', span: 12 },
       ],
       [
-        { name: 'image', span: 12, required: true },
+        { name: 'image', span: 12 },
         { name: 'thumbnail', span: 12 },
       ],
       [
@@ -481,10 +481,10 @@ const formConfigs = {
       ],
       [
         { name: 'lifecycleStage', span: 12, required: true },
-        { name: 'tags', span: 12, required: true },
+        { name: 'tags', span: 12 },
       ],
       [
-        { name: 'image', span: 12, required: true },
+        { name: 'image', span: 12 },
         { name: 'thumbnail', span: 12 },
       ],
       [
@@ -550,10 +550,10 @@ const formConfigs = {
       ],
       [
         { name: 'lifecycleStage', span: 12, required: true },
-        { name: 'tags', span: 12, required: true },
+        { name: 'tags', span: 12 },
       ],
       [
-        { name: 'image', span: 12, required: true },
+        { name: 'image', span: 12 },
         { name: 'thumbnail', span: 12 },
       ],
       [
@@ -598,10 +598,10 @@ const formConfigs = {
       ],
       [
         { name: 'lifecycleStage', span: 12, required: true },
-        { name: 'tags', span: 12, required: true },
+        { name: 'tags', span: 12 },
       ],
       [
-        { name: 'image', span: 12, required: true },
+        { name: 'image', span: 12 },
         { name: 'thumbnail', span: 12 },
       ],
       [
@@ -1077,7 +1077,7 @@ const FormField = React.memo(
         case 'lifecycleStage':
           return (
             <FormLabel
-              label="Life Cycle Stage"
+              label="Nutrient Focus Area"
               htmlFor="lifecycleStage"
               meta={meta}
               isOptional={!fieldConfig?.required}

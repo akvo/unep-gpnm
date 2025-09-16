@@ -503,9 +503,7 @@ const DetailsView = ({
         {lifecycleTagsToShow?.length > 0 && (
           <Col className="section-tag section">
             <div className="extra-wrapper">
-              <h3 className="content-heading">
-                <Trans>Life Cycle Stage</Trans>
-              </h3>
+              <h3 className="content-heading">Nutrient Focus Area</h3>
               <List itemLayout="horizontal">
                 <List.Item>
                   <List.Item.Meta
