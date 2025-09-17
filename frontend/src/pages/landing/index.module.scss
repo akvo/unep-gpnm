@@ -438,6 +438,75 @@
         text-transform: uppercase;
       }
     }
+    .nutrient-hero {
+      overflow: hidden;
+      padding-top: 160px;
+      min-height: 500px;
+      position: relative;
+      h5 {
+        font-size: 22px;
+        color: #bbc797;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: -10px;
+      }
+      h1 {
+        color: #328a96;
+        text-transform: uppercase;
+        font-size: 36px;
+        font-weight: bold;
+        margin: 0px 0 10px;
+      }
+      p {
+        font-family: $ff1;
+        font-size: 24px;
+        max-width: 500px;
+      }
+
+      .bg {
+        position: absolute;
+      }
+      @media screen and (max-width: $bpMobile) {
+        min-height: 850px;
+        p {
+          margin-top: 30px;
+          font-size: 21px;
+          font-family: $ff1;
+          max-width: 242px;
+        }
+        .bg {
+          left: -200px;
+          bottom: 0px;
+          z-index: -1;
+        }
+      }
+      @media screen and (min-width: $bpMobile) {
+        min-height: 100vh;
+        margin-bottom: 100px;
+        .bg {
+          left: 0;
+          top: 150px;
+          z-index: -1;
+          width: 120%;
+          height: auto;
+        }
+      }
+    }
+    .nutrient-info {
+      font-size: 20px;
+      font-family: $ff1;
+      text-align: center;
+      .vis {
+      }
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 100px;
+      @media screen and (min-width: $bpMobile) {
+        .vis {
+          margin-left: calc(-50vw + 50%);
+        }
+      }
+    }
     .feature-cards {
       margin-bottom: 50px;
       h3 {

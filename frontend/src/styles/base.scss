@@ -264,18 +264,18 @@ h6 {
 }
 
 .top-bar {
-  height: 90px;
+  height: 150px;
   padding: 23px 0;
   box-sizing: border-box;
-  background-color: $primaryDarkBlue;
-  color: white;
+  background-color: white;
+  color: #3b3b3b;
   z-index: 20;
   top: 0;
   transition: background 0.27s ease-out;
   display: flex;
 
   a {
-    color: white;
+    color: #3b3b3b;
   }
 
   &.isLanding {
@@ -284,18 +284,7 @@ h6 {
     top: 0;
 
     &:not(.scrolled) {
-      background-color: transparent;
-    }
-  }
-
-  .container {
-    .logo-container {
-      margin-left: -15px;
-      margin-top: -14px;
-
-      @media screen and (max-width: $bpMobile) {
-        margin-top: -4px;
-      }
+      // background-color: transparent;
     }
   }
 
@@ -315,7 +304,7 @@ h6 {
   }
 
   .logo-container {
-    margin-top: -14px;
+    // margin-top: -14px;
     display: flex;
     position: absolute;
 
@@ -352,22 +341,24 @@ h6 {
       display: none;
     }
 
-    &>span {
+    & > span {
       margin-left: -5px;
       text-transform: uppercase;
       margin-right: 5px;
       font-weight: 500;
     }
 
-    &>*:first-child {
+    & > *:first-child {
       margin-right: 10px;
     }
   }
 
   .login-btn {
-    color: white;
-    border: 1.7px solid white;
+    // color: white;
+    // border: 1.7px solid white;
     font-size: 16px;
+    padding: 0;
+    margin: 0;
   }
 
   .ant-avatar {
@@ -478,7 +469,7 @@ h6 {
     justify-content: flex-end;
     gap: 40px;
     box-shadow: none;
-    margin-right: 20px;
+    // margin-right: 20px;
 
     .ant-menu-submenu {
       &::after {
@@ -525,7 +516,7 @@ h6 {
         font-size: 18px;
         font-style: normal;
         font-weight: 600;
-        color: white;
+        color: #3b3b3b;
         cursor: pointer;
         display: inline-block;
         display: flex;
@@ -837,14 +828,14 @@ h6 {
       margin: 20px auto;
       color: white;
 
-      &>span {
+      & > span {
         margin-left: -5px;
         text-transform: uppercase;
         margin-right: 5px;
         font-weight: 500;
       }
 
-      &>*:first-child {
+      & > *:first-child {
         margin-right: 10px;
       }
     }
@@ -922,7 +913,6 @@ h6 {
 
   ul {
     li {
-
       // list-style: none;
       // margin-bottom: 20px;
       // display: flex;
@@ -1186,8 +1176,8 @@ ul {
   width: 100%;
 
   .ant-table-thead {
-    &>tr {
-      &>th {
+    & > tr {
+      & > th {
         background-color: $primaryPurple;
         color: $primaryWhite;
 
@@ -1265,9 +1255,11 @@ ul {
   }
 
   .ant-tooltip-arrow-content {
-    --antd-arrow-background-color: linear-gradient(to right bottom,
-        rgba(2, 10, 91, 1),
-        rgba(2, 10, 91, 1));
+    --antd-arrow-background-color: linear-gradient(
+      to right bottom,
+      rgba(2, 10, 91, 1),
+      rgba(2, 10, 91, 1)
+    );
   }
 }
 

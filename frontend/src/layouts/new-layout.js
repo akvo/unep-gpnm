@@ -172,21 +172,26 @@ const NewLayout = ({
               position: openedItemKey ? 'sticky' : 'relative',
             }}
           >
-            <div className="container-fluid">
+            <div className="container">
               <Link href="/">
                 <div className="logo-container">
                   <div className="combined">
-                    <Image
-                      src="/combined-logo.png?v=2"
-                      width={190}
-                      height={64}
-                    />
+                    <Image src="/GPNM-circle.svg" width={116} height={105} />
                   </div>
                 </div>
               </Link>
               {width >= 768 && (
                 <ul className="ant-menu">
-                  {menuList.map((item) => (
+                  <li>
+                    <Link href="/knowledge-hub">Knowledge Hub</Link>
+                  </li>
+                  <li>
+                    <Link href="/learning-centre">Learning Centre</Link>
+                  </li>
+                  <li>
+                    <a>Country Workflow</a>
+                  </li>
+                  {/* {menuList.map((item) => (
                     <Dropdown
                       key={item.id}
                       placement="bottom"
@@ -214,11 +219,11 @@ const NewLayout = ({
                         {i18n._(item.key)} <DownArrow />
                       </a>
                     </Dropdown>
-                  ))}
+                  ))} */}
                 </ul>
               )}
               <nav>
-                <Dropdown
+                {/* <Dropdown
                   overlayClassName="lang-dropdown-wrapper"
                   overlay={
                     <Menu className="lang-dropdown">
@@ -258,11 +263,11 @@ const NewLayout = ({
                     <World />
                     <span>{router.locale}</span>
                   </div>
-                </Dropdown>
+                </Dropdown> */}
 
                 {!isAuthenticated && (
                   <Button
-                    type="ghost"
+                    type="link"
                     size="small"
                     className="noicon hide-mobile login-btn"
                     onClick={() => setLoginVisible(true)}
@@ -366,17 +371,6 @@ const NewLayout = ({
                     )}
                   </>
                 )}
-                <div className="toggle-button">
-                  <MenuToggle toggle={() => toggleOpen()} isOpen={isOpen} />
-                  {width < 768 && unreadCount > 0 && (
-                    <span
-                      className="notification-badge"
-                      style={{ pointerEvents: 'none' }}
-                    >
-                      {unreadCount}
-                    </span>
-                  )}
-                </div>
               </nav>
             </div>
           </div>
