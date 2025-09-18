@@ -8,13 +8,7 @@ import { UIStore } from '../store'
 import classNames from 'classnames'
 import Footer from '../components/footer/Footer'
 import Login from '../modules/login/view'
-import {
-  Check,
-  DownArrow,
-  NotificationIcon,
-  World,
-  flags,
-} from '../components/icons'
+import { NotificationIcon, LoginSvg } from '../components/icons'
 import Link from 'next/link'
 import { Trans, t } from '@lingui/macro'
 import { useCycle } from 'framer-motion'
@@ -272,7 +266,7 @@ const NewLayout = ({
                     className="noicon hide-mobile login-btn"
                     onClick={() => setLoginVisible(true)}
                   >
-                    <Trans>Login</Trans>
+                    <LoginSvg />
                   </Button>
                 )}
                 {isAuthenticated && (
