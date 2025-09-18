@@ -184,7 +184,7 @@ const FeatureCards = () => {
   return (
     <div className="feature-cards">
       <h3>
-        <Trans>Explore The Platform</Trans>
+        <Trans>Explore The Hub</Trans>
       </h3>
       <div className="container">
         <Link href="/knowledge-hub" className="feature-card">
@@ -197,62 +197,27 @@ const FeatureCards = () => {
             />
           </div>
           <div className="cnt">
-            <h5>
-              <Trans>Knowledge Hub</Trans>
-            </h5>
-            <h2>2800+</h2>
-            <p>
-              <Trans>Knowledge resources shared in the Knowledge Library</Trans>
-            </p>
-            <span>
-              <Trans>Explore the resources</Trans>
-            </span>
+            <h4>Knowledge Hub</h4>
+            <p>Knowledge resources shared in the Knowledge Library</p>
+            <span>Explore The Resources</span>
           </div>
         </Link>
         <Link href="/data/maps" className="feature-card">
           <div className="img">
             <Image
-              src="/iconxl-data-hub.svg"
+              src="/iconxl-learning-centre.svg"
               width={320}
               height={160}
               alt="data hub"
             />
           </div>
           <div className="cnt">
-            <h5>
+            {/* <h5>
               <Trans>Data Hub</Trans>
-            </h5>
-            <h2>80+</h2>
-            <p>
-              <Trans>
-                Plastic Lifecycle Indicators showcase in the Data Hub.
-              </Trans>
-            </p>
-            <span>
-              <Trans>Explore the data</Trans>
-            </span>
-          </div>
-        </Link>
-        <Link href="/community-hub" className="feature-card">
-          <div className="img">
-            <Image
-              src="/iconxl-community.svg"
-              width={321}
-              height={204}
-              alt="community"
-            />
-          </div>
-          <div className="cnt">
-            <h5>
-              <Trans>Community Hub</Trans>
-            </h5>
-            <h2>2000+</h2>
-            <p>
-              <Trans>Members connected through Community Hub.</Trans>
-            </p>
-            <span>
-              <Trans>Explore the community</Trans>
-            </span>
+            </h5> */}
+            <h4>Learning Centre</h4>
+            <p>Case studies and useful resource materials</p>
+            <span>Explore The Materials</span>
           </div>
         </Link>
       </div>

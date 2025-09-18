@@ -1,8 +1,8 @@
 @import '../../styles/vars.scss';
 
 .footerSection {
-  background-color: $primaryDarkBlue;
-  padding: 80px 0 32px;
+  background-color: #63827e;
+  padding: 40px 0 32px;
   color: $primaryWhite;
   @media only screen and (max-width: 640px) {
     padding: 24px;
@@ -13,7 +13,7 @@
       color: $primaryWhite;
     }
     h6.title {
-      margin-bottom: 40px;
+      margin-bottom: 20px;
       @media only screen and (max-width: 640px) {
         margin-bottom: 32px;
       }
@@ -46,34 +46,6 @@
           li {
             &:not(:last-child) {
               margin-bottom: 18px;
-            }
-          }
-          &:not(.social-links) li > a {
-            font-size: $fzXS;
-            line-height: $lhXS;
-            font-weight: 500;
-            color: #fff;
-            text-decoration: underline;
-            &:hover {
-              color: $primaryWhite;
-            }
-          }
-          &.social-links {
-            margin-block-start: 16px;
-            margin-block-end: 45px;
-            @media only screen and (max-width: 640px) {
-              margin-block-end: 16px;
-            }
-            li {
-              display: inline;
-              list-style-type: none;
-              &:not(:last-child) {
-                margin-right: 18px;
-              }
-              .anticon {
-                font-size: $fzL;
-                line-height: $lhL;
-              }
             }
           }
         }
@@ -172,7 +144,7 @@
       }
       .powered-by {
         img {
-          height: 100px !important;
+          // height: 100px !important;
         }
       }
       @media only screen and (min-device-width: $bpMobile) and (max-device-width: 1024px) {
@@ -185,10 +157,6 @@
           margin-right: 0;
         }
         .powered-by {
-          img {
-            max-width: calc(70vw);
-            height: auto !important;
-          }
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -237,6 +205,20 @@
     @media only screen and (max-width: 640px) {
       .container {
         margin: 0 16px;
+      }
+    }
+    .powered-by-logos {
+      height: 80px !important;
+      margin-left: 40px;
+      width: auto;
+    }
+    @media screen and (max-width: $bpMobile) {
+      .gpnm-logo {
+        height: 67px !important;
+      }
+      .powered-by-logos {
+        height: 60px !important;
+        margin-left: 25px;
       }
     }
   }

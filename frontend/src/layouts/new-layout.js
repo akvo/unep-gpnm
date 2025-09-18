@@ -395,23 +395,7 @@ const NewLayout = ({
         </div>
         {children}
         {!router.pathname.includes('/workspace/[slug]') &&
-          !router.query.iframed && (
-            <Footer
-              showTools={() => {
-                if (width >= 768) {
-                  if (openedItemKey === 'Tools') {
-                    setOpenedItemKey(null)
-                    setShowMenu(false)
-                  } else {
-                    setOpenedItemKey('Tools')
-                    setShowMenu(true)
-                  }
-                } else {
-                  toggleOpen()
-                }
-              }}
-            />
-          )}
+          !router.query.iframed && <Footer />}
       </div>
       <Login
         visible={loginVisible}

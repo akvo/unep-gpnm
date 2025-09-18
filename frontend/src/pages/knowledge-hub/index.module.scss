@@ -9,7 +9,7 @@
 
   :global {
     .filter-sidebar {
-      background: #f5f7ff;
+      background: #ebf4f1;
       padding: 20px;
 
       @media screen and (min-width: 768px) {
@@ -130,7 +130,7 @@
           line-height: 30px;
           padding: 0 10px;
           border-radius: 15px;
-          background-color: $primaryPurple2;
+          background-color: #c6eae1;
           font-family: $ff2;
           font-weight: 600;
           cursor: pointer;
@@ -138,11 +138,11 @@
           color: inherit;
 
           &:hover {
-            background-color: $primaryPurple3;
+            background-color: #9ed5c7;
           }
 
           &.on {
-            background-color: $primaryPurple4;
+            background-color: #74b3a3;
           }
 
           svg {

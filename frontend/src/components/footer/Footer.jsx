@@ -54,91 +54,30 @@ const Footer = ({ showTools }) => {
     <footer className={styles.footerSection}>
       <div className="container">
         <div className="footer-items">
-          <div className="footer-item">
-            <strong className="p-l">The Global Plastics Hub</strong>
-            <div className="contact-us">
-              <p className="p-m">
-                <Trans>Contact Us</Trans>
-              </p>
-              <a href="mailto:unep-gpmarinelitter@un.org" className="p-m">
-                unep-gpmarinelitter@un.org
-              </a>
-              <Link href="/privacy-policy-and-terms-of-use.pdf">
-                <Trans>Privacy Policy & Terms of Use</Trans>
-              </Link>
-            </div>
-            <div style={{ marginTop: 30 }}>
-              <h6>
-                <Trans>Follow Us</Trans>
-              </h6>
-              <ul className="social-links">
-                <li>
-                  <a
-                    href="https://ke.linkedin.com/company/global-partnership-on-marine-litter"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <LinkedinIcon />
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.youtube.com/channel/UCoWXFwDeoD4c9GoXzFdm9Bg"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <YoutubeIcon />
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          {/* <div className="footer-item">
-              <h6 className="title">About us</h6>
-              <ul>
-                <li>
-                  <Link href="/landing">Who we are</Link>
-                </li>
-                <li>
-                  <Link href="/landing">What we do</Link>
-                </li>
-                <li>
-                  <Link href="/landing">About the GPML Digital platform</Link>
-                </li>
-              </ul>
-            </div> */}
-          <div className="footer-item quick-links">
-            <h6 className="title">
-              <Trans>Quick Links</Trans>
-            </h6>
-            <ul>
-              <li>
-                <a href="https://www.unep.org/explore-topics/oceans-seas/global-partnership-plastic-pollution-and-marine-litter">
-                  UNEP GPML
-                </a>
-              </li>
-              <li>
-                <a href="https://www.unep.org/topics/chemicals-and-pollution-action/plastic-pollution/one-plastics-initiative/about-unep-plastics">
-                  UNEP One Plastics Initiative
-                </a>
-              </li>
-            </ul>
-          </div>
           <div className="footer-item powered-by">
             <h6 className="title">
               <Trans>Powered by</Trans>
             </h6>
-            <Image
-              src={`/powered-by-footer${
-                _locale === 'en' ? '' : `-${_locale}`
-              }.png`}
-              // width={425}
-              // height={143}
-              width={0} // Set width to 0
-              height={0} // Set height to 0
-              sizes="100vw" // Optional: Specify responsive sizes
-              style={{ height: '143px', width: 'auto' }}
-            />
+            <div style={{ display: 'flex' }}>
+              <Image
+                className="gpnm-logo"
+                src="/GPNM-circle-white.svg"
+                width={87}
+                height={79}
+              />
+              <Image
+                src={`/powered-by-footer${
+                  _locale === 'en' ? '' : `-${_locale}`
+                }.png`}
+                // width={425}
+                // height={143}
+                width={0} // Set width to 0
+                height={0} // Set height to 0
+                sizes="100vw" // Optional: Specify responsive sizes
+                style={{ height: '143px', width: 'auto' }}
+                className="powered-by-logos"
+              />
+            </div>
           </div>
         </div>
         <hr />
