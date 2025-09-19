@@ -83,7 +83,7 @@ function CapacityBuilding({ initialItems }) {
           <Trans>Learning Centre</Trans>
         </h1>
         <div className="header">
-          <div className="categories">
+          {/* <div className="categories">
             <ul>
               {categories.map((category) => (
                 <li
@@ -99,8 +99,8 @@ function CapacityBuilding({ initialItems }) {
                 </li>
               ))}
             </ul>
-          </div>
-          <div className="filter">
+          </div> */}
+          {/* <div className="filter">
             <Select
               allowClear
               showSearch
@@ -115,7 +115,7 @@ function CapacityBuilding({ initialItems }) {
               clearIcon={<CloseIcon />}
               onChange={handleTagChange}
             />
-          </div>
+          </div> */}
         </div>
         <LearningCentreCard data={filteredItems} loading={loading} />
       </div>
