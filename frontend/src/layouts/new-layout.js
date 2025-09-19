@@ -180,7 +180,9 @@ const NewLayout = ({
                     <Link href="/knowledge-hub">Knowledge Hub</Link>
                   </li>
                   <li>
-                    <Link href="/learning-centre">Learning Centre</Link>
+                    <Link href="/knowledge/learning-centre">
+                      Learning Centre
+                    </Link>
                   </li>
                   <li>
                     <a>Country Workflow</a>

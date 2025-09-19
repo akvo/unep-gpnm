@@ -183,9 +183,7 @@ const HeroPlasticTap = ({ isAuthenticated, setLoginVisible }) => {
 const FeatureCards = () => {
   return (
     <div className="feature-cards">
-      <h3>
-        <Trans>Explore The Hub</Trans>
-      </h3>
+      <h3>Explore The Hub</h3>
       <div className="container">
         <Link href="/knowledge-hub" className="feature-card">
           <div className="img">
