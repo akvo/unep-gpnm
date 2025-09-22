@@ -42,114 +42,155 @@ export const PREFIX_SLUG = 'plastic-strategy'
 export const stepsState = [
   { label: 'Instructions', slug: '', checked: false },
   {
-    label: 'National Steering Committee & Project Team',
-    slug: '1-project-team',
+    label: 'Governance & Steering Committee',
+    slug: '1-governance-steering-committee',
     substeps: [
       { label: 'Intro', slug: '', checked: false },
-      { label: 'Setup your team', slug: 'setup-team', checked: false },
+      {
+        label: 'Set up a National Steering Committee',
+        slug: 'setup-steering-committee',
+        checked: false,
+      },
+      { label: 'Set up a Working Team', slug: 'setup-team', checked: false },
     ],
   },
   {
-    label: 'Stakeholder Consultations',
-    slug: '2-stakeholder-consultation',
+    label: 'National Assessment Report on Nitrogen',
+    slug: '2-national-assessment-report-on-nitrogen',
     substeps: [
       { label: 'Intro', slug: '', checked: false },
       {
-        label: 'Case Studies',
-        slug: 'case-studies',
+        label: 'Baseline Data & Data Analysis',
+        slug: 'baseline-analysis',
         checked: false,
-        apiParams: {
-          tag: 'stakeholder consultation process',
-          ps_bookmark_sections_keys: 'stakeholder-case-studies',
-        },
       },
       {
-        label: 'Initiatives',
-        slug: 'initiatives',
+        label: 'Gap Analysis & Data Reliability',
+        slug: 'gap-analysis-data-reliability',
         checked: false,
-        apiParams: {
-          topic: 'initiative',
-          country: '{countryID}',
-          ps_bookmark_sections_keys: 'stakeholder-initiatives',
-        },
       },
-      { label: 'Summary & Report', slug: 'summary', checked: false },
     ],
   },
   {
     label: 'Legislation & Policy Review',
     slug: '3-legislation-policy',
-    substeps: [
-      { label: 'Intro', slug: '', checked: false },
-      {
-        label: 'Country Policy Framework',
-        slug: 'country-policy',
-        checked: false,
-        apiParams: {
-          topic: 'policy',
-          country: '{countryID}',
-          ps_bookmark_sections_keys: 'country-policy',
-        },
-      },
-      {
-        label: 'Case Studies',
-        slug: 'case-studies',
-        checked: false,
-        apiParams: {
-          tag: 'legislative & policy review case study',
-          ps_bookmark_sections_keys: 'stakeholder-case-studies',
-        },
-      },
-      { label: 'Summary & Report', slug: 'summary', checked: false },
-    ],
+    substeps: [{ label: 'Review & Analyise', slug: '', checked: false }],
   },
   {
-    label: 'National Source Inventory',
+    label: 'National Source Inventory Report',
     slug: '4-national-source',
     substeps: [
       { label: 'Intro', slug: '', checked: false },
       {
-        label: 'Plastics in Economy',
-        slug: 'plastics-in-economy',
+        label: 'Datasets & Resources for Inventory',
+        slug: 'datasets-resources-for-inventory',
         checked: false,
-        strapiParams: {
-          slug: 'plastics-in-economy',
-        },
       },
-      {
-        label: 'Plastic Waste Management',
-        slug: 'plastic-waste-management',
-        checked: false,
-        strapiParams: {
-          slug: 'plastic-waste-management',
-        },
-      },
-      {
-        label: 'Plastics in the Environment',
-        slug: 'plastics-in-environment',
-        checked: false,
-        strapiParams: {
-          slug: 'plastics-in-environment',
-        },
-      },
-      {
-        label: 'National Source Inventory Data Mapping',
-        slug: 'data-mapping',
-        checked: false,
-        strapiParams: {
-          slug: 'data-mapping',
-        },
-      },
-      { label: 'Summary & Report', slug: 'summary', checked: false },
     ],
   },
   {
-    label: 'National Action Plan',
-    slug: '5-national-action-plan',
+    label: 'Stakeholder Engagement & Validation of the Assessment Report',
+    slug: '5-stakeholder-report',
     substeps: [
       { label: 'Intro', slug: '', checked: false },
-      { label: 'Summary & Report', slug: 'summary', checked: false },
+      {
+        label: 'Stakeholder Identification & Analysis',
+        slug: 'stakeholder-identification-analysis',
+        checked: false,
+      },
+      {
+        label: 'Who is a Stakeholder?',
+        slug: 'who-is-a-stakeholder',
+        checked: false,
+      },
+
+      {
+        label: 'Stakeholder Identification',
+        slug: 'stakeholder-identification',
+        checked: false,
+      },
+      {
+        label: 'Stakeholder Analysis',
+        slug: 'stakeholder-analysis',
+        checked: false,
+      },
+      {
+        label: 'Methodological Framework for Analysis',
+        slug: 'methodological-framework-analysis',
+        checked: false,
+      },
+      {
+        label: 'Agriculture Food Supply Chain Mapping',
+        slug: 'agriculture-food-supply-chain-mapping',
+        checked: false,
+      },
+      {
+        label: 'Why broaden the perspective?',
+        slug: 'why-broaden-the-perspective',
+        checked: false,
+      },
+      {
+        label: 'Supporting Detail – Stakeholders in the Nitrogen Life Cycle',
+        slug: 'supporting-detail-stakeholders-nitrogen-life-cycle',
+        checked: false,
+      },
+      {
+        label: 'Mapping Stakeholder Interests & Influence',
+        slug: 'mapping-stakeholder-interests-influence',
+        checked: false,
+      },
+      {
+        label: 'Categorizing Stakeholders',
+        slug: 'categorizing-stakeholders',
+        checked: false,
+      },
+      {
+        label: 'Stakeholder Engagement',
+        slug: 'stakeholder-engagement',
+        checked: false,
+      },
     ],
+  },
+  {
+    label: 'Developing the National Action Plan (NAP)',
+    slug: '6-developing-national-action-plan',
+    substeps: [
+      { label: 'Intro', slug: '', checked: false },
+      {
+        label: 'National Context',
+        slug: 'national-context',
+        checked: false,
+      },
+      {
+        label: 'Key Challenges & Opportunities',
+        slug: 'key-challenges-opportunities',
+        checked: false,
+      },
+      {
+        label: 'Vision, Objectives, Principles, & Targets',
+        slug: 'vision-objectives-principles-targets',
+        checked: false,
+      },
+      {
+        label: 'Strategic Actions & Interventions',
+        slug: 'strategic-actions-interventions',
+        checked: false,
+      },
+      {
+        label: 'Monitoring, Reporting & Verification (MRV)',
+        slug: 'monitoring-reporting-verification-mrv',
+        checked: false,
+      },
+      {
+        label: 'Implementation',
+        slug: 'implementation',
+        checked: false,
+      },
+    ],
+  },
+  {
+    label: 'Review & Adoption',
+    slug: '7-review-adoption',
   },
 ]
 

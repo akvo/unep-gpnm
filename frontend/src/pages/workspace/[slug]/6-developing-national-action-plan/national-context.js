@@ -6,12 +6,12 @@ import { useStepInstructions } from '../../../../hooks/useStepInstructions'
 
 const View = () => {
   const router = useRouter()
-  const { data } = useStepInstructions('4-national-source', router.locale)
+  const { data } = useStepInstructions('national-context', router.locale)
 
   return (
     <>
       <h4 className="caps-heading-m">
-        <Trans>National Source Inventory Report</Trans>
+        <Trans>National Context</Trans>
       </h4>
       <h2 className="h-xxl w-bold">{data?.title}</h2>
       <div

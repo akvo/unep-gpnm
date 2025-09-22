@@ -266,8 +266,8 @@ export function transformStrapiResponse(value) {
 export function getStrapiUrl() {
   let $env = process.env.NEXT_PUBLIC_ENV || 'test'
   const domains = {
-    test: 'unep-gpml.akvotest.org',
-    staging: 'unep-gpml.akvotest.org',
+    test: 'gpnm.akvotest.org',
+    staging: 'gpnm.akvotest.org',
     prod: 'globalplasticshub.org',
   }
   return `https://${domains[$env]}/strapi`
@@ -276,7 +276,7 @@ export function getStrapiUrl() {
 export function getBaseUrl() {
   let $env = process.env.NEXT_PUBLIC_ENV
   const domains = {
-    test: 'unep-gpml.akvotest.org',
+    test: 'gpnm.akvotest.org',
     staging: 'globalplasticshub.org',
     prod: 'globalplasticshub.org',
   }
