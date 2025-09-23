@@ -188,10 +188,10 @@ export const stepsState = [
       },
     ],
   },
-  {
-    label: 'Review & Adoption',
-    slug: '7-review-adoption',
-  },
+  // {
+  //   label: 'Review & Adoption',
+  //   slug: '7-review-adoption',
+  // },
 ]
 
 export const getParentChecked = (step) =>
