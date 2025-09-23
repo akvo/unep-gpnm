@@ -575,6 +575,10 @@ h6 {
     }
   }
 }
+.user-avatar-container {
+  display: flex;
+  align-items: center;
+}
 
 .notification-badge {
   position: absolute;

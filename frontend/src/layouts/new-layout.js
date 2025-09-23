@@ -185,7 +185,7 @@ const NewLayout = ({
                     </Link>
                   </li>
                   <li>
-                    <a>Country Workflow</a>
+                    <Link href="/workspace/country-a/">Country Workflow</Link>
                   </li>
                   {/* {menuList.map((item) => (
                     <Dropdown
@@ -261,7 +261,7 @@ const NewLayout = ({
                   </div>
                 </Dropdown> */}
 
-                {!isAuthenticated && (
+                {/* {!isAuthenticated && (
                   <Button
                     type="link"
                     size="small"
@@ -270,39 +270,11 @@ const NewLayout = ({
                   >
                     <LoginSvg />
                   </Button>
-                )}
+                )} */}
                 {isAuthenticated && (
                   <>
                     {width >= 768 && (
                       <>
-                        {unreadCount > 0 && (
-                          <Dropdown
-                            overlayClassName="notification-dropdown-wrapper"
-                            overlay={
-                              <NotificationPanel
-                                notifications={displayedNotifications}
-                                onViewMore={handleViewMore}
-                                loading={notificationLoading}
-                                isMobile={width < 768}
-                                onClose={() => {}}
-                                onNotificationClick={handleNotificationClick}
-                                hasMoreNotifications={hasMoreNotifications}
-                              />
-                            }
-                            trigger={['click']}
-                            placement="bottomRight"
-                          >
-                            <div
-                              className="notification-container"
-                              style={{ marginRight: '15px' }}
-                            >
-                              <NotificationIcon />
-                              <span className="notification-badge">
-                                {unreadCount}
-                              </span>
-                            </div>
-                          </Dropdown>
-                        )}
                         <div
                           className="user-avatar-container"
                           style={{

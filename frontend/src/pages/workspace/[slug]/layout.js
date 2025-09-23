@@ -408,7 +408,7 @@ const NestedLayout = ({ children }) => {
       </div>
       {router.pathname !== '/workspace/[slug]/forum' && (
         <div className={styles.bottomBar}>
-          <Button
+          {/* <Button
             type="ghost"
             onClick={handleOnMarkAsComplete(!isCompleted)}
             loading={marking}
@@ -416,9 +416,9 @@ const NestedLayout = ({ children }) => {
           >
             <Check />
             {isCompleted ? t`Completed` : t`Mark as Completed`}
-          </Button>
+          </Button> */}
           {!router.pathname.includes('7-final-review') && (
-            <Button onClick={handleOnNext} withArrow>
+            <Button onClick={handleOnNext} withArrow style={{ marginLeft: 30 }}>
               <Trans>Next</Trans>
             </Button>
           )}

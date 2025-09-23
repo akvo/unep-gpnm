@@ -82,7 +82,7 @@
             background-color: #f5f7ff;
           }
 
-          &>a>.stephead {
+          & > a > .stephead {
             border-bottom: 1px solid #fff;
           }
 
@@ -99,7 +99,7 @@
 
         &.selected {
           .stephead {
-            background-color: $primaryPurple2;
+            background-color: #c6eae1;
           }
         }
 
@@ -370,7 +370,7 @@
   display: flex;
   flex-wrap: wrap;
 
-  &>div {
+  & > div {
     margin-right: 15px;
     margin-bottom: 15px;
   }
