@@ -1,16 +1,20 @@
+import { useRouter } from 'next/router'
 import { PageLayout } from '..'
 import { Trans, t } from '@lingui/macro'
 import { loadCatalog } from '../../../../translations/utils'
 import { useStepInstructions } from '../../../../hooks/useStepInstructions'
-import { useRouter } from 'next/router'
 
 const View = () => {
   const router = useRouter()
-  const { data } = useStepInstructions('data-mapping', router.locale)
+  const { data } = useStepInstructions(
+    'monitoring-reporting-verification-mrv',
+    router.locale
+  )
+
   return (
     <>
       <h4 className="caps-heading-m">
-        <Trans>Data Mapping</Trans>
+        <Trans>Monitoring, Reporting & Verification (MRV)</Trans>
       </h4>
       <h2 className="h-xxl w-bold">{data?.title}</h2>
       <div

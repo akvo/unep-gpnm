@@ -22,22 +22,57 @@ export const useStepsDict = () => {
 
   const stepsDict = {
     Instructions: i18n._(t`Instructions`),
-    'National Steering Committee & Project Team': i18n._(
-      t`National Steering Committee & Project Team`
+    'Governance & Steering Committee': i18n._(
+      t`Governance & Steering Committee`
     ),
     Intro: t`Intro`,
-    'Setup your team': i18n._(t`Setup your team`),
-    'Stakeholder Consultations': i18n._(t`Stakeholder Consultations`),
+    'Set up a National Steering Committee': i18n._(
+      t`Set up a National Steering Committee`
+    ),
+    'Set up a Working Team': i18n._(t`Set up a Working Team`),
+    'National Assessment Report on Nitrogen': i18n._(
+      t`National Assessment Report on Nitrogen`
+    ),
     'Stakeholder Map': i18n._(t`Stakeholder Map`),
-    'Case Studies': i18n._(t`Case Studies`),
-    Initiatives: i18n._(t`Initiatives`),
-    'Summary & Report': i18n._(t`Summary & Report`),
+    'Baseline Data & Data Analysis': i18n._(t`Baseline Data & Data Analysis`),
+    'Gap Analysis & Data Reliability': i18n._(
+      t`Gap Analysis & Data Reliability`
+    ),
+    'Review & Analyise': i18n._(t`Review & Analyise`),
+    'National Source Inventory Report': i18n._(
+      t`National Source Inventory Report`
+    ),
     'Legislation & Policy Review': i18n._(t`Legislation & Policy Review`),
-    'Country Policy Framework': i18n._(t`Country Policy Framework`),
-    'Legislative Development Guide': i18n._(t`Legislative Development Guide`),
+    'Stakeholder Engagement & Validation of the Assessment Report': i18n._(
+      t`Stakeholder Engagement & Validation of the Assessment Report`
+    ),
+    'Datasets & Resources for Inventory': i18n._(
+      t`Datasets & Resources for Inventory`
+    ),
     'Data Analysis': i18n._(t`Data Analysis`),
+    'Stakeholder Identification & Analysis': i18n._(
+      t`Stakeholder Identification & Analysis`
+    ),
     'State of Knowledge on Plastic Data': i18n._(
       t`State of Knowledge on Plastic Data`
+    ),
+    'Who is a Stakeholder?': i18n._(t`Who is a Stakeholder?`),
+    'Stakeholder Identification': i18n._(t`Stakeholder Identification`),
+    'Stakeholder Analysis': i18n._(t`Stakeholder Analysis`),
+    'Categorizing Stakeholders': i18n._(t`Categorizing Stakeholders`),
+    'Stakeholder Engagement': i18n._(t`Stakeholder Engagement`),
+    'Mapping Stakeholder Interests & Influence': i18n._(
+      t`Mapping Stakeholder Interests & Influence`
+    ),
+    'Supporting Detail – Stakeholders in the Nitrogen Life Cycle': i18n._(
+      t`Supporting Detail – Stakeholders in the Nitrogen Life Cycle`
+    ),
+    'Why broaden the perspective?': i18n._(t`Why broaden the perspective?`),
+    'Agriculture Food Supply Chain Mapping': i18n._(
+      t`Agriculture Food Supply Chain Mapping`
+    ),
+    'Methodological Framework for Analysis': i18n._(
+      t`Methodological Framework for Analysis`
     ),
     'Available Tools': i18n._(t`Available Tools`),
     'Data Collection Tools': i18n._(t`Data Collection Tools`),
@@ -51,10 +86,26 @@ export const useStepsDict = () => {
     'Plastics in Economy': i18n._(t`Plastics in Economy`),
     'Plastic Waste Management': i18n._(t`Plastic Waste Management`),
     'Plastics in the Environment': i18n._(t`Plastics in the Environment`),
+    'Developing the National Action Plan (NAP)': i18n._(
+      t`Developing the National Action Plan (NAP)`
+    ),
     'National Source Inventory Data Mapping': i18n._(
       t`National Source Inventory Data Mapping`
     ),
     'Final Review': i18n._(t`Final Review`),
+    'Review & Adoption': i18n._(t`Review & Adoption`),
+    'National Context': i18n._(t`National Context`),
+    'Key Challenges & Opportunities': i18n._(t`Key Challenges & Opportunities`),
+    'Vision, Objectives, Principles, & Targets': i18n._(
+      t`Vision, Objectives, Principles, & Targets`
+    ),
+    'Strategic Actions & Interventions': i18n._(
+      t`Strategic Actions & Interventions`
+    ),
+    'Monitoring, Reporting & Verification (MRV)': i18n._(
+      t`Monitoring, Reporting & Verification (MRV)`
+    ),
+    Implementation: i18n._(t`Implementation`),
   }
 
   return stepsDict
@@ -265,10 +316,12 @@ const NestedLayout = ({ children }) => {
       <div className={styles.sidebar}>
         <div className="sticky" ref={domRef}>
           <div className="head">
-            <div className="caps-heading-s">
+            {/* <div className="caps-heading-s">
               <Trans>Country Dedicated Workflow</Trans>
             </div>
             <h5 className="h-m m-semi">{psCountryName || t`Loading...`}</h5>
+            */}
+            <h5 className="h-m m-semi">Country Dedicated Workflow</h5>
             <div className="progress-bar">
               <div className="fill" style={{ width: `${progress}%` }}></div>
             </div>

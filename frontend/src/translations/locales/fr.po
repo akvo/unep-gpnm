@@ -39,17 +39,9 @@ msgstr "{0} estimation"
 msgid "{city} estimate"
 msgstr "{city} estimation"
 
-#: src/pages/workspace/[slug]/7-final-review/index.js:30
-msgid "{incompleteAmount} items are not completed"
-msgstr "{incompleteAmount} éléments ne sont pas terminés"
-
-#: src/pages/workspace/[slug]/layout.js:276
+#: src/pages/workspace/[slug]/layout.js:327
 msgid "{progress}% complete"
 msgstr "{progress} % terminé"
-
-#: src/pages/workspace/[slug]/2-stakeholder-consultation/stakeholder-map.js:414
-msgid "{value} Initiatives"
-msgstr "{value} Initiatives"
 
 #: src/pages/countryOverview/IntroPage.jsx:199
 msgid "* You are currently viewing the beta version of the Country Dashboard, and we welcome your feedback on its usability and content. We particularly welcome suggestions for updated and improved data sources for your country. To request a data update, please use the \"Submit Data Update\" button within your Country Dashboard section."
@@ -176,10 +168,6 @@ msgstr "Ajouter"
 msgid "Add a File"
 msgstr "Ajouter un fichier"
 
-#: src/pages/workspace/[slug]/1-project-team/setup-team.js:44
-msgid "Add a New Member"
-msgstr "Ajouter un nouveau membre"
-
 #: src/components/event-calendar/view.jsx:172
 msgid "Add An Event"
 msgstr "Ajouter un événement"
@@ -198,7 +186,7 @@ msgstr "Ajouter une nouvelle entité"
 msgid "Add translation"
 msgstr "Ajouter une traduction"
 
-#: src/modules/workspace/ps/config.js:164
+#: src/modules/workspace/ps/config.js:205
 msgid "Admin"
 msgstr "Administrateur"
 
@@ -206,7 +194,7 @@ msgstr "Administrateur"
 msgid "Admin Section"
 msgstr "Section Administrateur"
 
-#: src/modules/workspace/ps/config.js:165
+#: src/modules/workspace/ps/config.js:206
 msgid "Admins can edit all content and manage the team"
 msgstr "Les administrateurs peuvent modifier tout le contenu et gérer l'équipe"
 
@@ -230,6 +218,11 @@ msgstr "Accepter des règles ou des normes nouvelles ou changeantes que d'autres
 msgid "Agriculture"
 msgstr "Agriculture"
 
+#: src/pages/workspace/[slug]/5-stakeholder-report/agriculture-food-supply-chain-mapping.js:17
+#: src/pages/workspace/[slug]/layout.js:72
+msgid "Agriculture Food Supply Chain Mapping"
+msgstr ""
+
 #: src/store.js:417
 msgid "AI for Earth Grant"
 msgstr "Subvention IA pour la Terre"
@@ -247,10 +240,6 @@ msgstr "tous"
 #: src/modules/stakeholder-overview/filter-drawer.jsx:160
 msgid "All (default)"
 msgstr "Tout (par défaut)"
-
-#: src/pages/workspace/[slug]/7-final-review/index.js:71
-msgid "All done!"
-msgstr "Terminé!"
 
 #: src/pages/forum/index.jsx:130
 msgid "All Forums"
@@ -393,17 +382,17 @@ msgstr "Automobile"
 msgid "Available Data"
 msgstr "Données disponibles"
 
-#: src/pages/workspace/[slug]/layout.js:44
+#: src/pages/workspace/[slug]/layout.js:79
 msgid "Available Data & Statistics"
 msgstr "Données et statistiques disponibles"
 
 #: src/pages/workspace/[slug]/3-data-analysis/available-information.js:46
-#: src/pages/workspace/[slug]/layout.js:47
+#: src/pages/workspace/[slug]/layout.js:82
 msgid "Available Information"
 msgstr "Informations disponibles"
 
 #: src/pages/workspace/[slug]/3-data-analysis/available-tools.js:46
-#: src/pages/workspace/[slug]/layout.js:42
+#: src/pages/workspace/[slug]/layout.js:77
 msgid "Available Tools"
 msgstr "Outils disponibles"
 
@@ -470,6 +459,11 @@ msgstr "Interdiction(s)"
 msgid "Banner"
 msgstr "Bannière"
 
+#: src/pages/workspace/[slug]/2-national-assessment-report-on-nitrogen/baseline-analysis.js:14
+#: src/pages/workspace/[slug]/layout.js:37
+msgid "Baseline Data & Data Analysis"
+msgstr ""
+
 #: src/modules/flexible-forms/common.js:348
 #: src/modules/stakeholder-detail/view.jsx:475
 msgid "Basic info"
@@ -504,6 +498,7 @@ msgid "Blended finance"
 msgstr "Financement mixte"
 
 #: src/pages/workspace/[slug]/[step]/summary.js:164
+#: src/pages/workspace/[slug]/7-review-adoption/index.js:184
 msgid "Browse"
 msgstr "Parcourir"
 
@@ -534,7 +529,7 @@ msgid "By submitting this form, I will be included in the public database of GPM
 msgstr "En soumettant ce formulaire, je serai inclus dans la base de données publique des membres du Global Plastics Hub et je reconnais que les informations fournies seront rendues publiques et utilisées pour me trouver et me connecter via des fonctionnalités de correspondance intelligente avec d'autres parties prenantes et ressources."
 
 #: src/pages/workspace/[slug]/3-data-analysis/calculation.js:45
-#: src/pages/workspace/[slug]/layout.js:46
+#: src/pages/workspace/[slug]/layout.js:81
 msgid "Calculation of Indicators"
 msgstr "Calcul des indicateurs"
 
@@ -545,10 +540,6 @@ msgstr "Stratégie californienne de prévention des déchets marins"
 #: src/modules/flexible-forms/form-schema.js:866
 msgid "Campaigning with or through NGOs"
 msgstr "Faire campagne avec ou via des ONG"
-
-#: src/pages/workspace/[slug]/2-stakeholder-consultation/stakeholder-map.js:530
-msgid "Can't find who you're looking for?"
-msgstr "Vous ne trouvez pas qui vous cherchez ?"
 
 #: src/modules/onboarding/form-three.jsx:82
 #: src/modules/onboarding/form-two.jsx:83
@@ -575,12 +566,6 @@ msgstr "Renforcement des capacités"
 msgid "Case studies"
 msgstr "Études de cas"
 
-#: src/pages/workspace/[slug]/2-stakeholder-consultation/case-studies.js:36
-#: src/pages/workspace/[slug]/3-legislation-policy/case-studies.js:47
-#: src/pages/workspace/[slug]/layout.js:32
-msgid "Case Studies"
-msgstr "Études de cas"
-
 #: src/components/resource-card/resource-card.jsx:20
 #: src/pages/knowledge-hub/index.js:194
 msgid "Case Study"
@@ -589,6 +574,11 @@ msgstr "Étude de cas"
 #: src/pages/countryOverview/partials/EconomicInstrumentsComponent.jsx:20
 msgid "Cash for return schemes"
 msgstr "Programmes de remboursement contre remboursement"
+
+#: src/pages/workspace/[slug]/5-stakeholder-report/categorizing-stakeholders.js:17
+#: src/pages/workspace/[slug]/layout.js:62
+msgid "Categorizing Stakeholders"
+msgstr ""
 
 #: src/modules/knowledge-lib/resource-view.jsx:514
 msgid "category"
@@ -718,10 +708,6 @@ msgstr "Effacer la sélection"
 msgid "Clear Selection"
 msgstr "Effacer la sélection"
 
-#: src/pages/workspace/[slug]/3-legislation-policy/country-policy.js:155
-msgid "Click to Unflag as Validated"
-msgstr "Cliquez pour ne plus marquer comme validé"
-
 #: src/modules/onboarding/form-four.jsx:199
 msgid "Click to Upload"
 msgstr "Cliquez pour télécharger"
@@ -775,7 +761,7 @@ msgstr "Engagement communautaire"
 msgid "Community Hub"
 msgstr "Centre communautaire"
 
-#: src/pages/workspace/[slug]/layout.js:365
+#: src/pages/workspace/[slug]/layout.js:416
 msgid "Completed"
 msgstr "Complété"
 
@@ -817,7 +803,6 @@ msgstr "Connexions"
 msgid "Constitution"
 msgstr "Constitution"
 
-#: src/pages/workspace/[slug]/2-stakeholder-consultation/stakeholder-map.js:56
 #: src/utils/misc.js:340
 msgid "Consumption"
 msgstr "Consommation"
@@ -909,18 +894,13 @@ msgid "Country Dedicated"
 msgstr "Pour chaque pays"
 
 #: src/modules/workspace/view.jsx:486
-#: src/pages/workspace/[slug]/layout.js:269
+#: src/pages/workspace/[slug]/layout.js:320
 msgid "Country Dedicated Workflow"
 msgstr "Flux de travail dédiés par pays"
 
 #: src/modules/workspace/view.jsx:320
 msgid "Country Dedicated Workflows"
 msgstr "Flux de travail dédiés par pays"
-
-#: src/pages/workspace/[slug]/3-legislation-policy/country-policy.js:560
-#: src/pages/workspace/[slug]/layout.js:36
-msgid "Country Policy Framework"
-msgstr "Cadre politique du pays"
 
 #: src/store.js:545
 #: src/store.js:614
@@ -939,10 +919,6 @@ msgstr "Couvre une partie d'un pays, par exemple une ville ou un État fédéral
 #: src/store.js:326
 msgid "Covers two or more countries"
 msgstr "Couvre deux pays ou plus"
-
-#: src/pages/workspace/[slug]/1-project-team/setup-team.js:19
-msgid "Create Your Team"
-msgstr "Créez votre équipe"
 
 #: src/store.js:692
 msgid "Creation of new knowledge and/or the use of existing knowledge in a new and creative way to generate new concepts, methodologies and understandings."
@@ -976,7 +952,7 @@ msgstr "CV / Portefeuille"
 #: src/pages/workspace/[slug]/3-data-analysis/calculation.js:42
 #: src/pages/workspace/[slug]/3-data-analysis/data-collection.js:43
 #: src/pages/workspace/[slug]/3-data-analysis/index.js:35
-#: src/pages/workspace/[slug]/layout.js:38
+#: src/pages/workspace/[slug]/layout.js:52
 msgid "Data Analysis"
 msgstr "État des connaissances sur les données plastiques"
 
@@ -985,12 +961,12 @@ msgstr "État des connaissances sur les données plastiques"
 msgid "Data Catalog"
 msgstr "Catalogue de données"
 
-#: src/pages/workspace/[slug]/layout.js:45
+#: src/pages/workspace/[slug]/layout.js:80
 msgid "Data Collection"
 msgstr "Collecte de données"
 
 #: src/pages/workspace/[slug]/3-data-analysis/data-collection.js:46
-#: src/pages/workspace/[slug]/layout.js:43
+#: src/pages/workspace/[slug]/layout.js:78
 msgid "Data Collection Tools"
 msgstr "Outils de collecte de données"
 
@@ -1002,10 +978,6 @@ msgstr "centre de données"
 #: src/store.js:46
 msgid "Data Hub"
 msgstr "Centre de données"
-
-#: src/pages/workspace/[slug]/4-national-source/data-mapping.js:13
-msgid "Data Mapping"
-msgstr ""
 
 #: src/pages/search/index.js:210
 msgid "Data on beach litter"
@@ -1037,6 +1009,11 @@ msgstr "Source des données :"
 #: src/modules/workspace/view.jsx:67
 msgid "Data tools"
 msgstr "Outils de données"
+
+#: src/pages/workspace/[slug]/4-national-source/datasets-resources-for-inventory.js:17
+#: src/pages/workspace/[slug]/layout.js:50
+msgid "Datasets & Resources for Inventory"
+msgstr ""
 
 #: src/store.js:473
 msgid "Debt securities issued by private or public entities to finance activities or projects linked to sustainable development, green goals, or ocean goals."
@@ -1083,28 +1060,6 @@ msgstr "Supprimer"
 msgid "Description"
 msgstr "Description"
 
-#: src/pages/workspace/[slug]/2-stakeholder-consultation/case-studies.js:39
-msgid "Description - Section 2 - Case Studies"
-msgstr "Explorez les expériences d'autres pays pour tirer des leçons précieuses. Plongez-vous dans une sélection d'études de cas mettant en lumière les expériences de ces pays dans leurs consultations avec les parties prenantes."
-
-#: src/pages/workspace/[slug]/2-stakeholder-consultation/initiatives.js:145
-msgid "Description - Section 2 - Initatives"
-msgstr "Le Global Plastics Hub, grâce à une approche participative, permet à toutes les parties prenantes de partager leurs initiatives. Découvrez toutes les initiatives soumises en soutien à votre pays. Utilisez des filtres pour localiser facilement les initiatives pertinentes et explorer quelles parties prenantes impliquer dans les consultations."
-
-#: src/pages/workspace/[slug]/3-legislation-policy/case-studies.js:50
-msgid "Description - Section 3 - Case Studies"
-msgstr "Découvrez davantage l'expérience d'autres pays. Consultez quelques études de cas illustrant les expériences de ces pays dans la formulation de leur approche législative et politique."
-
-#: src/pages/workspace/[slug]/3-legislation-policy/country-policy.js:565
-msgid "Description - Section 3 - Coutry Policy Framework"
-msgstr ""
-"L'UNEP et sa Division du Droit, avec le soutien de partenaires, ont travaillé pour recueillir toutes les informations législatives et réglementaires sur le pays. Veuillez aider l'UNEP à confirmer l'exactitude de ces informations en sélectionnant chaque ressource et en validant son contenu.\n"
-""
-
-#: src/pages/workspace/[slug]/3-legislation-policy/legislative-development.js:17
-msgid "Description - Section 3 - Legislative Development Guide"
-msgstr "L'UNEP et sa Division du Droit ont élaboré un guide de développement législatif pour aider les pays à prendre en compte les premières étapes de leur cadre juridique. À ce stade, les pays sont invités à effectuer une analyse législative en vue de choisir éventuellement une approche réglementaire et de prendre en considération la rédaction de textes juridiques."
-
 #: src/pages/workspace/[slug]/3-data-analysis/available-information.js:49
 msgid "Description - Section 4 - Available Information"
 msgstr "Trouvez des ressources supplémentaires pour identifier les lacunes en matière de connaissances dans votre pays."
@@ -1129,14 +1084,10 @@ msgstr ""
 "Plusieurs outils et ressources précieux ont été développés pour aider les gouvernements et les organisations à évaluer et surveiller de manière globale les différents aspects de la pollution plastique et son impact sur l'environnement. Ces outils servent de guides et de cadres essentiels pour collecter des données, mettre en œuvre des programmes de surveillance et mesurer les progrès liés au plastique.\n"
 ""
 
-#: src/modules/workspace/ps/config.js:182
-#: src/modules/workspace/ps/config.js:187
+#: src/modules/workspace/ps/config.js:223
+#: src/modules/workspace/ps/config.js:228
 msgid "Description text for what this is"
 msgstr "Texte de description de ce que c'est"
-
-#: src/pages/workspace/[slug]/7-final-review/index.js:25
-msgid "description-7-final-review"
-msgstr "Retrouvez ci-dessous un récapitulatif de toutes les activités réaliséesà travers le workflow pour finaliser la finalisation de la stratégie plastique."
 
 #: src/pages/workspace/[slug]/3-data-analysis/available-data.js:15
 msgid "description-available-data-4-data-analysis"
@@ -1145,10 +1096,6 @@ msgstr "Le GPML Data Hub est un référentiel central qui rassemble et normalise
 #: src/modules/flexible-forms/form-schema.js:956
 msgid "Design"
 msgstr "Conception"
-
-#: src/pages/workspace/[slug]/2-stakeholder-consultation/stakeholder-map.js:46
-msgid "Design & Production"
-msgstr "Conception et réalisation"
 
 #: src/modules/flexible-forms/common.js:391
 msgid "Detail info"
@@ -1161,6 +1108,11 @@ msgstr "Développer un nouveau matériau"
 #: src/modules/flexible-forms/form-schema.js:540
 msgid "Developing a new process"
 msgstr "Développer un nouveau processus"
+
+#: src/pages/workspace/[slug]/6-developing-national-action-plan/index.js:17
+#: src/pages/workspace/[slug]/layout.js:90
+msgid "Developing the National Action Plan (NAP)"
+msgstr ""
 
 #: src/store.js:683
 msgid "Development"
@@ -1189,10 +1141,6 @@ msgstr "Discussions"
 #: src/pages/countryOverview/partials/EconomicInstrumentsComponent.jsx:27
 msgid "Disincentives to irresponsible plastic stewardship​"
 msgstr "Mesures dissuasives contre la gestion irresponsable du plastique"
-
-#: src/pages/workspace/[slug]/2-stakeholder-consultation/stakeholder-map.js:51
-msgid "Distribution"
-msgstr "Distribution"
 
 #: src/modules/flexible-forms/form-schema.js:825
 msgid "Do you have specific key performance indicators (KPIs) for your initiative? If yes, please list up to 5."
@@ -1228,6 +1176,7 @@ msgid "Drivers and Barriers"
 msgstr "Facteurs et obstacles"
 
 #: src/pages/workspace/[slug]/[step]/summary.js:159
+#: src/pages/workspace/[slug]/7-review-adoption/index.js:179
 msgid "Drop a file here"
 msgstr "Déposez un fichier ici"
 
@@ -1261,11 +1210,11 @@ msgstr "Service d'écosystème"
 msgid "Edit"
 msgstr "Modifier"
 
-#: src/modules/workspace/ps/config.js:169
+#: src/modules/workspace/ps/config.js:210
 msgid "Editor"
 msgstr "Éditeur"
 
-#: src/modules/workspace/ps/config.js:170
+#: src/modules/workspace/ps/config.js:211
 msgid "Editors can edit all content, but cannot manage the team"
 msgstr "Les éditeurs peuvent modifier tout le contenu, mais ne peuvent pas gérer l'équipe"
 
@@ -1320,10 +1269,6 @@ msgstr "Encourager ou permettre aux autres, par exemple, l'éducation, la format
 #: src/modules/knowledge-lib/filter-modal.jsx:332
 msgid "End Date"
 msgstr "Date de fin"
-
-#: src/pages/workspace/[slug]/2-stakeholder-consultation/stakeholder-map.js:61
-msgid "End of Life"
-msgstr "Fin de vie"
 
 #: src/modules/country-dashboard/charts/PlasticOceanBeachCHart.jsx:121
 #: src/modules/country-dashboard/charts/PlasticOceanBeachCHart.jsx:175
@@ -1438,14 +1383,6 @@ msgstr "Un investissement équitable"
 msgid "Escaped plastic reaching oceans and coasts​"
 msgstr "Les plastiques échappés atteignent les océans et les côtes"
 
-#: src/pages/workspace/[slug]/1-project-team/setup-team.js:24
-msgid "Establish a National Steering Committee (NSC) with representation from relevant government agencies as well as relevant non-governmental organisations. The NSC will aim to meet 2-4 times per year to assist with and drive the roadmap/strategy/plan. Establish a project team consisting of consultants to lead the implementation of the project with the guidance of the NSC and UNEP."
-msgstr ""
-"Dans cette section, vous pouvez commencer par ajouter toutes les personnes qui ont été nommées au Comité Directeur National (CDN) ou à l'Équipe de Projet. Une fois que vous les ajoutez à votre équipe au sein de le Global Plastics Hub, ils auront accès à toutes les sections du flux de travail. De plus, veuillez noter que vous pouvez restreindre leurs privilèges de modification.\n"
-"\n"
-"Vous pouvez utiliser la fonction de recherche pour inclure de nouvelles personnes déjà enregistrées sur la plateforme. Si vous ne parvenez pas à trouver le nom de la personne que vous souhaitez ajouter, vous trouverez une option pour \"Ajouter un Nouveau Membre\" dans les résultats de recherche\n"
-""
-
 #: src/modules/country-dashboard/charts/MSWGeneration.tsx:113
 #: src/modules/country-dashboard/charts/PlasticCompositionChart.jsx:113
 msgid "Estimated Regional Average"
@@ -1554,8 +1491,7 @@ msgstr "Filtres"
 msgid "Final manufactured plastic goods"
 msgstr "Produits finis en plastique manufacturés"
 
-#: src/pages/workspace/[slug]/7-final-review/index.js:20
-#: src/pages/workspace/[slug]/layout.js:57
+#: src/pages/workspace/[slug]/layout.js:95
 msgid "Final Review"
 msgstr "Révue finale"
 
@@ -1574,10 +1510,6 @@ msgstr "Ressource de financement"
 #: src/store.js:758
 msgid "Financing Resources"
 msgstr "Ressources de financement"
-
-#: src/pages/workspace/[slug]/2-stakeholder-consultation/stakeholder-map.js:596
-msgid "Find and connect the stakeholders relevant to you"
-msgstr "Trouvez et connectez les parties prenantes pertinentes pour vous"
 
 #: src/modules/signup-old/signup-form.jsx:40
 msgid "First name"
@@ -1603,10 +1535,6 @@ msgstr "Fishing for Litter : Projet de nettoyage des océans auquel participen
 #: src/modules/country-dashboard/charts/PlasticOceanBeachCHart.jsx:237
 msgid "​​Florida State University and UNEP, 2021"
 msgstr "Université d'État de Floride et PNUE, 2021"
-
-#: src/pages/workspace/[slug]/2-stakeholder-consultation/stakeholder-map.js:119
-msgid "Focal Point"
-msgstr "Point focal"
 
 #: src/pages/partnership/index.jsx:1105
 msgid "Focal Point Account in GPML"
@@ -1682,6 +1610,11 @@ msgstr "Des fonds pour lutter contre la pollution plastique en Asie"
 msgid "G-STIC Conference Second Edition"
 msgstr "Conférence G-STIC Deuxième édition"
 
+#: src/pages/workspace/[slug]/2-national-assessment-report-on-nitrogen/gap-analysis-data-reliability.js:17
+#: src/pages/workspace/[slug]/layout.js:39
+msgid "Gap Analysis & Data Reliability"
+msgstr ""
+
 #: src/modules/flexible-forms/form-schema.js:921
 msgid "Gaps in expertise in member state/organisation"
 msgstr "Lacunes en matière d’expertise dans l’État membre/l’organisation"
@@ -1741,8 +1674,6 @@ msgstr "Couverture géographique - Type"
 
 #: src/modules/stakeholder-overview/filter-drawer.jsx:335
 #: src/pages/partnership/index.jsx:791
-#: src/pages/workspace/[slug]/2-stakeholder-consultation/stakeholder-map.js:108
-#: src/pages/workspace/[slug]/3-legislation-policy/country-policy.js:237
 msgid "Geo-coverage"
 msgstr "Couverture géographique"
 
@@ -1814,6 +1745,11 @@ msgstr "Accédez au partenariat"
 #: src/modules/flexible-forms/form-schema.js:24
 msgid "Good Health and Well-being"
 msgstr "Bonne santé et bien-être"
+
+#: src/pages/workspace/[slug]/1-governance-steering-committee/index.js:17
+#: src/pages/workspace/[slug]/layout.js:26
+msgid "Governance & Steering Committee"
+msgstr ""
 
 #: src/components/resource-card/resource-card.jsx:96
 msgid "Government Verified"
@@ -2020,6 +1956,11 @@ msgstr "Immédiatement (moins d'un an)"
 msgid "Impact. What impacts or harms does the initiative relate to? (Please tick ALL that apply)."
 msgstr "Impact. À quels impacts ou préjudices l’initiative est-elle liée ? (Veuillez cocher TOUTES les réponses applicables)."
 
+#: src/pages/workspace/[slug]/6-developing-national-action-plan/implementation.js:14
+#: src/pages/workspace/[slug]/layout.js:108
+msgid "Implementation"
+msgstr ""
+
 #: src/modules/flexible-forms/form-schema.js:1994
 msgid "Implementing MEA"
 msgstr "Mise en œuvre du MEA"
@@ -2145,9 +2086,6 @@ msgid "Initiative Scope & Target"
 msgstr "Portée et cible de l’initiative"
 
 #: src/modules/knowledge-lib/filter-bar.jsx:27
-#: src/pages/workspace/[slug]/2-stakeholder-consultation/initiatives.js:142
-#: src/pages/workspace/[slug]/2-stakeholder-consultation/stakeholder-map.js:123
-#: src/pages/workspace/[slug]/layout.js:33
 #: src/store.js:748
 msgid "Initiatives"
 msgstr "Initiatives"
@@ -2239,6 +2177,11 @@ msgstr "Rejoignez le partenariat"
 #: src/modules/login/view.jsx:359
 msgid "JOIN WITH EMAIL"
 msgstr "REJOIGNEZ PAR EMAIL"
+
+#: src/pages/workspace/[slug]/6-developing-national-action-plan/key-challenges-opportunities.js:17
+#: src/pages/workspace/[slug]/layout.js:98
+msgid "Key Challenges & Opportunities"
+msgstr ""
 
 #: src/modules/about/about-us.jsx:347
 msgid "Key Features & Components"
@@ -2356,19 +2299,10 @@ msgstr "Plastiques hérités"
 msgid "Legislation"
 msgstr "Législation"
 
-#: src/pages/workspace/[slug]/layout.js:35
+#: src/pages/workspace/[slug]/3-legislation-policy/index.js:14
+#: src/pages/workspace/[slug]/layout.js:45
 msgid "Legislation & Policy Review"
 msgstr "Examen de la législation et des politiques"
-
-#: src/pages/workspace/[slug]/3-legislation-policy/country-policy.js:557
-#: src/pages/workspace/[slug]/3-legislation-policy/index.js:36
-#: src/pages/workspace/[slug]/3-legislation-policy/legislative-development.js:11
-msgid "Legislation & Policy Review Report"
-msgstr "Rapport d'examen de la législation et des politiques"
-
-#: src/pages/workspace/[slug]/3-legislation-policy/case-studies.js:44
-msgid "LEGISLATION & POLICY REVIEW REPORT"
-msgstr "RAPPORT D'EXAMEN DE LA LÉGISLATION ET DES POLITIQUES"
 
 #: src/modules/flexible-forms/form-schema.js:399
 msgid "Legislation or regulations"
@@ -2389,11 +2323,6 @@ msgstr "LÉGISLATION, NORMES, RÈGLES (par exemple, convenir de règles ou de no
 #: src/store.js:362
 msgid "Legislations, Regulations & Standards"
 msgstr "Législations, réglementations et normes"
-
-#: src/pages/workspace/[slug]/3-legislation-policy/legislative-development.js:14
-#: src/pages/workspace/[slug]/layout.js:37
-msgid "Legislative Development Guide"
-msgstr "Guide d'élaboration législative"
 
 #: src/store.js:20
 #: src/store.js:21
@@ -2416,10 +2345,6 @@ msgstr "La vie sur terre"
 #: src/modules/flexible-forms/form-schema.js:467
 msgid "Life-long learning"
 msgstr "Apprentissage tout au long de la vie"
-
-#: src/pages/workspace/[slug]/2-stakeholder-consultation/stakeholder-map.js:114
-msgid "Lifecycle Stage"
-msgstr "Etape du cyle de vie"
 
 #: src/modules/flexible-forms/form-schema.js:935
 msgid "Lifecycle. Which specific part of the lifecycle/plastic supply chain is your initiative targeting? (Please tick ALL that apply)."
@@ -2453,7 +2378,7 @@ msgstr "Chargement"
 #: src/components/event-calendar/view.jsx:181
 #: src/modules/entity-detail/view.jsx:349
 #: src/modules/stakeholder-detail/view.jsx:377
-#: src/pages/workspace/[slug]/layout.js:271
+#: src/pages/workspace/[slug]/layout.js:322
 msgid "Loading..."
 msgstr "Chargement..."
 
@@ -2525,6 +2450,11 @@ msgstr "Manufacture et production"
 msgid "map"
 msgstr "carte"
 
+#: src/pages/workspace/[slug]/5-stakeholder-report/mapping-stakeholder-interests-influence.js:17
+#: src/pages/workspace/[slug]/layout.js:65
+msgid "Mapping Stakeholder Interests & Influence"
+msgstr ""
+
 #: src/store.js:50
 msgid "Maps"
 msgstr "Plans"
@@ -2549,7 +2479,7 @@ msgstr "Graphiques vitaux des déchets marins"
 msgid "Marine organisms"
 msgstr "les organismes marins"
 
-#: src/pages/workspace/[slug]/layout.js:365
+#: src/pages/workspace/[slug]/layout.js:416
 msgid "Mark as Completed"
 msgstr "Marquer comme terminé"
 
@@ -2605,6 +2535,11 @@ msgstr "Les membres connectés via le pôle communautaire."
 msgid "Members of the public have actively complained / asked for change"
 msgstr "Les membres du public se sont activement plaints/ont demandé des changements"
 
+#: src/pages/workspace/[slug]/5-stakeholder-report/methodological-framework-analysis.js:17
+#: src/pages/workspace/[slug]/layout.js:75
+msgid "Methodological Framework for Analysis"
+msgstr ""
+
 #: src/modules/signup/view.jsx:47
 #: src/store.js:165
 msgid "Microfibers"
@@ -2652,6 +2587,11 @@ msgstr "SURVEILLANCE et ANALYSE (collecte de preuves sur les rejets de plastique
 #: src/modules/flexible-forms/form-schema.js:560
 msgid "Monitoring and Analysis. You have chosen monitoring and analysis as the type of initiatives. What did the initiative specifically involve? (Please tick ALL that apply):"
 msgstr "Surveillance et analyse. Vous avez choisi le suivi et l'analyse comme type d'initiatives. En quoi consistait spécifiquement cette initiative ? (Veuillez cocher TOUTES les réponses applicables) :"
+
+#: src/pages/workspace/[slug]/6-developing-national-action-plan/monitoring-reporting-verification-mrv.js:17
+#: src/pages/workspace/[slug]/layout.js:106
+msgid "Monitoring, Reporting & Verification (MRV)"
+msgstr ""
 
 #: src/modules/flexible-forms/form-schema.js:591
 msgid "Monitoring: Air"
@@ -2733,10 +2673,20 @@ msgstr "Nom de l'organisation"
 msgid "National"
 msgstr "National"
 
-#: src/pages/workspace/[slug]/layout.js:49
+#: src/pages/workspace/[slug]/layout.js:84
 #: src/store.js:329
 msgid "National Action Plan"
 msgstr "Plan d'action national"
+
+#: src/pages/workspace/[slug]/2-national-assessment-report-on-nitrogen/index.js:17
+#: src/pages/workspace/[slug]/layout.js:34
+msgid "National Assessment Report on Nitrogen"
+msgstr ""
+
+#: src/pages/workspace/[slug]/6-developing-national-action-plan/national-context.js:14
+#: src/pages/workspace/[slug]/layout.js:97
+msgid "National Context"
+msgstr ""
 
 #: src/components/map-and-layers/sidebar/index.jsx:174
 #: src/components/map-and-layers/sidebar/partials/CategoriesNestedDashboard.jsx:78
@@ -2752,31 +2702,22 @@ msgstr "Estimation nationale"
 msgid "National or organisational values"
 msgstr "Valeurs nationales ou organisationnelles"
 
-#: src/pages/workspace/[slug]/5-national-action-plan/index.js:26
-msgid "National Plastic Strategy"
-msgstr "Stratégie nationale sur le plastique"
-
 #: src/pages/workspace/plastic-strategies/index.js:41
 msgid "National Source Inventories"
 msgstr "Inventaires nationaux des sources"
 
-#: src/pages/workspace/[slug]/layout.js:48
+#: src/pages/workspace/[slug]/layout.js:83
 msgid "National Source Inventory"
 msgstr "Inventaire national des sources"
 
-#: src/pages/workspace/[slug]/layout.js:55
+#: src/pages/workspace/[slug]/layout.js:93
 msgid "National Source Inventory Data Mapping"
 msgstr ""
 
-#: src/pages/workspace/[slug]/4-national-source/index.js:73
+#: src/pages/workspace/[slug]/4-national-source/index.js:14
+#: src/pages/workspace/[slug]/layout.js:43
 msgid "National Source Inventory Report"
 msgstr "Rapport national d'inventaire des sources"
-
-#: src/pages/workspace/[slug]/1-project-team/index.js:27
-#: src/pages/workspace/[slug]/1-project-team/setup-team.js:16
-#: src/pages/workspace/[slug]/layout.js:26
-msgid "National Steering Committee & Project Team"
-msgstr "Comité directeur national et équipe de projet"
 
 #: src/modules/flexible-forms/form-schema.js:701
 msgid "National Sustainable Development Goals (SDGs)"
@@ -2807,7 +2748,7 @@ msgstr "Nouveaux développements/innovations techniques, par exemple recherche e
 #: src/modules/flexible-forms/view.jsx:1638
 #: src/modules/onboarding/view.jsx:288
 #: src/modules/onboarding/view.jsx:351
-#: src/pages/workspace/[slug]/layout.js:369
+#: src/pages/workspace/[slug]/layout.js:420
 msgid "Next"
 msgstr "Suivant"
 
@@ -2969,10 +2910,6 @@ msgstr "cours en ligne"
 msgid "Oops, something went wrong"
 msgstr "Oups, quelque chose s'est mal passé"
 
-#: src/pages/workspace/[slug]/3-legislation-policy/legislative-development.js:27
-msgid "Open The Guide"
-msgstr "Ouvrir le guide"
-
 #: src/pages/partnership/index.jsx:423
 msgid "Opportunities to access a variety of resources, data and trainings to enhance capacity development."
 msgstr "Possibilités d'accéder à une variété de ressources, de données et de formations pour améliorer le développement des capacités."
@@ -2986,7 +2923,6 @@ msgid "Optional"
 msgstr "Facultatif"
 
 #: src/modules/workspace/ps/setup-team-table.jsx:54
-#: src/pages/workspace/[slug]/2-stakeholder-consultation/stakeholder-map.js:95
 msgid "Organisation"
 msgstr "Organisation"
 
@@ -3130,10 +3066,6 @@ msgstr "Détails personnels"
 msgid "Personal Healthcare"
 msgstr "Soins de santé personnels"
 
-#: src/pages/workspace/[slug]/2-stakeholder-consultation/stakeholder-map.js:41
-msgid "Petrochemical Extraction"
-msgstr "Extraction pétrochimique"
-
 #: src/modules/signup-old/signup-form.jsx:51
 msgid "Photo"
 msgstr "Photo"
@@ -3197,19 +3129,16 @@ msgstr "Calculateur de pollution plastique"
 msgid "Plastic waste"
 msgstr "Déchets plastiques"
 
-#: src/pages/workspace/[slug]/4-national-source/plastic-waste-management.js:17
-#: src/pages/workspace/[slug]/layout.js:52
+#: src/pages/workspace/[slug]/layout.js:87
 #: src/store.js:242
 msgid "Plastic Waste Management"
 msgstr "Gestion des déchets plastiques"
 
-#: src/pages/workspace/[slug]/4-national-source/plastics-in-economy.js:14
-#: src/pages/workspace/[slug]/layout.js:51
+#: src/pages/workspace/[slug]/layout.js:86
 msgid "Plastics in Economy"
 msgstr ""
 
-#: src/pages/workspace/[slug]/4-national-source/plastics-in-environment.js:14
-#: src/pages/workspace/[slug]/layout.js:53
+#: src/pages/workspace/[slug]/layout.js:88
 msgid "Plastics in the Environment"
 msgstr ""
 
@@ -3352,7 +3281,7 @@ msgstr "Projet"
 msgid "Project development"
 msgstr "Le développement de projets"
 
-#: src/modules/workspace/ps/config.js:185
+#: src/modules/workspace/ps/config.js:226
 msgid "Project Team"
 msgstr "Projet de groupe"
 
@@ -3517,8 +3446,6 @@ msgstr "Ressource connexe"
 
 #: src/components/resource-card/resource-card.jsx:109
 #: src/modules/details-page/header.jsx:235
-#: src/pages/workspace/[slug]/2-stakeholder-consultation/stakeholder-map.js:330
-#: src/pages/workspace/[slug]/3-legislation-policy/country-policy.js:440
 msgid "Remove from Library"
 msgstr "Supprimer de la bibliothèque"
 
@@ -3598,6 +3525,14 @@ msgstr "Consommation et production responsables"
 msgid "Retail"
 msgstr "Vente au détail"
 
+#: src/pages/workspace/[slug]/layout.js:96
+msgid "Review & Adoption"
+msgstr ""
+
+#: src/pages/workspace/[slug]/layout.js:41
+msgid "Review & Analyise"
+msgstr ""
+
 #: src/modules/flexible-forms/form-schema.js:593
 msgid "Review and synthesis: Economic"
 msgstr "Revue et synthèse : Économique"
@@ -3637,8 +3572,6 @@ msgstr "Règlement intérieur et mécanisme"
 
 #: src/components/resource-card/resource-card.jsx:109
 #: src/modules/details-page/header.jsx:235
-#: src/pages/workspace/[slug]/2-stakeholder-consultation/stakeholder-map.js:330
-#: src/pages/workspace/[slug]/3-legislation-policy/country-policy.js:440
 msgid "Save to Library"
 msgstr "Enregistrer dans la bibliothèque"
 
@@ -3764,9 +3697,15 @@ msgstr "ENVOIE MOI UN LIEN"
 msgid "Sending..."
 msgstr "Envoi en cours..."
 
-#: src/pages/workspace/[slug]/layout.js:29
-msgid "Setup your team"
-msgstr "Configurez votre équipe"
+#: src/pages/workspace/[slug]/1-governance-steering-committee/setup-steering-committee.js:17
+#: src/pages/workspace/[slug]/layout.js:30
+msgid "Set up a National Steering Committee"
+msgstr ""
+
+#: src/pages/workspace/[slug]/1-governance-steering-committee/setup-team.js:14
+#: src/pages/workspace/[slug]/layout.js:32
+msgid "Set up a Working Team"
+msgstr ""
 
 #: src/modules/details-page/header.jsx:438
 #: src/pages/partnership/index.jsx:406
@@ -3841,26 +3780,36 @@ msgstr "Trier par:"
 msgid "Spiritual or religious values"
 msgstr "Valeurs spirituelles ou religieuses"
 
-#: src/pages/workspace/[slug]/2-stakeholder-consultation/stakeholder-map.js:588
-msgid "stakeholder consultation process"
-msgstr "Consultation des parties prenantes"
-
-#: src/pages/workspace/[slug]/2-stakeholder-consultation/case-studies.js:33
-#: src/pages/workspace/[slug]/2-stakeholder-consultation/index.js:31
-#: src/pages/workspace/[slug]/2-stakeholder-consultation/initiatives.js:139
-msgid "Stakeholder Consultation Process"
-msgstr "Consultation des parties prenantes"
-
-#: src/pages/workspace/[slug]/layout.js:30
-msgid "Stakeholder Consultations"
-msgstr "Consultations des parties prenantes"
+#: src/pages/workspace/[slug]/5-stakeholder-report/stakeholder-analysis.js:14
+#: src/pages/workspace/[slug]/layout.js:61
+msgid "Stakeholder Analysis"
+msgstr ""
 
 #: src/modules/flexible-forms/form-schema.js:462
 msgid "Stakeholder engagement"
 msgstr "Engagement des parties prenantes"
 
-#: src/pages/workspace/[slug]/2-stakeholder-consultation/stakeholder-map.js:591
-#: src/pages/workspace/[slug]/layout.js:31
+#: src/pages/workspace/[slug]/5-stakeholder-report/stakeholder-engagement.js:14
+#: src/pages/workspace/[slug]/layout.js:63
+msgid "Stakeholder Engagement"
+msgstr ""
+
+#: src/pages/workspace/[slug]/5-stakeholder-report/index.js:14
+#: src/pages/workspace/[slug]/layout.js:47
+msgid "Stakeholder Engagement & Validation of the Assessment Report"
+msgstr ""
+
+#: src/pages/workspace/[slug]/5-stakeholder-report/stakeholder-identification.js:17
+#: src/pages/workspace/[slug]/layout.js:60
+msgid "Stakeholder Identification"
+msgstr ""
+
+#: src/pages/workspace/[slug]/5-stakeholder-report/stakeholder-identification-analysis.js:17
+#: src/pages/workspace/[slug]/layout.js:54
+msgid "Stakeholder Identification & Analysis"
+msgstr ""
+
+#: src/pages/workspace/[slug]/layout.js:36
 msgid "Stakeholder Map"
 msgstr "Carte des parties prenantes"
 
@@ -3879,7 +3828,6 @@ msgstr "Date de début"
 #: src/modules/signup-old/signup-form.jsx:381
 #: src/modules/signup-old/signup-form.jsx:414
 #: src/modules/workspace/ps/setup-team-form.jsx:149
-#: src/pages/workspace/[slug]/2-stakeholder-consultation/stakeholder-map.js:534
 msgid "Start typing..."
 msgstr "Commencer à écrire..."
 
@@ -3891,12 +3839,11 @@ msgstr "Commencer à écrire..."
 msgid "State"
 msgstr "État"
 
-#: src/pages/workspace/[slug]/layout.js:40
+#: src/pages/workspace/[slug]/layout.js:57
 msgid "State of Knowledge on Plastic Data"
 msgstr "État des connaissances sur les données plastiques"
 
 #: src/modules/flexible-forms/form-schema.js:1990
-#: src/pages/workspace/[slug]/3-legislation-policy/country-policy.js:222
 msgid "Status"
 msgstr "Statut"
 
@@ -3904,13 +3851,18 @@ msgstr "Statut"
 msgid "Status of the review:"
 msgstr "Statut de l'examen :"
 
-#: src/modules/workspace/ps/config.js:180
+#: src/modules/workspace/ps/config.js:221
 msgid "Steering Committee"
 msgstr "Comité de pilotage"
 
 #: src/pages/partnership/index.jsx:476
 msgid "Step 1"
 msgstr "Étape 1"
+
+#: src/pages/workspace/[slug]/6-developing-national-action-plan/strategic-actions-interventions.js:17
+#: src/pages/workspace/[slug]/layout.js:103
+msgid "Strategic Actions & Interventions"
+msgstr ""
 
 #: src/store.js:374
 msgid "Strategies & Action Plans"
@@ -3988,19 +3940,22 @@ msgid "suggestions"
 msgstr "suggestions"
 
 #: src/pages/workspace/[slug]/[step]/summary.js:233
-#: src/pages/workspace/[slug]/layout.js:34
+#: src/pages/workspace/[slug]/7-review-adoption/index.js:253
 msgid "Summary & Report"
 msgstr "Rapport sommaire"
 
 #: src/pages/workspace/[slug]/[step]/summary.js:221
+#: src/pages/workspace/[slug]/7-review-adoption/index.js:241
 msgid "summary-description-2-stakeholder-consultation"
 msgstr "Résumez les informations issues du processus de consultation approfondi des parties prenantes afin de garantir la consultation de tous les secteurs et parties prenantes pertinents. Rassemblez toutes les données et informations disponibles dans votre pays et assurez-vous que les différentes perspectives et idées émanant de l'ensemble de la communauté nationale travaillant sur la pollution plastique soient prises en compte."
 
 #: src/pages/workspace/[slug]/[step]/summary.js:222
+#: src/pages/workspace/[slug]/7-review-adoption/index.js:242
 msgid "summary-description-3-legislation-policy"
 msgstr "Résumez les enseignements issus de l'analyse légale complète pour identifier l'approche réglementaire préférée et établir les considérations juridiques. Les résultats de cette analyse devraient être inclus en tant que chapitre dans le Rapport National sur l'Inventaire des Sources."
 
 #: src/pages/workspace/[slug]/[step]/summary.js:223
+#: src/pages/workspace/[slug]/7-review-adoption/index.js:243
 msgid "summary-description-4-data-analysis"
 msgstr ""
 "Sur la base des données et des informations recueillies au cours du processus de consultation des parties prenantes, effectuer une analyse des lacunes pour identifier les informations manquantes et les faiblesses des sources de données et des bases de données existantes. Compiler les données et informations existantes dans un rapport sur l’état des connaissances, y compris les domaines nécessitant une collecte de données supplémentaires. Sur cette base, procéder à une collecte de données primaires ou secondaires supplémentaires, selon le cas, en utilisant des méthodologies établies, pour combler ces lacunes en matière de données. Toutes les données collectées dans le cadre de ce projet doivent être rendues publiques.\n"
@@ -4008,12 +3963,19 @@ msgstr ""
 "Téléchargez le résumé du contenu mis en signet dans cette section et téléchargez votre rapport final sur l'état des connaissances."
 
 #: src/pages/workspace/[slug]/[step]/summary.js:224
+#: src/pages/workspace/[slug]/7-review-adoption/index.js:244
 msgid "summary-description-5-national-source"
 msgstr "Téléchargez le résumé du contenu mis en signet dans cette section et soumettez votre rapport final d'inventaire national des sources."
 
 #: src/pages/workspace/[slug]/[step]/summary.js:225
+#: src/pages/workspace/[slug]/7-review-adoption/index.js:245
 msgid "summary-description-6-national-plastic-strategy"
 msgstr "Téléchargez la stratégie plastique officiellement approuvée."
+
+#: src/pages/workspace/[slug]/5-stakeholder-report/supporting-detail-stakeholders-nitrogen-life-cycle.js:17
+#: src/pages/workspace/[slug]/layout.js:68
+msgid "Supporting Detail – Stakeholders in the Nitrogen Life Cycle"
+msgstr ""
 
 #: src/modules/flexible-forms/form-schema.js:56
 msgid "Sustainable Cities and Communities"
@@ -4050,13 +4012,8 @@ msgstr "Basculer vers"
 #: src/modules/flexible-forms/form-schema.js:2386
 #: src/modules/flexible-forms/form-schema.js:2625
 #: src/modules/knowledge-lib/filter-modal.jsx:264
-#: src/pages/workspace/[slug]/3-legislation-policy/country-policy.js:229
 msgid "Tags"
 msgstr "Mots clés"
-
-#: src/pages/workspace/[slug]/1-project-team/setup-team.js:36
-msgid "Team members"
-msgstr "Membres de l'équipe"
 
 #: src/components/resource-card/resource-card.jsx:15
 #: src/pages/knowledge-hub/index.js:189
@@ -4261,7 +4218,6 @@ msgstr "Chronologie et feuille de route"
 #: src/modules/flexible-forms/form-schema.js:2301
 #: src/modules/flexible-forms/form-schema.js:2540
 #: src/modules/signup-old/signup-form.jsx:32
-#: src/pages/workspace/[slug]/3-legislation-policy/country-policy.js:208
 msgid "Title"
 msgstr "Titre"
 
@@ -4387,8 +4343,6 @@ msgstr "Twitter"
 #: src/modules/map/vertical-legend.jsx:402
 #: src/modules/map/vertical-legend.jsx:452
 #: src/modules/map/vertical-legend.jsx:486
-#: src/pages/workspace/[slug]/2-stakeholder-consultation/stakeholder-map.js:102
-#: src/pages/workspace/[slug]/3-legislation-policy/country-policy.js:215
 msgid "Type"
 msgstr "Taper"
 
@@ -4440,7 +4394,7 @@ msgstr "Formations, activités et événements de développement des capacités 
 msgid "Update"
 msgstr "Mise à jour"
 
-#: src/pages/workspace/[slug]/layout.js:50
+#: src/pages/workspace/[slug]/layout.js:85
 msgid "Upload"
 msgstr "Télécharger"
 
@@ -4449,6 +4403,7 @@ msgid "Upload your data"
 msgstr "Téléchargez vos données"
 
 #: src/pages/workspace/[slug]/[step]/summary.js:111
+#: src/pages/workspace/[slug]/7-review-adoption/index.js:130
 msgid "Upload Your Report"
 msgstr "Téléchargez votre rapport"
 
@@ -4501,14 +4456,6 @@ msgstr "Valide à partir de"
 #: src/modules/flexible-forms/form-schema.js:2268
 msgid "Valid To"
 msgstr "Valable pour"
-
-#: src/pages/workspace/[slug]/3-legislation-policy/country-policy.js:121
-msgid "Validate Policy"
-msgstr "Valider la politique"
-
-#: src/pages/workspace/[slug]/3-legislation-policy/country-policy.js:119
-msgid "Validated"
-msgstr "Validé"
 
 #: src/modules/help-center/view.jsx:124
 msgid "Validation Mechanism"
@@ -4573,13 +4520,18 @@ msgstr "VOIR PLUS"
 msgid "View Source"
 msgstr "Voir la source"
 
-#: src/modules/workspace/ps/config.js:174
+#: src/modules/workspace/ps/config.js:215
 msgid "Viewer"
 msgstr "Observateur"
 
-#: src/modules/workspace/ps/config.js:175
+#: src/modules/workspace/ps/config.js:216
 msgid "Viewers cannot edit all content"
 msgstr "Les téléspectateurs ne peuvent pas modifier tout le contenu"
+
+#: src/pages/workspace/[slug]/6-developing-national-action-plan/vision-objectives-principles-targets.js:17
+#: src/pages/workspace/[slug]/layout.js:100
+msgid "Vision, Objectives, Principles, & Targets"
+msgstr ""
 
 #: src/modules/flexible-forms/form-schema.js:400
 msgid "Voluntary commitments"
@@ -4697,6 +4649,11 @@ msgstr "Quel groupe représentatif correspond à votre entité ?"
 msgid "Which Sustainable Development Goals (SDGs) does your initiative apply to? (Please tick ALL that apply):"
 msgstr "À quels objectifs de développement durable (ODD) votre initiative s’applique-t-elle ? (Veuillez cocher TOUTES les réponses applicables) :"
 
+#: src/pages/workspace/[slug]/5-stakeholder-report/who-is-a-stakeholder.js:14
+#: src/pages/workspace/[slug]/layout.js:59
+msgid "Who is a Stakeholder?"
+msgstr ""
+
 #: src/store.js:97
 msgid "Who we are"
 msgstr "Qui nous sommes"
@@ -4704,6 +4661,11 @@ msgstr "Qui nous sommes"
 #: src/pages/partnership/index.jsx:366
 msgid "Why become a certified GPML member?"
 msgstr "Pourquoi devenir membre certifié GPML ?"
+
+#: src/pages/workspace/[slug]/5-stakeholder-report/why-broaden-the-perspective.js:17
+#: src/pages/workspace/[slug]/layout.js:70
+msgid "Why broaden the perspective?"
+msgstr ""
 
 #: src/store.js:662
 msgid "Within the geographical area that the provider offers the service"
@@ -4752,10 +4714,6 @@ msgstr "Banque mondiale"
 #: src/store.js:320
 msgid "Worldwide Coverage"
 msgstr "Couverture mondiale"
-
-#: src/pages/workspace/[slug]/3-legislation-policy/country-policy.js:195
-msgid "Year"
-msgstr "Année"
 
 #: src/modules/onboarding/affiliation-option.jsx:23
 #: src/modules/profile/admin.jsx:61
