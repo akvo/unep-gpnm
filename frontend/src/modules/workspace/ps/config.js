@@ -74,7 +74,7 @@ export const stepsState = [
   {
     label: 'Legislation & Policy Review',
     slug: '3-legislation-policy',
-    substeps: [{ label: 'Review & Analyise', slug: '', checked: false }],
+    substeps: [{ label: 'Review & Analysis', slug: '', checked: false }],
   },
   {
     label: 'National Source Inventory Report',

@@ -13,5 +13,10 @@
     p {
       padding-top: 0;
     }
+    ol {
+      li {
+        list-style: lower-alpha;
+      }
+    }
   }
 }

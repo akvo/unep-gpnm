@@ -38,7 +38,7 @@ export const useStepsDict = () => {
     'Gap Analysis & Data Reliability': i18n._(
       t`Gap Analysis & Data Reliability`
     ),
-    'Review & Analyise': i18n._(t`Review & Analyise`),
+    'Review & Analysis': 'Review & Analysis',
     'National Source Inventory Report': i18n._(
       t`National Source Inventory Report`
     ),

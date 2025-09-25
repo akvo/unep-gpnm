@@ -254,22 +254,46 @@
           text-decoration: none;
         }
       }
+      h2 {
+        font-size: 32px;
+        font-weight: 700;
+      }
+      h3 {
+        font-size: 26px;
+      }
+      h4 {
+        font-size: 20px;
+      }
 
       p {
         padding: 10px 0px;
+        line-height: 26px;
         color: $primaryDarkBlue;
         text-transform: none;
         font-weight: normal;
       }
+      ol {
+        li {
+          margin: 10px 0;
+          span {
+            font-size: 18px;
+            font-weight: 600;
+          }
+        }
+      }
+      ul {
+        list-style-type: disc;
+        margin-left: 30px;
+      }
 
       h2 {
-        font-size: $fzXXL;
-        line-height: $lhXXL;
-        font-weight: 700;
+        // font-size: $fzXXL;
+        // line-height: $lhXXL;
+        // font-weight: 700;
 
         @media screen and (max-width: $bpMobile) {
-          font-size: $fzL;
-          line-height: $lhL;
+          // font-size: $fzL;
+          // line-height: $lhL;
         }
       }
 
