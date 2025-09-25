@@ -15,7 +15,7 @@ const View = () => {
     <>
       <h4 className="caps-heading-m">
         <Trans>
-          Supporting Detail – Stakeholders in the Nitrogen Life Cycle
+          Stakeholder Engagement & Validation of the Assessment Report
         </Trans>
       </h4>
       <h2 className="h-xxl w-bold">{data?.title}</h2>

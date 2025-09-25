@@ -14,7 +14,7 @@ const View = () => {
   return (
     <>
       <h4 className="caps-heading-m">
-        <Trans>Monitoring, Reporting & Verification (MRV)</Trans>
+        <Trans>Developing the National Action Plan (NAP)</Trans>
       </h4>
       <h2 className="h-xxl w-bold">{data?.title}</h2>
       <div

@@ -11,7 +11,9 @@ const View = () => {
   return (
     <>
       <h4 className="caps-heading-m">
-        <Trans>Stakeholder Analysis</Trans>
+        <Trans>
+          Stakeholder Engagement & Validation of the Assessment Report
+        </Trans>
       </h4>
       <h2 className="h-xxl w-bold">{data?.title}</h2>
       <div
