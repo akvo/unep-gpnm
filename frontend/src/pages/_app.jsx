@@ -281,9 +281,9 @@ function MyApp({ Component, pageProps }) {
         <meta name="theme-color" content="#020A5C" />
         <meta
           name="description"
-          content="The Global Plastics Hub is the largest global platform for technical resources, integrated data, and collaborative action on plastic pollution."
+          content="A global open-access platform for sharing data, knowledge, and fostering collaboration to tackle nutrient pollution and safeguard the health of both people and the planet."
         />
-        <title>Global Plastics Hub</title>
+        <title>Global Nutrients Hub</title>
       </Head>
       <Auth0Provider
         domain={domain}

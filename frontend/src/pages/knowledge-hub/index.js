@@ -351,7 +351,7 @@ const KnowledgeHub = ({
   return (
     <div className={styles.knowledgeHub}>
       <Head>
-        <title>Knowledge Library | Global Plastics Hub</title>
+        <title>Knowledge Library | Global Nutrients Hub</title>
       </Head>
       <aside className="filter-sidebar">
         <div className="sticky">
