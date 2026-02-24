@@ -59,6 +59,12 @@ module.exports = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'gpnm.akvotest.org',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
   async rewrites() {
